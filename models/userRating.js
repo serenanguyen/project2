@@ -4,5 +4,5 @@ module.exports = function(sequelize, DataTypes){
     notes: DataTypes.TEXT,
     rating: DataTypes.INTEGER
   });
-  return uesrRating;
+  return userRating;
 });
