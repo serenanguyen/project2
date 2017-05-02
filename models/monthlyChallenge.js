@@ -1,16 +1,24 @@
 module.exports = function(sequelize, DataTypes){
   var monthlyChallenge = sequelize.define("monthlyChallenge", {
-    challengeId: DataTypes.STRING,
-    location1Id: DataTypes.STRING,
-    location2Id: DataTypes.STRING,
-    location3Id: DataTypes.STRING,
-    location4Id: DataTypes.STRING,
-    location5Id: DataTypes.STRING,
-    location6Id: DataTypes.STRING,
-    location7Id: DataTypes.STRING,
-    location8Id: DataTypes.STRING,
-    location9Id: DataTypes.STRING,
-    location10Id: DataTypes.STRING
-  });
+    challengeId: DataTypes.INTEGER,
+    location1Id: DataTypes.INTEGER,
+    location2Id: DataTypes.INTEGER,
+    location3Id: DataTypes.INTEGER,
+    location4Id: DataTypes.INTEGER,
+    location5Id: DataTypes.INTEGER,
+    location6Id: DataTypes.INTEGER,
+    location7Id: DataTypes.INTEGER,
+    location8Id: DataTypes.INTEGER,
+    location9Id: DataTypes.INTEGER,
+    location10Id: DataTypes.INTEGER
+  }, {
+    classMethods: {
+        associate: function(models) {
+          monthlyChallenge.hasMany(models.monthlyStatus);
+          // monthlyChallenge.belongsTo(models.Locations);
+        }
+      }
+  }
+);
   return monthlyChallenge;
 };

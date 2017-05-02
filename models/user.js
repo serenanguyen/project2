@@ -44,7 +44,7 @@ module.exports = function(sequelize, DataTypes){
     {
       classMethods: {
         associate: function(models) {
-          User.hasMany(models.userRating, {
+          User.hasMany(models.userRating, models.monthlyStatus, {
           // When user is deleted, also delete any associated ratings
             onDelete: "cascade"
           });

@@ -10,6 +10,17 @@ module.exports = function(sequelize, DataTypes){
     location8: DataTypes.BOOLEAN,
     location9: DataTypes.BOOLEAN,
     location10: DataTypes.BOOLEAN
-  });
+  }, {
+    classMethods: {
+      associate: function(models) {
+        monthlyStatus.belongsTo(models.User, models.challengeId, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+      }
+    }
+  }
+);
   return monthlyStatus;
 };
