@@ -6,4 +6,9 @@ module.exports = function(app){
   app.get("/",function(req,res){
   		res.render("index");
 	});
+
+  module.exports = function(app){
+  app.get("/locations/add",function(req,res){
+  		res.render("index");
+	});
 };
