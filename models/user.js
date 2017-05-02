@@ -32,12 +32,21 @@ module.exports = function(sequelize, DataTypes){
         len: [1,10]
       }
     },
-    // password hash 
+    // password hash
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1,10]
+      }
+    },{
+      classMethods: {
+        associate: function(models) {
+          User.hasMany(models.userRating, {
+          // When user is deleted, also delete any associated ratings
+            onDelete: "cascade"
+          });
+        }
       }
     }
   });
