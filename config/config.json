@@ -1,13 +1,8 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "Qwert411!",
     "database": "blogger",
-=======
-    "password": "root",
-    "database": "database",
->>>>>>> fe730a2aab72bec9b49acf3254f35a623ddfa3f8
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
