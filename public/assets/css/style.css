@@ -1,0 +1,80 @@
+/*//static header and navbar styling */
+* {
+  box-sizing: border-box; }
+
+body {
+  background-image: url("../img/tree_bark.png");
+  background-attachment: fixed; }
+
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+
+#mainHeader {
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  box-shadow: 10px 10px 5px #888888; }
+
+#headerImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+#navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 10px; }
+  #navBar ul {
+    padding-top: 10px;
+    padding-bottom: -10px; }
+
+#loggedOut {
+  display: flex;
+  flex-direction: row; }
+  #loggedOut li {
+    padding: 0px 10px 0px 0px;
+    font-size: 13px;
+    display: flex;
+    align-items: flex-end; }
+  #loggedOut input {
+    padding: 0px 20px 0px 0px; }
+
+/*//index contentarea styling */
+.contentArea {
+  max-width: 850px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+
+#monthlyChallengeIntro {
+  background-color: yellow;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid black;
+  box-shadow: 10px 10px 5px #888888; }
+
+h2 {
+  text-align: center; }
+  h2 h1 {
+    display: inline; }
+
+#infoColumns {
+  max-width: 850px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+#checklist {
+  flex-grow: 1; }
+
+#leaderboard {
+  flex-grow: 1; }
+
+/*# sourceMappingURL=style.css.map */

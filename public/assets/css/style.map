@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "../../../stylesheets/style.css",
+	"sources": [
+		"../../../stylesheets/style.sass"
+	],
+	"sourcesContent": [
+		"/* *///static header and navbar styling*/\n\n$content-width: 960px;\n\nbody {\n\tbackground-image: url(\"../img/tree_bark.png\");\n\t//display: flex\n\t//flex-direction: column\n\t//justify-content: center\n }\t//align-items: center\n\n.flexContainer {\n\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: center; }\n\n\n\n#mainHeader {\n\tmax-width: $content-width;\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: yellow; }\n\n#headerImage {\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center; }\n\n#navBar {\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: flex-end;\n\talign-items: {}\n\tul {\n\t\tpadding-top: 10px;\n\t\tpadding-bottom: -10px; } }\n\n\n#loggedOut {\n\tdisplay: flex;\n\tflex-direction: row;\n\tli {\n\t\tpadding: 0px 10px 0px 0px;\n\t\tfont-size: 13px;\n\t\tdisplay: flex;\n\t\talign-items: flex-end; }\n\tinput {\n\t\tpadding: 0px 20px 0px 0px; } }\n\n\n/* *///index contentarea styling*/\n\n.contentArea {\n\tmax-width: $content-width;\n\tdisplay: flex;\n\tflex-direction: row;\n\tjustify-content: center; }\n\n#monthlyChallengeIntro {\n\tmax-width: $content-width;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center; }\n"
+	],
+	"mappings": "AAAA,KAAK;;AAIL,AAAA,IAAI,CAAC;EACJ,gBAAgB,EAAE,2BAAG;CAIpB;;;AAEF,AAAA,cAAc,CAAC;EAEd,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,GAAI;EACpB,eAAe,EAAE,MAAO;CAAG;;;AAI5B,AAAA,WAAW,CAAC;EACX,SAAS,EAlBM,KAAK;EAmBpB,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,MAAO;EACvB,gBAAgB,EAAE,MAAO;CAAG;;;AAE7B,AAAA,YAAY,CAAC;EACZ,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,MAAO;EACvB,eAAe,EAAE,MAAO;EACxB,WAAW,EAAE,MAAO;CAAG;;;AAExB,AAAA,OAAO,CAAC;EACP,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,GAAI;EACpB,eAAe,EAAE,QAAS;CAIE;;;AAP7B,AAKC,OALM,CAKN,EAAE,CAAC;EACF,WAAW,EAAE,IAAK;EAClB,cAAc,EAAE,KAAM;CAAG;;;AAG3B,AAAA,UAAU,CAAC;EACV,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,GAAI;CAOY;;;AATjC,AAGC,UAHS,CAGT,EAAE,CAAC;EACF,OAAO,EAAE,gBAAiB;EAC1B,SAAS,EAAE,IAAK;EAChB,OAAO,EAAE,IAAK;EACd,WAAW,EAAE,QAAS;CAAG;;;AAP3B,AAQC,UARS,CAQT,KAAK,CAAC;EACL,OAAO,EAAE,gBAAiB;CAAG;;AAG/B,KAAK;;AAEL,AAAA,YAAY,CAAC;EACZ,SAAS,EAtDM,KAAK;EAuDpB,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,GAAI;EACpB,eAAe,EAAE,MAAO;CAAG;;;AAE5B,AAAA,sBAAsB,CAAC;EACtB,SAAS,EA5DM,KAAK;EA6DpB,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,MAAO;EACvB,eAAe,EAAE,MAAO;CAAG",
+	"names": []
+}
