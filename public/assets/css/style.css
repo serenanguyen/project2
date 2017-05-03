@@ -24,6 +24,10 @@ body {
   justify-content: center;
   align-items: center; }
 
+#headerImage img {
+  width: 100%;
+  height: 100%; }
+
 #navBar {
   display: flex;
   flex-direction: row;
