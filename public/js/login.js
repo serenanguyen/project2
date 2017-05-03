@@ -1,9 +1,17 @@
-var passport = require("passport");
-var LocalStrategy = require('passport-local').Strategy;
-var User = require("../models/user");
+var passport   = require('passport');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var User = require('../models/user');
+
+var env = require('dotenv').load();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 // init passport
-// app.use(express.session());
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}));
 app.use(passport.initialize());
+// persistent login sessions
 app.use(passport.session());
 
 passport.use(new LocalStrategy(

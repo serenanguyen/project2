@@ -15,4 +15,9 @@ module.exports = function(app){
     res.sendFile(path.join(__dirname,
     "../public/login.html"));
   });
+
+   app.get("/createAccount",function(req,res){
+  		res.render("index");
+	});
+
 };
