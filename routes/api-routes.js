@@ -20,4 +20,6 @@ module.exports = function(app){
 			res.json(dbWeeklyChallenge);
 		});
 	});
+
+	
 };
