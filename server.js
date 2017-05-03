@@ -45,6 +45,7 @@ passport.use(new LocalStrategy(
 // routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
 
 // sync models to db before connecting to database so server won't start if there is an error connecting to db or before db is ready
 db.sequelize.sync({force:true}).then(function(){
