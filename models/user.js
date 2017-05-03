@@ -39,7 +39,9 @@ module.exports = function(sequelize, DataTypes){
       validate: {
         len: [1,10]
       }
-    },{
+    }
+  },
+    {
       classMethods: {
         associate: function(models) {
           User.hasMany(models.userRating, {
@@ -49,7 +51,7 @@ module.exports = function(sequelize, DataTypes){
         }
       }
     }
-  });
+);
 // returns an object stored inside User variable
   return User;
-}
+};

@@ -5,17 +5,19 @@ module.exports = function(sequelize, DataTypes){
     rating: {
       type: DataTypes.STRING,
       allowNull: false
-    }, {
-      classMethods: {
-        associate: function(models) {
-          userRating.belongsTo(models.User, {
-            foreignKey: {
-              allowNull: false
-            }
-          });
-        }
+    }
+  }, {
+    classMethods: {
+      associate: function(models) {
+        userRating.belongsTo(models.User, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
       }
     }
-  });
+  }
+
+);
   return userRating;
 };
