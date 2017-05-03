@@ -1,37 +1,24 @@
-module.exports = function(sequelize, DataTypes){
+module.exports = function(sequelize, Sequelize){
 //pass sequelize.define name of model and object describing model's schema
-  var User = sequelize.define("User", {
+  var User = sequelize.define("user", {
     username: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       // flag that restricts username from being entereted if there is no text value
-      allowNull: false,
-      // validation for character length
-      validate: {
-        len: [1,10]
-      }
+      allowNull: false
     },
     name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1,10]
-      }
+      type: Sequelize.STRING,
+      allowNull: false
     },
     // email validation
     email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1,10]
-      }
+      type: Sequelize.STRING,
+      allowNull: false
     },
     // password hash
     password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1,10]
-      }
+      type: Sequelize.STRING,
+      allowNull: false
     }
   },
     {

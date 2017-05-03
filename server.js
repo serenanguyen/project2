@@ -1,6 +1,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-// init express 
+var passport   = require('passport');
+var session = require('express-session');
+var env = require('dotenv').load();
+// init express
 var app = express();
 var PORT = process.env.PORT || 8080;
 
@@ -10,6 +13,15 @@ var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+// init passport
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true}));
+app.use(passport.initialize());
+// persistent login sessions
+app.use(passport.session());
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -23,10 +35,13 @@ app.use(express.static("./public"));
 // routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
-require("./routes/user-api-routes.js")(app);
+
+var authRoute = require('./routes/auth.js')(app, passport);
+
+require('./config/passport/passport.js')(passport, db.user);
 
 // sync models to db before connecting to database so server won't start if there is an error connecting to db or before db is ready
-db.sequelize.sync({force:true}).then(function(){
+db.sequelize.sync({force:false}).then(function(){
   app.listen(PORT, function(){
     console.log("Listening on port " + PORT);
 

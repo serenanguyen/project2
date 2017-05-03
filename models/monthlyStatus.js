@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes){
   }, {
     classMethods: {
       associate: function(models) {
-        monthlyStatus.belongsTo(models.User, models.challengeId, {
+        monthlyStatus.belongsTo(models.user, models.challengeId, {
           foreignKey: {
             allowNull: false
           }
