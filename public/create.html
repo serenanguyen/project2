@@ -3,6 +3,8 @@
     <head>
         <title> Create an Account </title>
         <meta charset="UTF-8">
+        
+       
     </head>
 <body>
     <div class = "flexContainer">
@@ -14,10 +16,17 @@
            <legend> Create a Username</legend>
                 <input type="text" name="username">
             <legend> Create a Password </legend>
-                <input type="password" name="password" id="pass">
+                <input id="pass1" type="password" name="password">
             <legend> Confirm Password </legend>
-                <input type="password" name="verifyPassword" id="verifyPass">
-            <input type="submit" value ="submit">
+                <input id="pass2" type="password" name="verifyPassword">
+            <input id="submitButton" type="submit" value ="submit">
 </form>
     </div>
 </body>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./js/front.js"></script>
+</html>
