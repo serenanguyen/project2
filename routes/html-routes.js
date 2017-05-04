@@ -7,4 +7,7 @@ module.exports = function(app){
   		res.render("index");
 	});
 
+  app.get("/rating", function(req,res){
+    res.render("rating");
+  })
 };

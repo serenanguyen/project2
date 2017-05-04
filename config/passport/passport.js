@@ -21,9 +21,11 @@ module.exports = function(passport, user){
         }
       }).then(function(user){
         if(user){
-          return done(null, false, {
-            message: 'That username is already taken'
-          });
+          // return
+          // done(null, false, {
+          //   message: 'That username is already taken'
+          // });
+          console.log("That username is already taken");
         } else {
           var userPassword = generateHash(password);
           var data =

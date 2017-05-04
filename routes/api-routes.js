@@ -1,6 +1,6 @@
 // routes for displaying and saving data to the db
 var db = ("../models");
-var passport = require("passport");
+var userRating = ("../models/userRating.js")
 
 module.exports = function(app){
 	app.get("/api/users",function(req,res){
@@ -21,9 +21,11 @@ module.exports = function(app){
 		});
 	});
 
-  app.post('/login',
-    passport.authenticate('local', {
-      sucessRedirect: '/',
-      failureRedirect: '/login'
-    }));
+	app.post("/api/rating", function(req, res){
+		console.log(req.body);
+		userRating.create(req.body).then(function(dbRating){
+			res.json(dbRating);
+		});
+	});
+
 };

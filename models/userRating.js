@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes){
     review: DataTypes.TEXT,
     notes: DataTypes.TEXT,
     rating: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
