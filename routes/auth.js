@@ -1,4 +1,5 @@
 var authController = require('../controllers/authcontroller.js');
+var userRating = require("../models").userRating;
 
 module.exports = function(app, passport) {
   app.get('/signup', authController.signup);
@@ -20,6 +21,22 @@ module.exports = function(app, passport) {
         failureRedirect: '/signin'
     }
   ));
+  
+  app.get("/rating", isLoggedIn, function(req,res){
+    res.render("rating");
+  })
+
+  // sending ratings to db
+  app.post("/api/rating", function(req, res){
+    console.log(req.body);
+    userRating.create({
+      rating: req.body.star,
+      review: req.body.review,
+      notes: req.body.note
+    }).then(function(){
+        res.redirect('/');
+    });
+  });
 
   // if logged in route to dashboard, else redirect to signin page
   function isLoggedIn(req, res, next) {

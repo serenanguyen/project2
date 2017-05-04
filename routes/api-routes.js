@@ -1,6 +1,5 @@
 // routes for displaying and saving data to the db
-var db = ("../models");
-var userRating = ("../models/userRating.js")
+var db = require("../models");
 
 module.exports = function(app){
 	app.get("/api/users",function(req,res){
@@ -18,17 +17,6 @@ module.exports = function(app){
 	app.get("/api/weekly-challenge",function(req,res){
 		db.WeeklyChallenge.findAll({}).then(function(dbWeeklyChallenge){
 			res.json(dbWeeklyChallenge);
-		});
-	});
-
-	app.post("/api/rating", function(req, res){
-		console.log(req.body);
-		userRating.create({
-			rating: req.body.rating,
-			review: req.body.review,
-			note: req.body.note
-		}).then(function(dbRating){
-			res.json(dbRating);
 		});
 	});
 
