@@ -23,7 +23,11 @@ module.exports = function(app){
 
 	app.post("/api/rating", function(req, res){
 		console.log(req.body);
-		userRating.create(req.body).then(function(dbRating){
+		userRating.create({
+			rating: req.body.rating,
+			review: req.body.review,
+			note: req.body.note
+		}).then(function(dbRating){
 			res.json(dbRating);
 		});
 	});
