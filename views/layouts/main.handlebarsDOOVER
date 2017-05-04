@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="assets/css/reset.css" type="text/css" />
-		<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title">
 		<script src="https://code.jquery.com/jquery.js"></script>
@@ -12,30 +11,28 @@
 		<title>HUNT & GATHER</title>
 	</head>
 	<body>
-
-
-	<header id="banner">
-
-	<div id="headerImage">
-		<a href="/"><img src="assets/img/logo.png" alt="logo"></a>
-	</div>
-
+	<div class="flexContainer">
+		<header id="mainHeader">
+			<div id="headerImage">
+			
+			</div>
+		</header>
+				
 		<nav id="navBar">
 			<ul id="loggedOut">
 				<li><a href="#">Create Account</a></li>
-				<input class="formInput" type="text" name="username" placeholder="username">
-				<input class="formInput" type="text" name="password" placeholder="password">
-				<input type="hidden" name="loggedIn" value="1">
-				<button class="button" type="submit">Login</button>
+				<input type="text" name="username" placeholder="username">
+				<input type="text" name="password" placeholder="password">
 			</ul>
-			<!-- <ul id="loggedIn">
+			<ul id="loggedIn">
 				<li><img src="{{userimage}}" alt="profileImage"></li>
 				<li>{{username}}</li>
-			</ul> -->
+			</ul>
 		</nav>
-	</header>
-
-	{{{ body }}}
+			
+		
+	</div>
+		{{{ body }}}
 
 		<script type="text/javascript">
 
@@ -44,6 +41,6 @@
 		})
 
 
-		</script> -->
+		</script>
 	</body>
 </html>
