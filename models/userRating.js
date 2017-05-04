@@ -6,6 +6,18 @@ module.exports = function(sequelize, DataTypes){
       type: DataTypes.STRING,
       allowNull: false
     }
-  });
+  }, {
+    classMethods: {
+      associate: function(models) {
+        userRating.belongsTo(models.user, models.Location, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+      }
+    }
+  }
+
+);
   return userRating;
 };

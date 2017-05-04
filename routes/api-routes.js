@@ -1,6 +1,6 @@
 // routes for displaying and saving data to the db
-
 var db = ("../models");
+var passport = require("passport");
 
 module.exports = function(app){
 	app.get("/api/users",function(req,res){
@@ -20,4 +20,10 @@ module.exports = function(app){
 			res.json(dbWeeklyChallenge);
 		});
 	});
+
+  app.post('/login',
+    passport.authenticate('local', {
+      sucessRedirect: '/',
+      failureRedirect: '/login'
+    }));
 };
