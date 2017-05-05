@@ -1,4 +1,5 @@
 // routes for displaying and saving data to the db
+
 var db = require("../models");
 
 module.exports = function(app){
@@ -9,7 +10,7 @@ module.exports = function(app){
 	// });
 
 	app.get("/api/locations",function(req,res){
-		db.Locations.findAll({}).then(function(dbLocations){
+		db.Location.findAll({}).then(function(dbLocations){
 			res.json(dbLocations);
 		});
 	});
@@ -19,5 +20,6 @@ module.exports = function(app){
 			res.json(dbWeeklyChallenge);
 		});
 	});
+
 
 };

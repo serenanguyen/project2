@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes){
     name: DataTypes.STRING,
     ratingAvg:DataTypes.INTEGER,
     address: DataTypes.STRING,
-    website: DataTypes.STRING
+    website: DataTypes.STRING,
+    mapsUrl: DataTypes.STRING
   }, {
     classMethods: {
         associate: function(models) {

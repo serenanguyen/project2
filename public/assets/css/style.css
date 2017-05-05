@@ -97,6 +97,7 @@ p {
 .displayImages {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 10px; }
 
 .subhead {
@@ -177,6 +178,3 @@ p {
   padding-top: 150px; }
 
 /*# sourceMappingURL=style.css.map */
-#signup, #signin, #dashboard, #reviewContainer  {
-  padding: 200px;
-}

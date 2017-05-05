@@ -1,9 +1,12 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
+
 var passport   = require('passport');
 var session = require('express-session');
 var env = require('dotenv').load();
 // init express
+
 var app = express();
 var PORT = process.env.PORT || 8080;
 
@@ -13,6 +16,8 @@ var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+app.use(methodOverride("_method"));
 
 // init passport
 app.use(session({
