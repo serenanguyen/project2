@@ -9,11 +9,11 @@ module.exports = function(app){
 	// 	});
 	// });
 
-	app.get("/api/locations",function(req,res){
-		db.Location.findAll({}).then(function(dbLocations){
-			res.json(dbLocations);
-		});
-	});
+	// app.get("/api/locations",function(req,res){
+	// 	db.Location.findAll({}).then(function(dbLocations){
+	// 		res.json(dbLocations);
+	// 	});
+	// });
 
 	app.get("/api/weekly-challenge",function(req,res){
 		db.WeeklyChallenge.findAll({}).then(function(dbWeeklyChallenge){

@@ -48,7 +48,7 @@ require('./config/passport/passport.js')(passport, db.user);
 // sync models to db before connecting to database so server won't start if there is an error connecting to db or before db is ready
 
 
-db.sequelize.sync({force:true})
+db.sequelize.sync({force:false})
 .then(function(){
      return db.location.bulkCreate([
         { name: "Pizza Hut", ratingAvg: 5, address: "1234 Holly St., Austin TX 78747", website: "www.pizzahut.com"},
