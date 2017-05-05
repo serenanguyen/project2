@@ -1,0 +1,54 @@
+<section class="container">
+	<article class="row">
+		<div class="col-md-5">
+			<h2>Select Locations</h2>
+			<div>
+				<ul>
+					{{#each locations}}
+						<li>
+							<p>{{this.name}}</p>
+							<p>{{this.address}}</p>
+							
+							<button class="addToChallenge btn btn-default btn-md" data-name="{{this.name}}" data="{{this.id}}" >Add to Challenge</button>
+							
+						</li>
+					{{/each}}	
+				</ul>
+			</div>	
+		</div>
+		<div class="col-md-2">
+			
+		</div>
+		<div class="col-md-5">
+			<h2>Monthly Challenge</h2>
+			<ul>
+				<li id="loc1">Add Location1</li>
+				<li id="loc2">Add Location2</li>
+				<li id="loc3">Add Location3</li>
+				<li id="loc4">Add Location4</li>
+				<li id="loc5">Add Location5</li>
+				<li id="loc6">Add Location6</li>
+				<li id="loc7">Add Location7</li>
+				<li id="loc8">Add Location8</li>
+				<li id="loc9">Add Location9</li>
+				<li id="loc10">Add Location10</li>
+			</ul>
+					
+			<label>Challenge Name</label>
+		    <input id="challengeName" type="text" name="name">
+			<button id="createChallenge" type="submit" class="btn btn-default">Create New Challenge</button>
+			
+			<div>
+				<ul>
+					{{#each monthlychallenges}}
+						<li>
+							<h3>{{this.name}}</h3>
+							<h3>{{this.address}}</h3>
+						</li>
+					{{/each}}	
+				</ul>
+			</div>	
+		</div>
+	</article>
+</section>
+<script src="/js/challengeCreate.js" type="text/javascript"></script>

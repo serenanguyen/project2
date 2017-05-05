@@ -6,6 +6,7 @@
       mapTypeId: 'roadmap'
     });
 
+
     // Create the search box and link it to the UI element.
     var service = new google.maps.places.PlacesService(map);
     var input = document.getElementById('pac-input');
@@ -16,7 +17,7 @@
     map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
     });
-
+    getLocations();
     var markers = [];
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
@@ -92,21 +93,22 @@
       map.fitBounds(bounds);
 
       $(".searchLinks").on("click",function(){
+          var location = null;
           
         service.getDetails({
           placeId: places[$(this).attr("data")].place_id
             }, function(chplace, status) {
-                console.log(chplace);
-        		var location = {
+                //console.log(chplace);
+        		location = {
         			address: chplace.formatted_address,
               ratingAvg: 0,
         			name: chplace.name,
         			website: chplace.website,
         			mapsUrl: chplace.url
         		}	
-        		console.log(location);	
+        		//console.log(location);	
         		$("#results").empty();
-       		    $("#results").append("<h5>" + location.name + "</h5>");
+       		  $("#results").append("<h5>" + location.name + "</h5>");
         		$("#results").append("<h5>" + location.address + "</h5>");
         		$("#results").append("<h5>" + location.website + "</h5>");
         		$("#results").append("<h5>" + location.mapsUrl + "</h5>");
@@ -117,14 +119,39 @@
         				.then(function(){
                   console.log("done");
                   location = null;
+                  getLocations();
                 });
         			}	
         		});	
           });
-
-      });
-
-
+      });    
     });
 
-}
+    function getLocations(){
+        $.get("/api/locations", function(data){
+          $("#locDatabase").empty();
+          console.log(data);
+          for(i = 0;i<data.length;i++){
+              newDiv = $("<div>");
+              newDiv.addClass("col-md-6");
+              newDiv.append("<h5>" + data[i].address + "</h5>");
+              newDiv.append("<h5>" + data[i].name + "</h5>");
+              newDiv.append("<button data='"+ data[i].id +"' type='button' class='delete btn btn-default'>Delete</button>");
+              $("#locDatabase").append(newDiv);
+          };
+        });
+
+      };
+       $(document).on("click",".delete",function(){
+          console.log($(this).attr("data"));
+        $.ajax({
+          method: "DELETE",
+          url: "/locations/add/" + $(this).attr("data")
+        }).done(function(){
+          console.log("deleted");
+          getLocations();
+      });
+    });     
+};
+
+

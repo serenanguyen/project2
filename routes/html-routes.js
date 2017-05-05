@@ -12,6 +12,35 @@ module.exports = function(app){
   app.get("/locations/add",function(req,res){
   		res.render("LocationAdd");
 	});
+
+  app.get("/challenge/create",function(req, res){
+    db.Location.findAll({}).then(function(data){
+
+      var hbsObject = {
+        locations: data
+      };
+
+      // db.Location.findAll({
+      //   include:[
+      //     {MonthlyChallenge, required: true}
+      //   ]
+      // }).then(function(challenge){
+
+        //console.log(hbsObject);
+        res.render("ChallengeManager", hbsObject);
+      //});
+    });
+
+    app.post("/challenge/create", function(req, res){
+      db.MonthlyChallenge.create(req.body).then(function(dbChallenge){
+        console.log("lol");
+        res.redirect("/challenge/create");
+      });
+    });
+    
+   
+  });
+
   app.post("/locations/add",function(req,res){
   		//console.log(db);
 		db.Location.create(req.body).then(function(dblocation){
@@ -19,4 +48,13 @@ module.exports = function(app){
   		});
 	});
 
+  app.delete("/locations/add/:id",function(req, res){
+    db.Location.destroy({
+      where:{
+        id: req.params.id
+      }
+    }).then(function(dblocation){
+      res.json(dblocation);
+    });
+  });
 };

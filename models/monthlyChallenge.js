@@ -1,16 +1,16 @@
 module.exports = function(sequelize, DataTypes){
-  var monthlyChallenge = sequelize.define("monthlyChallenge", {
-    challengeId: DataTypes.STRING,
-    location1Id: DataTypes.STRING,
-    location2Id: DataTypes.STRING,
-    location3Id: DataTypes.STRING,
-    location4Id: DataTypes.STRING,
-    location5Id: DataTypes.STRING,
-    location6Id: DataTypes.STRING,
-    location7Id: DataTypes.STRING,
-    location8Id: DataTypes.STRING,
-    location9Id: DataTypes.STRING,
-    location10Id: DataTypes.STRING
+  var MonthlyChallenge = sequelize.define("MonthlyChallenge", {
+    name: DataTypes.STRING,
+    location1Id: DataTypes.INTEGER,
+    location2Id: DataTypes.INTEGER,
+    location3Id: DataTypes.INTEGER,
+    location4Id: DataTypes.INTEGER,
+    location5Id: DataTypes.INTEGER,
+    location6Id: DataTypes.INTEGER,
+    location7Id: DataTypes.INTEGER,
+    location8Id: DataTypes.INTEGER,
+    location9Id: DataTypes.INTEGER,
+    location10Id: DataTypes.INTEGER
   });
-  return monthlyChallenge;
+  return MonthlyChallenge;
 };
