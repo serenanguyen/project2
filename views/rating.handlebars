@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Rate and Review</title>
+      <meta charset="utf-8">
+     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="style.sass">
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div class = "flexContainer" id="reviewContainer">
+      <h1 class="header">Rate and Review</h1>
+      <h2>Restaurant Name: </h2>
+
+      <input type="text" name="restaurantName">
+      <h2> Rating: </h2>
+
+      <div class="stars">
+
+        <form id="rating" name="rating" method="post" action="/api/rating">
+
+          <input class="star star-5" id="star-5" type="radio" name="star" value=5 />
+
+          <label class="star star-5" for="star-5"></label>
+
+          <input class="star star-4" id="star-4" type="radio" name="star" value=4 />
+
+          <label class="star star-4" for="star-4"></label>
+
+          <input class="star star-3" id="star-3" type="radio" name="star" value=3 />
+
+          <label class="star star-3" for="star-3"></label>
+
+          <input class="star star-2" id="star-2" type="radio" name="star" value=2 />
+
+          <label class="star star-2" for="star-2"></label>
+
+          <input class="star star-1" id="star-1" type="radio" name="star" value=1 />
+
+          <label class="star star-1" for="star-1"></label>
+
+
+          <h2> Leave a Review </h2>
+          <textarea name="review" rows="10" cols="30"></textarea>
+          <br>
+
+          <h2> Leave a Note </h2>
+          <textarea name="note" rows="10" cols="30"></textarea>
+          <br>
+
+          <input type="submit">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
