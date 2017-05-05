@@ -3,13 +3,13 @@ module.exports = function(sequelize, DataTypes){
     review: DataTypes.TEXT,
     notes: DataTypes.TEXT,
     rating: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
     classMethods: {
       associate: function(models) {
-        userRating.belongsTo(models.User, {
+        userRating.belongsTo(models.user, models.Location, {
           foreignKey: {
             allowNull: false
           }

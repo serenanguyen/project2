@@ -57,4 +57,5 @@ module.exports = function(app){
       res.json(dblocation);
     });
   });
+
 };

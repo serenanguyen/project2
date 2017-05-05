@@ -1,1 +1,87 @@
-lolol
+<main class="flexContainer">
+
+<article id="monthlyChallengeIntro">
+
+
+
+<h2>This Month's Hunt:</h2>
+
+	<span><h1>TACOS!</h1></span>
+
+	<div id="monthlyDisplay" class="displayBox">
+
+	<div class="displayImages">
+
+		<span><img src="http://placehold.it/150x150"></span>
+		<span><img src="http://placehold.it/150x150"></span>
+		<span><img src="http://placehold.it/150x150"></span>
+		<span><img src="http://placehold.it/150x150"></span>
+	</div>
+	
+		<p>Hey Hunters!! Here is your monthly mission if you choose to accept it: Seek out and destroy our delectable list of the best tacos in town.  </p>
+	
+	</div>
+
+</article>
+
+<aside id="createPrompt">
+
+	<div id="createDisplay" class="displayBox">
+
+		<h2>Start Hunting Today!</h2>
+
+		<button id="createAccountButton" action="/signup">CREATE ACCOUNT</button>
+
+		<h2>It's Free!</h2>
+
+		
+	</div>
+</aside>
+
+
+
+
+
+
+</main>
+
+<div id="infoColumns">
+
+<aside id="checklist">
+	<h2>The Hunt List</h2>
+		<ul class="locationsList">
+			{{#each locations}}
+				<li>
+					{{this.name}}
+					{{this.address}}
+
+					<input type="checkbox" name="completed" value="1">
+
+				</li>
+
+
+			{{/each}}
+		</ul>
+
+			<p>Ranchero Ranchero Cod Monterey Jack Sour Cream Pork Hamburger Tomato Pinto Beans Red Pepper Queso Blanco Tomato Tomato Bacon Corn Eggs Guacamole Asadero Red Pepper Whole Wheat Tortilla Steak Guacamole Mozzarella Mozzarella Eggs Eggs Onions Mozzarella American Cheese Steamed Beans Taco Sauce Shell Sour Cream Queso Blanco Red Pepper Lettuce Hamburger Rice Lemon Juice Taco Seasoning Mozzarella Feta Mozzarella Mozzarella Corn Cheddar Chicken Queso Blanco Red Pepper Lime Juice Eggs Black Beans Ranchero Guacamole Lemon Juice Lettuce Refried Beans Shell Bacon Chicken Shell Red Pepper Refried Beans Black Beans Queso Fresco Refried Beans Ranchero Queso Blanco Pork American Cheese Mozzarella Jalapenos Queso Fresco Pork Refried Beans Jalapenos Turkey Lime Juice Jalapenos Jalapenos Cod Pico De Gallo Pico De Gallo Taco Seasoning Hamburger Onions Corn Black Beans Tomato Red Pepper Lettuce Cilantro Black Beans Pork Taco Ranchero Refried Beans Bacon Hamburger Queso Blanco Guacamole Mozzarella Jalapenos Onions Queso Fresco Red Pepper Taco Sauce Hamburger Pico De Gallo Flour Tortilla Chicken Rice Cheddar Taco Seasoning Taco Seasoning Bacon Lime Juice Rice Corn Tortilla Guacamole Corn Tortilla Jalapenos Jalapenos Pork Corn Tortilla Queso Fresco </p>
+</aside>
+
+<aside id="leaderboard">
+	<h2>Leaderboard</h2>
+		<ul class="topUsers">
+			{{#each User}}
+				{{#if this.completed}}
+					<li>
+
+					{{this.username}} 
+					</li>
+
+				{{/if}}
+			{{/each}}
+
+		</ul>
+		<p>Ranchero Ranchero Cod Monterey Jack Sour Cream Pork Hamburger Tomato Pinto Beans Red Pepper Queso Blanco Tomato Tomato Bacon Corn Eggs Guacamole Asadero Red Pepper Whole Wheat Tortilla Steak Guacamole Mozzarella Mozzarella Eggs Eggs Onions Mozzarella American Cheese Steamed Beans Taco Sauce Shell Sour Cream Queso Blanco Red Pepper Lettuce Hamburger Rice Lemon Juice Taco Seasoning Mozzarella Feta Mozzarella Mozzarella Corn Cheddar Chicken Queso Blanco Red Pepper Lime Juice Eggs Black Beans Ranchero Guacamole Lemon Juice Lettuce Refried Beans Shell Bacon Chicken Shell Red Pepper Refried Beans Black Beans Queso Fresco Refried Beans Ranchero Queso Blanco Pork American Cheese Mozzarella Jalapenos Queso Fresco Pork Refried Beans Jalapenos Turkey Lime Juice Jalapenos Jalapenos Cod Pico De Gallo Pico De Gallo Taco Seasoning Hamburger Onions Corn Black Beans Tomato Red Pepper Lettuce Cilantro Black Beans Pork Taco Ranchero Refried Beans Bacon Hamburger Queso Blanco Guacamole Mozzarella Jalapenos Onions Queso Fresco Red Pepper Taco Sauce Hamburger Pico De Gallo Flour Tortilla Chicken Rice Cheddar Taco Seasoning Taco Seasoning Bacon Lime Juice Rice Corn Tortilla Guacamole Corn Tortilla Jalapenos Jalapenos Pork Corn Tortilla Queso Fresco </p>
+
+</aside>
+
+</div>

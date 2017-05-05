@@ -1,0 +1,234 @@
+//Variables
+
+$content-width: 1024px
+$background-color: white
+$banner-color: #242324
+$text-color: #e9e94f
+
+
+//font kit stuff
+
+@font-face
+	font-family: 'ddchardware'
+	src: url('fonts/ddchardware-regular-webfont.woff2') format('woff2'), url('ddchardware-regular-webfont.woff') format('woff')
+	font-weight: normal
+	font-style: normal
+
+
+
+
+//general setup and styling
+
+*
+	box-sizing: border-box
+
+body
+	background-image: url("../img/tree_bark.png")
+	background-color: $banner-color
+	font-family: 'Oxygen', sans-serif
+	background-attachment: fixed
+	//display: flex
+	//flex-direction: column
+	//justify-content: center
+	//align-items: center
+
+p
+	font-size: 18px
+
+
+//banner and header styling
+
+
+#banner 
+	background-color: #242324
+	width: 100%
+	height: 100px
+	display: flex
+	flex-direction: row
+	position: fixed
+	box-shadow: 0 4px 2px -2px #e9e94f
+	
+
+#headerImage
+	display: flex
+	flex-direction: column
+	justify-content: flex-start
+	align-self: center
+
+#headerImage img
+	width: 80%
+	height: 80%
+	padding-left: 25px
+
+#navBar
+	display: flex
+	flex-direction: row
+	margin-left: auto
+	align-self: flex-end
+	padding-right: 20px
+	padding-bottom: 15px
+	background-color: $banner-color
+	
+	
+	ul
+		padding-top: 10px
+		padding-bottom: -10px
+	
+
+
+#loggedOut
+	display: flex
+	flex-direction: row
+	li
+		padding: 0px 10px 0px 0px
+		font-size: 13px
+		display: flex
+		align-items: flex-end
+	input
+		padding: 0px 20px 0px 0px
+
+
+/*//index contentarea styling*/
+
+
+.flexContainer	
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+	align-items: flex-start
+
+
+
+#monthlyChallengeIntro
+	margin-top: 125px
+	margin-left: 25px
+	width: 50%
+	height: 550px
+	align-self: flex-start
+	background-color: $banner-color
+	max-width: $content-width
+	display: flex
+	flex-direction: column
+	box-shadow: 5px 5px 2px #e9e94f
+
+
+	h2
+		text-align: center
+		font-family: ddchardware
+		color: $text-color
+		font-size: 35px
+		border-top: 2px solid #e9e94f
+		border-bottom: 2px solid #e9e94f
+		
+	h1
+		text-align: center
+		font-family: ddchardware
+		color: $text-color
+		font-size: 85px
+		margin-top: 10px
+		line-height: 50%
+
+
+#monthlyDisplay
+	height: 400px
+
+.displayImages
+	display: flex
+	justify-content: space-between
+	margin-bottom: 10px
+
+
+
+.subhead
+	align-self: flex-start
+
+
+.displayBox
+	background-color: #f3f3f3
+	color: black
+	padding: 10px 10px
+	margin: 10px 10px
+
+
+
+#createPrompt
+	display: flex
+	flex-direction: column
+	background-color: #e9e94f
+	height: 300px
+	width: 35%
+	margin-right: 75px
+	margin-top: 125px
+	box-shadow: 5px 5px 2px $banner-color
+
+	h2
+		text-align: center
+		font-family: ddchardware
+		color: $banner-color
+		font-size: 35px
+		letter-spacing: -3px
+		border-top: 2px solid $banner-color
+		border-bottom: 2px solid $banner-color
+		
+	h1
+		text-align: center
+		font-family: ddchardware
+		color: $banner-color
+		font-size: 85px
+		margin-top: -15px
+
+	button
+		align-self: center
+
+		text-align: center
+		background-color: $banner-color
+		color: $text-color
+		border: 2px solid $banner-color
+		font-family: 'Oxygen', sans-serif
+		font-size: 22px
+		padding: 15px 15px
+		margin-top: auto
+		margin-bottom: auto
+
+			
+
+#createAccountButton
+	&:hover
+		background-color: $text-color
+		color: $banner-color
+
+	&:active
+		background-color: $banner-color
+		color: $text-color
+
+#createDisplay
+	height: 280px
+	display: flex
+	flex-direction: column
+
+
+
+
+
+
+#infoColumn	
+	max-width: $content-width
+	display: flex
+	flex-direction: row
+	justify-content: space-around
+	background-color: $background-color
+
+#checklist
+	flex-grow: 1
+	padding: 20px 20px
+
+#leaderboard
+	flex-grow: 1
+	padding: 20px 20px
+		
+
+#signin
+	padding-top: 150px
+
+#signup
+	padding-top: 150px
