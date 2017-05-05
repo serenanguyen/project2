@@ -10,7 +10,7 @@ module.exports = function(app){
 	});
 
 	app.get("/api/locations",function(req,res){
-		db.Location.findAll({}).then(function(dbLocations){
+		db.location.findAll({}).then(function(dbLocations){
 			res.json(dbLocations);
 		});
 	});

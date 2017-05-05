@@ -14,7 +14,7 @@ module.exports = function(app){
 	});
 
   app.get("/challenge/create",function(req, res){
-    db.Location.findAll({}).then(function(data){
+    db.location.findAll({}).then(function(data){
 
       var hbsObject = {
         locations: data
@@ -43,13 +43,13 @@ module.exports = function(app){
 
   app.post("/locations/add",function(req,res){
   		//console.log(db);
-		db.Location.create(req.body).then(function(dblocation){
+		db.location.create(req.body).then(function(dblocation){
 			res.json(dblocation);
   		});
 	});
 
   app.delete("/locations/add/:id",function(req, res){
-    db.Location.destroy({
+    db.location.destroy({
       where:{
         id: req.params.id
       }
