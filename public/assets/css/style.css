@@ -174,11 +174,11 @@ p {
 #signin, #signup, #dashboard {
   padding-top: 150px; }
 
-  #map{
-      height: 500px;
-  }
-  #pac-input{
-      height:30px;
-      width:200px;
-  }
+#map{
+    height: 500px;
+}
+#pac-input{
+    height:30px;
+    width:200px;
+}
 /*# sourceMappingURL=style.css.map */
