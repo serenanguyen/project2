@@ -30,6 +30,7 @@
 
 		<h2>Start Hunting Today!</h2>
 
+{{!-- <<<<<<< HEAD
 		<form id="signup" name="signup" method="post" action="/signup">
 	      <label for="username">Username</label>
 	      <input class="text" name="username" type="text" />
@@ -44,6 +45,25 @@
 	      <h2 id="message"><h2>
 	      <input class="btn" type="submit" value="Sign Up" />
 	  </form>
+======= --}}
+		<div id="createForm">
+		  <form id="signup" name="signup" method="post" action="/signup">
+		      <label for="username">Username</label>
+		      <input class="text" name="username" type="text" />
+		      <label for="name">Name</label>
+		      <input name="name" type="text" />
+		      <label for="email">Email</label>
+		      <input name="email" type="email" />
+		      <label for="password">Password</label>
+		      <input name="password" type="password" id="password" />
+		      <label for="verifyPassword">Verify Password</label>
+		      <input name="verifyPassword" type="password" id="verifyPassword" />
+
+		      <button id="createAccountButton" type="submit" action="/signup">CREATE ACCOUNT</button>
+		   <!--    <input class="btn" type="submit" value="Sign Up" /> -->
+		  </form>
+		</div>
+
 
 		<h2>It's Free!</h2>
 
@@ -58,7 +78,7 @@
 
 </main>
 
-<div id="infoColumns">
+<!-- <div id="infoColumns">
 
 <aside id="checklist">
 	<h2>The Hunt List</h2>
@@ -97,4 +117,8 @@
 
 </aside>
 
+<<<<<<< HEAD
 </div>
+=======
+</div> -->
+>>>>>>> 71ee2b29663bceaa9fb4e008a524ed85fd90cc24

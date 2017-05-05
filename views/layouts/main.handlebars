@@ -14,16 +14,16 @@
 	<header id="banner">
 
 	<div id="headerImage">
-		<a href="/"><img src="assets/img/logo.png" alt="logo"></a>
+		<a href="/"><img src="/assets/img/logo.png" alt="logo"></a>
 	</div>
 
 		<nav id="navBar">
 			<ul id="loggedOut">
-				<li><a href="#">Create Account</a></li>
+
 				<input class="formInput" type="text" name="username" placeholder="username">
-				<input class="formInput" type="text" name="password" placeholder="password">
+				<input class="formInput" type="password" name="password" placeholder="password">
 				<input type="hidden" name="loggedIn" value="1">
-				<button class="button" type="submit" method="post" action="signin">Login</button>
+				<a href="/dashboard"><button class="button" type="submit">Login</button></a>
 			</ul>
 
 		</nav>
