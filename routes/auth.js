@@ -1,5 +1,6 @@
 var authController = require('../controllers/authcontroller.js');
 var userRating = require("../models").userRating;
+var User = require("../models").user;
 
 module.exports = function(app, passport) {
   app.get('/signup', authController.signup);
@@ -21,7 +22,7 @@ module.exports = function(app, passport) {
         failureRedirect: '/signin'
     }
   ));
-  
+
   app.get("/rating", isLoggedIn, function(req,res){
     res.render("rating");
   })
@@ -35,6 +36,13 @@ module.exports = function(app, passport) {
       notes: req.body.note
     }).then(function(){
         res.redirect('/');
+    });
+  });
+
+  app.get("/api/users", function(req,res){
+    console.log(User);
+    User.findAll({}).then(function(dbUser){
+      res.json(dbUser);
     });
   });
 

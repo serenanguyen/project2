@@ -17,9 +17,9 @@
 		<span><img src="http://placehold.it/150x150"></span>
 		<span><img src="http://placehold.it/150x150"></span>
 	</div>
-	
+
 		<p>Hey Hunters!! Here is your monthly mission if you choose to accept it: Seek out and destroy our delectable list of the best tacos in town.  </p>
-	
+
 	</div>
 
 </article>
@@ -30,11 +30,24 @@
 
 		<h2>Start Hunting Today!</h2>
 
-		<button id="createAccountButton" action="/signup">CREATE ACCOUNT</button>
+		<form id="signup" name="signup" method="post" action="/signup">
+	      <label for="username">Username</label>
+	      <input class="text" name="username" type="text" />
+	      <label for="name">Name</label>
+	      <input name="name" type="text" />
+	      <label for="email">Email</label>
+	      <input name="email" type="email" />
+	      <label for="password">Password</label>
+	      <input name="password" type="password" id="password" />
+	      <label for="verifyPassword">Verify Password</label>
+	      <input name="verifyPassword" type="password" id="verifyPassword" />
+	      <h2 id="message"><h2>
+	      <input class="btn" type="submit" value="Sign Up" />
+	  </form>
 
 		<h2>It's Free!</h2>
 
-		
+
 	</div>
 </aside>
 
@@ -73,7 +86,7 @@
 				{{#if this.completed}}
 					<li>
 
-					{{this.username}} 
+					{{this.username}}
 					</li>
 
 				{{/if}}
