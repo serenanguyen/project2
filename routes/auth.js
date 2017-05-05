@@ -29,11 +29,13 @@ module.exports = function(app, passport) {
 
   // sending ratings to db
   app.post("/api/rating", function(req, res){
-    console.log(req.body);
+    // console.log(req.body);
+    console.log("USER ID CURRENT!!!!! "+req.user.id);
     userRating.create({
       rating: req.body.star,
       review: req.body.review,
-      notes: req.body.note
+      notes: req.body.note,
+      userId: req.user.id
     }).then(function(){
         res.redirect('/');
     });
@@ -48,8 +50,10 @@ module.exports = function(app, passport) {
 
   // if logged in route to dashboard, else redirect to signin page
   function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
+    if (req.isAuthenticated()){
+      return next();
+    }
+
     res.redirect('/signin');
   };
 
