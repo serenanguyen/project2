@@ -46,9 +46,17 @@ var authRoute = require('./routes/auth.js')(app, passport);
 require('./config/passport/passport.js')(passport, db.user);
 
 // sync models to db before connecting to database so server won't start if there is an error connecting to db or before db is ready
-db.sequelize.sync({force:false}).then(function(){
+
+
+db.sequelize.sync({force:true})
+.then(function(){
+     return db.location.bulkCreate([
+        { name: "Pizza Hut", ratingAvg: 5, address: "1234 Holly St., Austin TX 78747", website: "www.pizzahut.com"},
+        { name: "Burger Place", ratingAvg: 2, address: "1234 Holly St., Austin TX 78712", website: "www.burgerplace.com"}
+    ]);
+})
+.then(function(){
   app.listen(PORT, function(){
     console.log("Listening on port " + PORT);
-
   });
 });
