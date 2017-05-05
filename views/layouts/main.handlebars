@@ -10,31 +10,27 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<title>HUNT & GATHER</title>
 	</head>
+	
+	<header id="banner">
 
-		<header id="banner">
-			<div id="headerImage">
-				<a href="/"><img src="assets/img/logo.png" alt="logo"></a>
-			</div>
-				<nav id="navBar">
-					<ul id="loggedOut">
-						<li><a href="#">Create Account</a></li>
-						<input type="text" name="username" placeholder="username">
-						<input type="text" name="password" placeholder="password">
-					</ul>
-					<ul id="loggedIn">
-						<li><img src="{{userimage}}" alt="profileImage"></li>
-						<li>{{username}}</li>
-					</ul>
-				</nav>
+	<div id="headerImage">
+		<a href="/"><img src="assets/img/logo.png" alt="logo"></a>
+	</div>
 
-		</header>
+		<nav id="navBar">
+			<ul id="loggedOut">
+				<li><a href="#">Create Account</a></li>
+				<input class="formInput" type="text" name="username" placeholder="username">
+				<input class="formInput" type="text" name="password" placeholder="password">
+				<input type="hidden" name="loggedIn" value="1">
+				<button class="button" type="submit">Login</button>
+			</ul>
 
-		{{{ body }}}
+		</nav>
+	</header>
 
-		<script type="text/javascript">
-		$(document).ready(function(){
-			$("#loggedIn").hide();
-		})
-		</script>
+	{{{ body }}}
 
+
+	</body>
 </html>
