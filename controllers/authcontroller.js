@@ -11,16 +11,18 @@ exports.signin = function(req, res) {
 };
 
 exports.dashboard = function(req, res) {
-  var user = req.user
   db.location.findAll().then(function(locations){
-        var hbsObject = { loc: locations};
+        var hbsObject = [
+          {loc: locations},
+          {user: req.user}
+        ];
         console.log("___________________________");
-        console.log(hbsObject);
+        // console.log(hbsObject);
         console.log("___________________________");
-        console.log("____________Name_______________");
-        console.log(hbsObject.loc[0].dataValues.name);
-        console.log("______________Name_____________");
-      res.render('dashboard', locations);
+        console.log("____________Location ID___________");
+        // console.log(hbsObject.loc[0].dataValues.id);
+
+      res.render('dashboard', hbsObject);
   });
 };
 

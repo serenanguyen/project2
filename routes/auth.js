@@ -42,7 +42,6 @@ module.exports = function(app, passport) {
   });
 
   app.get("/api/users", function(req,res){
-    console.log(User);
     User.findAll({}).then(function(dbUser){
       res.json(dbUser);
     });

@@ -15,13 +15,16 @@
    <br>
    <br>
    <h1>
-       <h1>First Item:{{[0].dataValues.name}}</h1>
-       <h1>{{loc}}</h1>
+       {{!-- <h1>First Item:{{[0].dataValues.name}}</h1> --}}
+       {{!-- <h1>{{loc}}</h1> --}}
         <ul>
             {{#each this}}
+            {{#each this.loc}}
             <li >
-                {{this.dataValues.name}}
-                {{dataValues.name}}
+                {{this.name}}
+                <a href="#" val="{{this.id}}"><h1>CHECK</h1></a>
+                {{!-- {{dataValues.name}} --}}
             </li>
+            {{/each}}
             {{/each}}
         </ul>
