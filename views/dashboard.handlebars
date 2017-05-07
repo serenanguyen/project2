@@ -7,14 +7,26 @@
    <br>
    <br>
    <br>
-   <h1>
-       <h1>First Item:{{[0].dataValues.name}}</h1>
+   <h1></h1>
+       
+
+
+
+       <h1>First Item:<!-- {{[0].dataValues.name}} --></h1>
        {{!-- <h1>{{loc}}</h1> --}}
         <ul>
+        logged in as
+            {{this.user.name}}
             {{#each this}}
+             
+            {{#each this.loc}}
             <li >
-                {{this.dataValues.name}}
-                {{!-- {{dataValues.name}} --}}
+                {{this.name}}
+                <a>{{this.name}}</a>
+
+                
             </li>
+            {{/each}}
+
             {{/each}}
         </ul>

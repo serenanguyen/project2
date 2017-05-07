@@ -48,24 +48,24 @@ require('./config/passport/passport.js')(passport, db.user);
 // sync models to db before connecting to database so server won't start if there is an error connecting to db or before db is ready
 
 
-db.sequelize.sync({force:true})
-.then(function(){
-     db.location.bulkCreate([
-        { name: "Taco Bell", ratingAvg: 2, address: "2000 Guadalupe St, Austin, TX 78705", website: "www.tacobell.com"},
-        { name: "Veracruz Tacos", ratingAvg: 4, address: "1704 E Cesar Chavez St, Austin, TX 78702", website: "www.veracruztacos.com"},
-        { name: "Arlo's", ratingAvg: 4, address: "900 Red River St, Austin, TX 78702", website: "www.patrizis.com"},
-        { name: "Patrizi's", ratingAvg: 5, address: "2307 Manor Rd, Austin, TX 78722", website: "www.pizzahut.com"},
-        { name: "DFG Noodles", ratingAvg: 5, address: "3505 N Interstate 35 Frontage Rd, Austin, TX 78722", website: "www.dfgfood.com"},
-        { name: "Song La", ratingAvg: 4, address: "411 W 23rd St, Austin, TX 78705", website: "www.songlafood.com"},
-        { name: "Cool Beans", ratingAvg: 4, address: "2908 Fruth St, Austin, TX 78705", website: "www.coolbeanseatery.com"},
-        { name: "Chi'Lantro", ratingAvg: 5, address: "1509 S Lamar Blvd, Austin, TX 78704", website: "www.chilantrobbq.com"},
-        { name: "Llama's", ratingAvg: 3, address: "611 Trinity St, Austin, TX 78701", website: "www.llamasfoodtrailer.com"},
-        { name: "Pizza Hut", ratingAvg: 5, address: "1234 Holly St., Austin TX 78747", website: "www.pizzahut.com"},
-        { name: "Burger Place", ratingAvg: 2, address: "1234 Holly St., Austin TX 78712", website: "www.burgerplace.com"}
-      ]);
-    }
-    return;
-})
+db.sequelize.sync({force:false})
+// .then(function(){
+//      db.location.bulkCreate([
+//         { name: "Taco Bell", ratingAvg: 2, address: "2000 Guadalupe St, Austin, TX 78705", website: "www.tacobell.com"},
+//         { name: "Veracruz Tacos", ratingAvg: 4, address: "1704 E Cesar Chavez St, Austin, TX 78702", website: "www.veracruztacos.com"},
+//         { name: "Arlo's", ratingAvg: 4, address: "900 Red River St, Austin, TX 78702", website: "www.patrizis.com"},
+//         { name: "Patrizi's", ratingAvg: 5, address: "2307 Manor Rd, Austin, TX 78722", website: "www.pizzahut.com"},
+//         { name: "DFG Noodles", ratingAvg: 5, address: "3505 N Interstate 35 Frontage Rd, Austin, TX 78722", website: "www.dfgfood.com"},
+//         { name: "Song La", ratingAvg: 4, address: "411 W 23rd St, Austin, TX 78705", website: "www.songlafood.com"},
+//         { name: "Cool Beans", ratingAvg: 4, address: "2908 Fruth St, Austin, TX 78705", website: "www.coolbeanseatery.com"},
+//         { name: "Chi'Lantro", ratingAvg: 5, address: "1509 S Lamar Blvd, Austin, TX 78704", website: "www.chilantrobbq.com"},
+//         { name: "Llama's", ratingAvg: 3, address: "611 Trinity St, Austin, TX 78701", website: "www.llamasfoodtrailer.com"},
+//         { name: "Pizza Hut", ratingAvg: 5, address: "1234 Holly St., Austin TX 78747", website: "www.pizzahut.com"},
+//         { name: "Burger Place", ratingAvg: 2, address: "1234 Holly St., Austin TX 78712", website: "www.burgerplace.com"}
+//       ]);
+    
+//     return;
+// })
 .then(function(){
   app.listen(PORT, function(){
     console.log("Listening on port " + PORT);
