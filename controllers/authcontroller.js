@@ -12,18 +12,19 @@ exports.signin = function(req, res) {
 
 exports.dashboard = function(req, res) {
   db.location.findAll().then(function(locations){
-        var hbsObject = {
-          loc: locations,
-          user: req.user
-        };
+    db.location.findOne({
+      where: {
+        id: req.query.location_id
+      }
+    }).then(function(data){
+      var hbsObject = {
+        loc: locations,
+        user: req.user,
+        location: data
+      };
+    res.render('dashboard', hbsObject);
+    })
 
-        console.log("___________________________");
-        // console.log(hbsObject);
-        console.log("___________________________");
-        console.log("____________Location ID___________");
-        // console.log(hbsObject.loc[0].dataValues.id);
-
-      res.render('dashboard', hbsObject);
   });
 };
 
