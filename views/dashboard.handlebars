@@ -1,5 +1,5 @@
-
-{{!-- <div id="dashboard"> --}}
+<!-- <div id="dashboard">
+  <br>
   <br>
   <br>
   <br>
@@ -7,24 +7,141 @@
   <br>
   <h2>Dashboard</h2>
   <h5>Hurray! you are logged in as {{this.username}}</h5>
-{{!-- </div> --}}
+</div>
 
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <h1>
+  
        {{!-- <h1>First Item:{{[0].dataValues.name}}</h1> --}}
-       {{!-- <h1>{{loc}}</h1> --}}
+       <h1>{{loc}}</h1> -->
+ 
+	
+
+ 	<main class="flexContainer">
+	
+	
+	
+		<!-- <h3>You are logged in as {{user.username}}.</h3> -->
+	
+		
+		<!-- {{>loggedIn}} -->
+
+
+       <div id="checklistContainer">    	
         <ul>
-            {{#each this}}
+            
             {{#each this.loc}}
-            <li >
-                {{this.name}}
-                <a href="#" val="{{this.id}}"><h1>CHECK</h1></a>
+            <li>
+            	<div class="checklistItem">
+            		<div class="itemInfo">
+		                <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+		                <p class="clAddress">{{this.address}}</p>
+		            </div>
+		            <div class="checkboxWrapper">   
+		                <a href="#" val="{{this.id}}"><h5>CHECK</h5></a>
+		            </div>
+                </div>
                 {{!-- {{dataValues.name}} --}}
             </li>
             {{/each}}
-            {{/each}}
+            
         </ul>
+        </div>
+
+
+
+        <aside id="badgesContainer">
+        	<div id="badgeItems">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+				<img src="http://placehold.it/75x75">
+
+				
+
+        	</div>
+        </aside>
+
+        <aside id="leaderboardContainer">
+        	<div id="leaderboardItems">
+        		<p>
+        	</div>
+        </aside>
+	</main>
+
+<article id="userReviewsContainer">
+	<div id="displayReviews">
+	<ul>
+		
+            {{#each this.loc}}
+
+            <li>
+            <div class="checklistItem">
+            	<div class="itemInfo">
+					 <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+
+					 <p>{{this.review.rating}}</p>
+					 <p>{{this.loc.review}}</p>
+					
+					 <p>Ranchero Ranchero Cod Monterey Jack Sour Cream Pork Hamburger Tomato Pinto Beans Red Pepper Queso Blanco Tomato Tomato Bacon Corn Eggs Guacamole Asadero Red Pepper Whole Wheat Tortilla Steak Guacamole Mozzarella Mozzarella Eggs Eggs Onions Mozzarella American Cheese Steamed Beans Ranchero Refried Beans Bacon Hamburger Queso Blanco Guacamole Mozzarella Jalapenos Onions Queso Fresco Red Pepper Taco Sauce Hamburger Pico De Gallo Flour Tortilla Chicken Rice Cheddar Taco Seasoning Taco Seasoning Bacon Lime Juice Rice Corn Tortilla Guacamole Corn Tortilla Jalapenos Jalapenos Pork Corn Tortilla Queso Fresco</p>
+
+            	</div>
+			</div>
+			</li>
+		{{/each}}
+		
+	</ul>
+	</div>
+
+<!-- <div id="infoColumns">
+
+<aside id="checklist">
+	<h2>The Hunt List</h2>
+		<ul class="locationsList">
+			{{#each locations}}
+				<li>
+					{{this.name}}
+					{{this.address}}
+
+					<input type="checkbox" name="completed" value="1">
+
+				</li>
+
+
+			{{/each}}
+		</ul>
+
+			<p>Ranchero Ranchero Cod Monterey Jack Sour Cream Pork Hamburger Tomato Pinto Beans Red Pepper Queso Blanco Tomato Tomato Bacon Corn Eggs Guacamole Asadero Red Pepper Whole Wheat Tortilla Steak Guacamole Mozzarella Mozzarella Eggs Eggs Onions Mozzarella American Cheese Steamed Beans Taco Sauce Shell Sour Cream Queso Blanco Red Pepper Lettuce Hamburger Rice Lemon Juice Taco Seasoning Mozzarella Feta Mozzarella Mozzarella Corn Cheddar Chicken Queso Blanco Red Pepper Lime Juice Eggs Black Beans Ranchero Guacamole Lemon Juice Lettuce Refried Beans Shell Bacon Chicken Shell Red Pepper Refried Beans Black Beans Queso Fresco Refried Beans Ranchero Queso Blanco Pork American Cheese Mozzarella Jalapenos Queso Fresco Pork Refried Beans Jalapenos Turkey Lime Juice Jalapenos Jalapenos Cod Pico De Gallo Pico De Gallo Taco Seasoning Hamburger Onions Corn Black Beans Tomato Red Pepper Lettuce Cilantro Black Beans Pork Taco Ranchero Refried Beans Bacon Hamburger Queso Blanco Guacamole Mozzarella Jalapenos Onions Queso Fresco Red Pepper Taco Sauce Hamburger Pico De Gallo Flour Tortilla Chicken Rice Cheddar Taco Seasoning Taco Seasoning Bacon Lime Juice Rice Corn Tortilla Guacamole Corn Tortilla Jalapenos Jalapenos Pork Corn Tortilla Queso Fresco </p>
+</aside>
+
+<aside id="leaderboard">
+	<h2>Leaderboard</h2>
+		<ul class="topUsers">
+			{{#each User}}
+				{{#if this.completed}}
+					<li>
+
+					{{this.username}}
+					</li>
+
+				{{/if}}
+			{{/each}}
+
+		</ul>
+		<p>Ranchero Ranchero Cod Monterey Jack Sour Cream Pork Hamburger Tomato Pinto Beans Red Pepper Queso Blanco Tomato Tomato Bacon Corn Eggs Guacamole Asadero Red Pepper Whole Wheat Tortilla Steak Guacamole Mozzarella Mozzarella Eggs Eggs Onions Mozzarella American Cheese Steamed Beans Taco Sauce Shell Sour Cream Queso Blanco Red Pepper Lettuce Hamburger Rice Lemon Juice Taco Seasoning Mozzarella Feta Mozzarella Mozzarella Corn Cheddar Chicken Queso Blanco Red Pepper Lime Juice Eggs Black Beans Ranchero Guacamole Lemon Juice Lettuce Refried Beans Shell Bacon Chicken Shell Red Pepper Refried Beans Black Beans Queso Fresco Refried Beans Ranchero Queso Blanco Pork American Cheese Mozzarella Jalapenos Queso Fresco Pork Refried Beans Jalapenos Turkey Lime Juice Jalapenos Jalapenos Cod Pico De Gallo Pico De Gallo Taco Seasoning Hamburger Onions Corn Black Beans Tomato Red Pepper Lettuce Cilantro Black Beans Pork Taco Ranchero Refried Beans Bacon Hamburger Queso Blanco Guacamole Mozzarella Jalapenos Onions Queso Fresco Red Pepper Taco Sauce Hamburger Pico De Gallo Flour Tortilla Chicken Rice Cheddar Taco Seasoning Taco Seasoning Bacon Lime Juice Rice Corn Tortilla Guacamole Corn Tortilla Jalapenos Jalapenos Pork Corn Tortilla Queso Fresco </p>
+
+</aside>
+ -->
+
+</div>
+
+
