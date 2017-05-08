@@ -171,7 +171,7 @@ p {
   flex-grow: 1;
   padding: 20px 20px; }
 
-#signin, #signup, #dashboard {
+#signin, #signup, #dashboard, .stars {
   padding-top: 150px; }
 
 #map{
@@ -180,5 +180,9 @@ p {
 #pac-input{
     height:30px;
     width:200px;
+}
+
+#reviewContainer{
+  padding: 200px;
 }
 /*# sourceMappingURL=style.css.map */

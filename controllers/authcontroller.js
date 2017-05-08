@@ -12,10 +12,11 @@ exports.signin = function(req, res) {
 
 exports.dashboard = function(req, res) {
   db.location.findAll().then(function(locations){
-        var hbsObject = [
-          {loc: locations},
-          {user: req.user}
-        ];
+        var hbsObject = {
+          loc: locations,
+          user: req.user
+        };
+
         console.log("___________________________");
         // console.log(hbsObject);
         console.log("___________________________");
