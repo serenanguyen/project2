@@ -1,28 +1,84 @@
+  <main class="flexContainer">
+{{!-- <h5>Hurray! you are logged in as {{this.user.username}}</h5> --}}
+       <div id="checklistContainer">
+        <ul>
 
-{{!-- <div id="dashboard"> --}}
-<br>
-<br>
-<br>
-<br>
-<br>
-<h2>Dashboard</h2>
-<h5>Hurray! you are logged in as {{this.user.username}}</h5>
+            {{#each this.loc}}
+            <li>
+              <div class="checklistItem">
+                <div class="itemInfo">
+                    <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+                    <p class="clAddress">{{this.address}}</p>
+                </div>
+                <div class="checkboxWrapper">
+                    <a href="#" val="{{this.id}}"><h5>CHECK</h5></a>
+                </div>
+                </div>
+                {{!-- {{dataValues.name}} --}}
+            </li>
+            {{/each}}
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>
+        </ul>
+        </div>
 
+
+
+        <aside id="badgesContainer">
+          <div id="badgeItems">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+        <img src="http://placehold.it/75x75">
+
+
+
+          </div>
+        </aside>
+
+        <aside id="leaderboardContainer">
+          <div id="leaderboardItems">
+            <p>
+          </div>
+        </aside>
+  </main>
+
+  <article id="userReviewsContainer">
+  <div id="displayReviews">
   <ul>
-      {{#each this.loc}}
-      <li>
-          {{this.name}}
-          <a href="/dashboard/?location_id={{this.id}}"><button class="locationSelect">CHECK</button></a>
+
+            {{#each this.loc}}
+
+            <li>
+            <div class="checklistItem">
+              <div class="itemInfo">
+           <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+
+           <p>{{this.review.rating}}</p>
+           <p>{{this.loc.review}}</p>
+
+           <p>Ranchero Ranchero Cod Monterey Jack Sour Cream Pork Hamburger Tomato Pinto Beans Red Pepper Queso Blanco Tomato Tomato Bacon Corn Eggs Guacamole Asadero Red Pepper Whole Wheat Tortilla Steak Guacamole Mozzarella Mozzarella Eggs Eggs Onions Mozzarella American Cheese Steamed Beans Ranchero Refried Beans Bacon Hamburger Queso Blanco Guacamole Mozzarella Jalapenos Onions Queso Fresco Red Pepper Taco Sauce Hamburger Pico De Gallo Flour Tortilla Chicken Rice Cheddar Taco Seasoning Taco Seasoning Bacon Lime Juice Rice Corn Tortilla Guacamole Corn Tortilla Jalapenos Jalapenos Pork Corn Tortilla Queso Fresco</p>
+
+              </div>
+      </div>
       </li>
-      {{/each}}
+    {{/each}}
+
   </ul>
+  </div>
+
+
+</article>
 
 <div id="myModal" class="modal">
   <div class="modal-content">
@@ -112,9 +168,6 @@
     display: flex;
     background-image: url(images/white_wall.png);
     justify-content: center;
-    margin-left: 20%;
-    margin-right: 20%;
-    border: solid black 5px;
 }
 
 input:focus,

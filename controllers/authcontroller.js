@@ -23,10 +23,11 @@ exports.dashboard = function(req, res) {
         location: data
       };
     res.render('dashboard', hbsObject);
-    })
-
+  })
   });
 };
+
+
 
 exports.logout = function(req, res) {
     req.session.destroy(function(err) {

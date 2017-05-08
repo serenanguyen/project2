@@ -61,11 +61,13 @@ db.sequelize.sync({force:false})
 //         { name: "Chi'Lantro", ratingAvg: 5, address: "1509 S Lamar Blvd, Austin, TX 78704", website: "www.chilantrobbq.com"},
 //         { name: "Llama's", ratingAvg: 3, address: "611 Trinity St, Austin, TX 78701", website: "www.llamasfoodtrailer.com"},
 //         { name: "Pizza Hut", ratingAvg: 5, address: "1234 Holly St., Austin TX 78747", website: "www.pizzahut.com"},
-//         { name: "Burger Place", ratingAvg: 2, address: "1234 Holly St., Austin TX 78712", website: "www.burgerplace.com"}
+// //         { name: "Burger Place", ratingAvg: 2, address: "1234 Holly St., Austin TX 78712", website: "www.burgerplace.com"}
 //       ]);
-//     }
-//     return;
-// })
+
+//        return;
+//     })
+  
+
 .then(function(){
   app.listen(PORT, function(){
     console.log("Listening on port " + PORT);
