@@ -37,7 +37,7 @@ module.exports = function(app, passport) {
       notes: req.body.note,
       userId: req.user.id
     }).then(function(){
-        res.redirect('/');
+        res.redirect('/dashboard');
     });
   });
 
