@@ -1,30 +1,28 @@
 
 {{!-- <div id="dashboard"> --}}
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <h2>Dashboard</h2>
-  <h5>Hurray! you are logged in as {{this.username}}</h5>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2>Dashboard</h2>
+<h5>Hurray! you are logged in as {{this.user.username}}</h5>
 {{!-- </div> --}}
 
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <h1>
-       {{!-- <h1>First Item:{{[0].dataValues.name}}</h1> --}}
-       {{!-- <h1>{{loc}}</h1> --}}
-        <ul>
-            {{#each this}}
-            {{#each this.loc}}
-            <li >
-                {{this.name}}
-                <a href="#" val="{{this.id}}"><h1>CHECK</h1></a>
-                {{!-- {{dataValues.name}} --}}
-            </li>
-            {{/each}}
-            {{/each}}
-        </ul>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>
+ {{!-- <h1>First Item:{{[0].dataValues.name}}</h1> --}}
+ {{!-- <h1>{{loc}}</h1> --}}
+  <ul>
+      {{#each this.loc}}
+      <li>
+          {{this.name}}
+          <a href="/rating?location_id={{this.id}}" value="{{this.id}}"><h1>CHECK</h1></a>
+          {{!-- {{dataValues.name}} --}}
+      </li>
+      {{/each}}
+  </ul>
