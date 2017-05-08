@@ -51,7 +51,7 @@ module.exports = function(app, passport) {
       locationId: req.body.locationId,
       userId: req.user.id
     }).then(function(){
-        res.redirect('/');
+        res.redirect('/dashboard');
     });
   });
 
