@@ -1,6 +1,7 @@
 var authController = require('../controllers/authcontroller.js');
 var userRating = require("../models").userRating;
 var User = require("../models").user;
+var location = require("../models").location;
 
 module.exports = function(app, passport) {
   app.get('/signup', authController.signup);
@@ -24,17 +25,29 @@ module.exports = function(app, passport) {
   ));
 
   app.get("/rating", isLoggedIn, function(req,res){
-    res.render("rating");
-  })
+
+    console.log(req.query.location_id);
+    location.findOne({
+      id: req.query.location_id
+    }).then(function(location){
+      var location = {
+        location: location
+      }
+      res.render("rating", location);
+    });
+
+    // res.render("rating");
+  });
 
   // sending ratings to db
   app.post("/api/rating", function(req, res){
-    // console.log(req.body);
-    console.log("USER ID CURRENT!!!!! "+req.user.id);
+    // console.log("params!!", req.params);
+    // console.log("USER ID CURRENT!!!!! "+req.user.id);
     userRating.create({
       rating: req.body.star,
       review: req.body.review,
       notes: req.body.note,
+      locationId: req.body.locationId,
       userId: req.user.id
     }).then(function(){
         res.redirect('/');
