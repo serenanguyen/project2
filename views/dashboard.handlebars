@@ -21,7 +21,10 @@
       {{#each this.loc}}
       <li>
           {{this.name}}
-          <a href="/rating?location_id={{this.id}}" value="{{this.id}}"><h1>CHECK</h1></a>
+          <a href="/rating?location_id={{this.id}}"
+          ><h1>CHECK</h1></a>
+          {{!-- <a href="/rating?location_id={{this.id}}" value="{{this.id}}"
+          ><h1>CHECK</h1></a> --}}
           {{!-- {{dataValues.name}} --}}
       </li>
       {{/each}}

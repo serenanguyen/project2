@@ -25,15 +25,16 @@ module.exports = function(app, passport) {
   ));
 
   app.get("/rating", isLoggedIn, function(req,res){
-
     console.log(req.query.location_id);
     location.findOne({
-      id: req.query.location_id
-    }).then(function(location){
-      var location = {
-        location: location
+      where: {
+        id: req.query.location_id
       }
-      res.render("rating", location);
+    }).then(function(data){
+      var locationObj = {
+        location: data
+      }
+      res.render("rating", locationObj);
     });
 
     // res.render("rating");
