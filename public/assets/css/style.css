@@ -255,7 +255,6 @@ p {
 #reviewContainer{
   padding: 200px;
 }
-=======
 #signup {
   display: flex;
   flex-direction: column;
@@ -287,6 +286,4 @@ p {
 
 #displayReviews {
   margin: 50px 10px 10px 10px; }
-
->>>>>>> a44bd6088d2e5d5a20ae8303fd8251d9465b57c7
 /*# sourceMappingURL=style.css.map */

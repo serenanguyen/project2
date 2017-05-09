@@ -24,7 +24,7 @@ module.exports = function(app, passport) {
     }
   ));
 
-  app.get("/dashboard1", isLoggedIn, function(req,res){
+  app.get("/rating", isLoggedIn, function(req,res){
     console.log(req.query.location_id);
     location.findOne({
       where: {
@@ -34,7 +34,7 @@ module.exports = function(app, passport) {
       var locationObj = {
         location: data
       }
-      res.render("dashboard1", locationObj);
+      res.render("rating", locationObj);
     });
 
     // res.render("rating");

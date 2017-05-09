@@ -11,7 +11,8 @@
                     <p class="clAddress">{{this.address}}</p>
                 </div>
                 <div class="checkboxWrapper">
-                    <a href="#" val="{{this.id}}"><h5>CHECK</h5></a>
+                  <a href="/rating?location_id={{this.id}}"
+                  ><h1>CHECK</h1></a>
                 </div>
                 </div>
                 {{!-- {{dataValues.name}} --}}
@@ -80,7 +81,7 @@
 
 </article>
 
-<div id="myModal" class="modal">
+{{!-- <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
     <div class="stars">
@@ -106,9 +107,10 @@
           <input class="star star-1" id="star-1" type="radio" name="star" value=1 />
 
           <label class="star star-1" for="star-1"></label>
-          {{!--</div>--}}
 
-          <input type="hidden" name="locationId" id="locationId" value={{this.location.id}}>
+          <input type="hidden" name="userID" id="userID" value="{{this.user.id}}"/>
+
+          <input type="hidden" name="userID" id="userID" value="{{this.user.id}}"/>
 
           <h2> Leave a Review </h2>
           <textarea name="review" rows="10" cols="30"></textarea>
@@ -243,6 +245,8 @@ var btn = document.getElementsByClassName('locationSelect');
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var locID;
+var userID;
 
 $(document).ready(function() {
 
@@ -250,11 +254,17 @@ $(document).ready(function() {
 
 // When the user clicks the button, open the modal
   $(".locationSelect").on("click", function(){
+      // var userRating = {
+      //   rating:
+      //   review:
+      //   notes:
+      //   locationId: $(this).attr("locID");
+      //   userId:
+      // }
 
-      console.log("i have been clicked");
+
       modal.style.display = "block";
       })
-
 
 
   // When the user clicks on <span> (x), close the modal
@@ -269,4 +279,4 @@ $(document).ready(function() {
       }
 }
 })
-</script>
+</script> --}}
