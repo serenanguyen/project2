@@ -37,11 +37,13 @@
                     <a href="/logout">Log Out</a>
                   </li>
               {{else}}
-
-				<input class="formInput" type="text" name="username" placeholder="username">
-				<input class="formInput" type="password" name="password" placeholder="password">
-				<input type="hidden" name="loggedIn" value="1">
-				<a href="/dashboard"><button class="button" type="submit">Login</button></a>
+							
+				<form id="signin" name="signin" method="post" action="signin">
+					<input class="formInput" type="text" name="username" placeholder="username" />
+					<input class="formInput" type="password" name="password" placeholder="password">
+					<input type="hidden" name="loggedIn" value="1">
+					<a href="/dashboard"><button class="button" type="submit">Login</button></a>
+				</form>
 
 			</ul>
               {{/if}}
