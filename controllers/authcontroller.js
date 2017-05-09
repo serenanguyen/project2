@@ -11,6 +11,7 @@ exports.signin = function(req, res) {
 };
 
 exports.dashboard = function(req, res) {
+
   db.location.findAll().then(function(locations){
       var hbsObject = {
         loc: locations,
@@ -19,6 +20,7 @@ exports.dashboard = function(req, res) {
     res.render('dashboard', hbsObject);
   })
   }
+
 
 
 exports.logout = function(req, res) {

@@ -19,16 +19,7 @@ module.exports = function(app){
       var hbsObject = {
         locations: data
       };
-
-      // db.Location.findAll({
-      //   include:[
-      //     {MonthlyChallenge, required: true}
-      //   ]
-      // }).then(function(challenge){
-
-        //console.log(hbsObject);
         res.render("ChallengeManager", hbsObject);
-      //});
     });
 
     app.post("/challenge/create", function(req, res){
