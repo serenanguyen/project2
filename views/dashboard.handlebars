@@ -65,10 +65,13 @@
               <div class="itemInfo">
            <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
 
-           <p>{{this.review.rating}}</p>
-           <p>{{this.loc.review}}</p>
-
-           <p>Ranchero Ranchero Cod Monterey Jack Sour Cream Pork Hamburger Tomato Pinto Beans Red Pepper Queso Blanco Tomato Tomato Bacon Corn Eggs Guacamole Asadero Red Pepper Whole Wheat Tortilla Steak Guacamole Mozzarella Mozzarella Eggs Eggs Onions Mozzarella American Cheese Steamed Beans Ranchero Refried Beans Bacon Hamburger Queso Blanco Guacamole Mozzarella Jalapenos Onions Queso Fresco Red Pepper Taco Sauce Hamburger Pico De Gallo Flour Tortilla Chicken Rice Cheddar Taco Seasoning Taco Seasoning Bacon Lime Juice Rice Corn Tortilla Guacamole Corn Tortilla Jalapenos Jalapenos Pork Corn Tortilla Queso Fresco</p>
+            {{#each this.userRatings}}
+             <p>Review: {{this.review}}</p>
+             <p>Notes: {{this.notes}}</p>
+             <p>Rating: {{this.rating}}</p>
+             <p>User: {{this.username}}</p>
+            {{/each}}
+           {{!-- <p>Ranchero Ranchero Cod Monterey Jack Sour Cream Pork Hamburger Tomato Pinto Beans Red Pepper Queso Blanco Tomato Tomato Bacon Corn Eggs Guacamole Asadero Red Pepper Whole Wheat Tortilla Steak Guacamole Mozzarella Mozzarella Eggs Eggs Onions Mozzarella American Cheese Steamed Beans Ranchero Refried Beans Bacon Hamburger Queso Blanco Guacamole Mozzarella Jalapenos Onions Queso Fresco Red Pepper Taco Sauce Hamburger Pico De Gallo Flour Tortilla Chicken Rice Cheddar Taco Seasoning Taco Seasoning Bacon Lime Juice Rice Corn Tortilla Guacamole Corn Tortilla Jalapenos Jalapenos Pork Corn Tortilla Queso Fresco</p> --}}
 
               </div>
       </div>

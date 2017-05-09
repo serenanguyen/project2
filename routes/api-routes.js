@@ -10,9 +10,20 @@ module.exports = function(app){
 		});
 	});
 
+
 	app.get("/api/locations",function(req,res){
-		db.location.findAll({}).then(function(dbLocations){
+		db.location.findAll({
+			include: [db.userRating]
+		}).then(function(dbLocations){
 			res.json(dbLocations);
+		});
+	});
+
+	app.get("/api/userRatings", function(req, res){
+		db.userRating.findAll({
+			include: [db.user]
+		}).then(function(dbUserRatings){
+			res.json(dbUserRatings);
 		});
 	});
 

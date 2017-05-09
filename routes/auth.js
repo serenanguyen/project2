@@ -14,7 +14,18 @@ module.exports = function(app, passport) {
     }
   ));
 
-  app.get('/dashboard', isLoggedIn, authController.dashboard);
+  app.get('/dashboard', isLoggedIn, function(req, res){
+    location.findAll({
+      include: [userRating]
+    }).then(function(locations){
+        var hbsObject = {
+          loc: locations,
+          user: req.user
+        };
+      res.render('dashboard', hbsObject);
+    })
+  });
+
 
   app.get('/logout',authController.logout);
 
@@ -48,6 +59,7 @@ module.exports = function(app, passport) {
       rating: req.body.star,
       review: req.body.review,
       notes: req.body.note,
+      username: req.user.username,
       locationId: req.body.locationId,
       userId: req.user.id
     }).then(function(){
