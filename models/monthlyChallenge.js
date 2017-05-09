@@ -2,6 +2,7 @@ module.exports = function(sequelize, DataTypes){
   
   var MonthlyChallenge = sequelize.define("MonthlyChallenge", {
     name: DataTypes.STRING,
+    currentChallenge: DataTypes.BOOLEAN,
     location1Id: DataTypes.INTEGER,
     location2Id: DataTypes.INTEGER,
     location3Id: DataTypes.INTEGER,

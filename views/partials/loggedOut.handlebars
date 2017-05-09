@@ -1,0 +1,26 @@
+    <ul class="nav navbar-nav">
+				      {{#each user}}
+                  <li>
+                
+                    <p class="navbar-text">
+                      <strong>Hi,</strong>
+                      
+                      {{[0].dataValues.username}}
+
+                    </p>
+
+                  </li>
+              {{/each}}
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <a href="/logout">Log Out</a>
+                  </li>
+
+                <li>
+              
+                <a href="/signin">Sign In</a>
+                </li>
+              
+          </ul>

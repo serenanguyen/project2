@@ -21,7 +21,7 @@ p {
   height: 100px;
   display: flex;
   flex-direction: row;
-  position: fixed;
+  background-image: url("../img/forest.jpg");
   box-shadow: 0 4px 2px -2px #e9e94f; }
 
 #headerImage {
@@ -31,8 +31,7 @@ p {
   align-self: center; }
 
 #headerImage img {
-  width: 80%;
-  height: 80%;
+  width: 600px;
   padding-left: 25px; }
 
 #navBar {
@@ -41,8 +40,7 @@ p {
   margin-left: auto;
   align-self: flex-end;
   padding-right: 20px;
-  padding-bottom: 15px;
-  background-color: #242324; }
+  padding-bottom: 15px; }
   #navBar ul {
     padding-top: 10px;
     padding-bottom: -10px; }
@@ -60,13 +58,14 @@ p {
 
 /*//index contentarea styling */
 .flexContainer {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start; }
 
 #monthlyChallengeIntro {
-  margin-top: 125px;
+  margin-top: 25px;
   margin-left: 25px;
   width: 50%;
   height: 550px;
@@ -113,10 +112,10 @@ p {
   display: flex;
   flex-direction: column;
   background-color: #e9e94f;
-  height: 300px;
+  height: 500px;
   width: 35%;
   margin-right: 75px;
-  margin-top: 125px;
+  margin-top: 25px;
   box-shadow: 5px 5px 2px #242324; }
   #createPrompt h2 {
     text-align: center;
@@ -139,22 +138,33 @@ p {
     color: #e9e94f;
     border: 2px solid #242324;
     font-family: "Oxygen", sans-serif;
-    font-size: 22px;
-    padding: 15px 15px;
+    font-size: 15px;
+    padding: 8px 8px;
     margin-top: auto;
     margin-bottom: auto; }
 
-#createAccountButton:hover {
-  background-color: #e9e94f;
-  color: #242324; }
-#createAccountButton:active {
-  background-color: #242324;
-  color: #e9e94f; }
+#createForm {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center; }
+
+#createAccountButton {
+  margin-top: 100px; }
+  #createAccountButton:hover {
+    background-color: #e9e94f;
+    color: #242324; }
+  #createAccountButton:active {
+    background-color: #242324;
+    color: #e9e94f; }
 
 #createDisplay {
-  height: 280px;
+  height: 490px;
   display: flex;
   flex-direction: column; }
+  #createDisplay button {
+    margin-top: 15px;
+    margin-bottom: -10px; }
 
 #infoColumn {
   max-width: 1024px;
@@ -163,26 +173,152 @@ p {
   justify-content: space-around;
   background-color: white; }
 
+.right-container {
+  display: flex;
+  flex-direction: column; }
+
 #checklist {
   flex-grow: 1;
   padding: 20px 20px; }
 
-#leaderboard {
+#checklistContainer {
+  margin-top: 200px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  padding: 20px 20px; }
+  width: 450px;
+  height: 535px;
+  overflow-y: auto;
+  background-color: #242324;
+  padding: 10px 10px;
+  margin: 0px 10px 0px 15px; }
+  #checklistContainer ul {
+    margin-top: 50px; }
+  #checklistContainer li {
+    display: flex;
+    flex-dirextion: row;
+    justify-contents: center;
+    align-items: center; }
 
-#signin, #signup, #dashboard, .stars {
+.checklistItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 12px;
+  background-color: #f3f3f3;
+  margin: 5px 0px 5px 0px; }
+
+.check {
+  width: 35px;
+  height: 35px;
+  background-image: url("../img/emptyBox.png");
+  background-size: contain; }
+  .check:active {
+    background-image: url("../img/checkedBox.png");
+    background-size: contain; }
+  .check:visited {
+    background-image: url("../img/checkedBox.png");
+    background-size: contain; }
+  .check:hover {
+    background-image: url("../img/checkedBox.png");
+    background-size: contain; }
+  .check:focus {
+    background-image: url("../img/checkedBox.png");
+    background-size: contain; }
+
+.itemInfo {
+  background-color: #f3f3f3;
+  padding: 10px 10px; }
+
+.checkboxWrapper {
+  margin-right: 10px;
+  align-self: center;
+  justify-content: flex-end; }
+
+.clWebsite {
+  font-size: 10px; }
+
+.clAddress {
+  font-size: 12px; }
+
+
+/*#signin, #signup, #dashboard, .stars {*/
+
+
+.sidebars-container {
+  display: flex;
+  flex-direction: row; }
+
+#badgesContainer {
+  width: 430px;
+  margin-right: 15px;
+  background-color: #242324;
+  padding: 10px 10px; }
+
+#badgeItems {
+  width: 410px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px; }
+
+#leaderboardContainer {
+  width: 220px;
+  margin-right: 10px; }
+
+#leaderboardItems {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: #242324;
+  padding: 10px 10px; }
+
+#signin {
+>>>>>>> login
   padding-top: 150px; }
-
-#map{
-    height: 500px;
-}
-#pac-input{
-    height:30px;
-    width:200px;
-}
 
 #reviewContainer{
   padding: 200px;
 }
+
+#signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  width: 300px; }
+  #signup input {
+    display: block; }
+
+#map {
+  height: 500px; }
+
+#pac-input {
+  height: 30px;
+  width: 200px; }
+
+.admin {
+  padding: 150px; }
+
+#userReviewsContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 650px;
+  max-height: 350px;
+  background-color: #e9e94f;
+  align-self: center;
+  justify-content: center;
+  margin: 10px 15px 0px 0px; }
+
+#displayReviews {
+  margin: 50px 10px 10px 10px;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
 /*# sourceMappingURL=style.css.map */

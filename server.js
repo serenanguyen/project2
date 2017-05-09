@@ -63,9 +63,10 @@ db.sequelize.sync({force:false})
 //         { name: "Pizza Hut", ratingAvg: 5, address: "1234 Holly St., Austin TX 78747", website: "www.pizzahut.com"},
 //         { name: "Burger Place", ratingAvg: 2, address: "1234 Holly St., Austin TX 78712", website: "www.burgerplace.com"}
 //       ]);
-//     }
+//
 //     return;
 // })
+
 .then(function(){
   app.listen(PORT, function(){
     console.log("Listening on port " + PORT);

@@ -14,7 +14,18 @@ module.exports = function(app, passport) {
     }
   ));
 
-  app.get('/dashboard', isLoggedIn, authController.dashboard);
+  app.get('/dashboard', isLoggedIn, function(req, res){
+    location.findAll({
+      include: [userRating]
+    }).then(function(locations){
+        var hbsObject = {
+          loc: locations,
+          user: req.user
+        };
+      res.render('dashboard', hbsObject);
+    })
+  });
+
 
   app.get('/logout',authController.logout);
 
@@ -25,15 +36,16 @@ module.exports = function(app, passport) {
   ));
 
   app.get("/rating", isLoggedIn, function(req,res){
-
     console.log(req.query.location_id);
     location.findOne({
-      id: req.query.location_id
-    }).then(function(location){
-      var location = {
-        location: location
+      where: {
+        id: req.query.location_id
       }
-      res.render("rating", location);
+    }).then(function(data){
+      var locationObj = {
+        location: data
+      }
+      res.render("rating", locationObj);
     });
 
     // res.render("rating");
@@ -47,10 +59,11 @@ module.exports = function(app, passport) {
       rating: req.body.star,
       review: req.body.review,
       notes: req.body.note,
+      username: req.user.username,
       locationId: req.body.locationId,
       userId: req.user.id
     }).then(function(){
-        res.redirect('/');
+        res.redirect('/dashboard');
     });
   });
 

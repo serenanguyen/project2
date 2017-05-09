@@ -19,6 +19,9 @@ module.exports = function(sequelize, Sequelize){
     password: {
       type: Sequelize.STRING,
       allowNull: false
+    },
+    badges: {
+      type: Sequelize.STRING,
     }
   },
     {

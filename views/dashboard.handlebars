@@ -1,28 +1,282 @@
+<main class="flexContainer">
+{{!-- <h5>Hurray! you are logged in as {{this.user.username}}</h5> --}}
+   <div id="checklistContainer">
+    <ul>
+        {{#each this.loc}}
+        <li>
+          <div class="checklistItem">
+            <div class="itemInfo">
+                <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+                <p class="clAddress">{{this.address}}</p>
+            </div>
+            <div class="checkboxWrapper">
+                <a href="/rating?location_id={{this.id}}"><div class="check"></div></a>
+            </div>
+            </div>
+            {{!-- {{dataValues.name}} --}}
+        </li>
+        {{/each}}
 
-{{!-- <div id="dashboard"> --}}
-<br>
-<br>
-<br>
-<br>
-<br>
-<h2>Dashboard</h2>
-<h5>Hurray! you are logged in as {{this.user.username}}</h5>
-{{!-- </div> --}}
+    </ul>
+    </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>
- {{!-- <h1>First Item:{{[0].dataValues.name}}</h1> --}}
- {{!-- <h1>{{loc}}</h1> --}}
-  <ul>
-      {{#each this.loc}}
-      <li>
-          {{this.name}}
-          <a href="/rating?location_id={{this.id}}" value="{{this.id}}"><h1>CHECK</h1></a>
-          {{!-- {{dataValues.name}} --}}
-      </li>
-      {{/each}}
-  </ul>
+<div class="right-wrapper">
+
+<div class="sidebars-container">
+
+ <aside id="badgesContainer">
+   <div id="badgeItems">
+ <img src="http://placehold.it/75x75" data-tilt>
+ <img src="http://placehold.it/75x75" data-tilt>
+ <img src="http://placehold.it/75x75" data-tilt>
+ <img src="http://placehold.it/75x75" data-tilt>
+ <img src="http://placehold.it/75x75" data-tilt>
+
+</div>
+ </aside>
+
+ <aside id="leaderboardContainer">
+   <div id="leaderboardItems">
+
+     <h1>TESTING</h1>
+     {{#each this.leaderboard}}
+
+
+     {{/each}}
+
+   </div>
+ </aside>
+
+ </div>
+
+
+ <article id="userReviewsContainer">
+<div id="displayReviews">
+<ul>
+
+{{#each this.loc}}
+
+<li>
+<div class="checklistItem">
+<div class="itemInfo">
+<h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+
+{{#each this.userRatings}}
+<p>Review: {{this.review}}</p>
+<p>Notes: {{this.notes}}</p>
+<p>Rating: {{this.rating}}</p>
+<p>User: {{this.username}}</p>
+{{/each}}
+
+</div>
+</div>
+</li>
+{{/each}}
+
+</ul>
+</div>
+</article>
+</div>
+
+
+</main>
+
+{{!-- <div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="stars">
+        <h2> Rate and Review {{this.location.name}} </h2>
+        <form id="rating" name="rating" method="post" action="/api/rating">
+
+          <input class="star star-5" id="star-5" type="radio" name="star" value=5 />
+
+          <label class="star star-5" for="star-5"></label>
+
+          <input class="star star-4" id="star-4" type="radio" name="star" value=4 />
+
+          <label class="star star-4" for="star-4"></label>
+
+          <input class="star star-3" id="star-3" type="radio" name="star" value=3 />
+
+          <label class="star star-3" for="star-3"></label>
+
+          <input class="star star-2" id="star-2" type="radio" name="star" value=2 />
+
+          <label class="star star-2" for="star-2"></label>
+
+          <input class="star star-1" id="star-1" type="radio" name="star" value=1 />
+
+          <label class="star star-1" for="star-1"></label>
+
+          <input type="hidden" name="userID" id="userID" value="{{this.user.id}}"/>
+
+          <input type="hidden" name="userID" id="userID" value="{{this.user.id}}"/>
+
+          <h2> Leave a Review </h2>
+          <textarea name="review" rows="10" cols="30"></textarea>
+          <br>
+
+          <h2> Leave a Note </h2>
+          <textarea name="note" rows="10" cols="30"></textarea>
+          <br>
+
+          <input type="submit">
+        </form>
+
+    </div>
+  </div>
+  </div>
+<style>
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.flexContainer{
+    display: flex;
+    background-image: url(images/white_wall.png);
+    justify-content: center;
+}
+
+input:focus,
+textarea:focus {
+    border: 3px solid #555;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+input[type=submit]{
+  background-color: gold;
+  color: white;
+  padding: 10px;
+  width: 100%;
+
+}
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+</style>
+<script>
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementsByClassName('locationSelect');
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+var locID;
+var userID;
+
+$(document).ready(function() {
+
+    console.log("ready");
+
+// When the user clicks the button, open the modal
+  $(".locationSelect").on("click", function(){
+      // var userRating = {
+      //   rating:
+      //   review:
+      //   notes:
+      //   locationId: $(this).attr("locID");
+      //   userId:
+      // }
+
+
+      modal.style.display = "block";
+      })
+
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+}
+})
+</script> --}}
