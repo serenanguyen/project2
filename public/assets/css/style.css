@@ -21,6 +21,7 @@ p {
   height: 100px;
   display: flex;
   flex-direction: row;
+  background-image: url("../img/forest.jpg");
   box-shadow: 0 4px 2px -2px #e9e94f; }
 
 #headerImage {
@@ -30,8 +31,7 @@ p {
   align-self: center; }
 
 #headerImage img {
-  width: 80%;
-  height: 80%;
+  width: 600px;
   padding-left: 25px; }
 
 #navBar {
@@ -40,8 +40,7 @@ p {
   margin-left: auto;
   align-self: flex-end;
   padding-right: 20px;
-  padding-bottom: 15px;
-  background-color: #242324; }
+  padding-bottom: 15px; }
   #navBar ul {
     padding-top: 10px;
     padding-bottom: -10px; }
@@ -174,6 +173,10 @@ p {
   justify-content: space-around;
   background-color: white; }
 
+.right-container {
+  display: flex;
+  flex-direction: column; }
+
 #checklist {
   flex-grow: 1;
   padding: 20px 20px; }
@@ -185,6 +188,8 @@ p {
   flex-direction: column;
   flex-grow: 1;
   width: 450px;
+  height: 535px;
+  overflow-y: auto;
   background-color: #242324;
   padding: 10px 10px;
   margin: 0px 10px 0px 15px; }
@@ -206,6 +211,24 @@ p {
   background-color: #f3f3f3;
   margin: 5px 0px 5px 0px; }
 
+.check {
+  width: 35px;
+  height: 35px;
+  background-image: url("../img/emptyBox.png");
+  background-size: contain; }
+  .check:active {
+    background-image: url("../img/checkedBox.png");
+    background-size: contain; }
+  .check:visited {
+    background-image: url("../img/checkedBox.png");
+    background-size: contain; }
+  .check:hover {
+    background-image: url("../img/checkedBox.png");
+    background-size: contain; }
+  .check:focus {
+    background-image: url("../img/checkedBox.png");
+    background-size: contain; }
+
 .itemInfo {
   background-color: #f3f3f3;
   padding: 10px 10px; }
@@ -220,6 +243,10 @@ p {
 
 .clAddress {
   font-size: 12px; }
+
+.sidebars-container {
+  display: flex;
+  flex-direction: row; }
 
 #badgesContainer {
   width: 430px;
@@ -236,9 +263,16 @@ p {
   flex-wrap: wrap;
   margin-top: 50px; }
 
-#leaderboard {
-  flex-grow: 1;
-  padding: 20px 20px; }
+#leaderboardContainer {
+  width: 220px;
+  margin-right: 10px; }
+
+#leaderboardItems {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: #242324;
+  padding: 10px 10px; }
 
 #signin {
   padding-top: 150px; }
@@ -266,13 +300,16 @@ p {
 #userReviewsContainer {
   display: flex;
   flex-direction: column;
-  max-width: 100%;
+  max-width: 650px;
+  max-height: 350px;
   background-color: #e9e94f;
   align-self: center;
   justify-content: center;
-  margin: 10px 15px; }
+  margin: 10px 15px 0px 0px; }
 
 #displayReviews {
-  margin: 50px 10px 10px 10px; }
+  margin: 50px 10px 10px 10px;
+  overflow-y: auto;
+  overflow-x: hidden; }
 
 /*# sourceMappingURL=style.css.map */
