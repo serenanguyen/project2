@@ -39,9 +39,7 @@ module.exports = function(passport, user){
               badges += ",0"
             };
 
-          db.MonthlyChallenge.findAll({"currentChallenge": 1}).then(function(data){
-            
-          });
+
 
           var userPassword = generateHash(password);
 
@@ -58,6 +56,22 @@ module.exports = function(passport, user){
               return done(null, false);
             }
             if (newUser){
+              db.MonthlyChallenge.findAll({"currentChallenge": 1}).then(function(data){
+                db.monthlyStatus.create({
+                  MonthlyChallengeId: data.id,
+                  location1: data.location1Id,
+                  location2: data.location2Id,
+                  location3: data.location3Id,
+                  location4: data.location4Id,
+                  location5: data.location5Id,
+                  location6: data.location6Id,
+                  location7: data.location7Id,
+                  location8: data.location8Id,
+                  location9: data.location9Id,
+                  location10: data.location10Id,
+                  userId: newUser.id
+                })
+              });
               return done(null, newUser);
             }
           });

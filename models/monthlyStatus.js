@@ -1,15 +1,15 @@
 module.exports = function(sequelize, DataTypes){
   var monthlyStatus = sequelize.define("monthlyStatus", {
-    location1: DataTypes.BOOLEAN,
-    location2: DataTypes.BOOLEAN,
-    location3: DataTypes.BOOLEAN,
-    location4: DataTypes.BOOLEAN,
-    location5: DataTypes.BOOLEAN,
-    location6: DataTypes.BOOLEAN,
-    location7: DataTypes.BOOLEAN,
-    location8: DataTypes.BOOLEAN,
-    location9: DataTypes.BOOLEAN,
-    location10: DataTypes.BOOLEAN
+    location1: DataTypes.INTEGER,
+    location2: DataTypes.INTEGER,
+    location3: DataTypes.INTEGER,
+    location4: DataTypes.INTEGER,
+    location5: DataTypes.INTEGER,
+    location6: DataTypes.INTEGER,
+    location7: DataTypes.INTEGER,
+    location8: DataTypes.INTEGER,
+    location9: DataTypes.INTEGER,
+    location10: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
