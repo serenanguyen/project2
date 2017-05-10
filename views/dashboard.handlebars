@@ -1,41 +1,48 @@
 <main class="flexContainer">
-{{!-- <h5>Hurray! you are logged in as {{this.user.username}}</h5> --}}
+	
    <div id="checklistContainer">
-    <ul>
-        {{#each this.loc}}
-        <li>
-          <div class="checklistItem">
-            <div class="itemInfo">
-                <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
-                <p class="clAddress">{{this.address}}</p>
-            </div>
-            <div class="checkboxWrapper">
-                <a href="/rating?location_id={{this.id}}"><div class="check"></div></a>
-            </div>
-            </div>
-            {{!-- {{dataValues.name}} --}}
-        </li>
-        {{/each}}
 
-    </ul>
-    </div>
+   	<h2>The Hunt List</h2>
+   		<div id="displayChecklist">
+		    <ul>
+		        {{#each this.loc}}
+		        <li>
+		          <div class="checklistItem">
+		            <div class="itemInfo">
+		                <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+		                <p class="clAddress">{{this.address}}</p>
+
+		                <a href="#">See What Other Hunters Are Saying!</a>
+		            </div>
+		            <div class="checkboxWrapper">
+		                <a href="/rating?location_id={{this.id}}"><div class="check"></div></a>
+		            </div>
+		            </div>
+		            {{!-- {{dataValues.name}} --}}
+		        </li>
+		        {{/each}}
+
+		    </ul>
+    	</div>
+	</div>
 
 <div class="right-wrapper">
 
 <div class="sidebars-container">
 
  <aside id="badgesContainer">
+ 	<h2>Your Badges</h2>
    <div id="badgeItems">
- <img src="http://placehold.it/75x75" data-tilt>
- <img src="http://placehold.it/75x75" data-tilt>
- <img src="http://placehold.it/75x75" data-tilt>
- <img src="http://placehold.it/75x75" data-tilt>
- <img src="http://placehold.it/75x75" data-tilt>
-
-</div>
+		 <img src="http://placehold.it/75x75" data-tilt>
+		 <img src="http://placehold.it/75x75" data-tilt>
+		 <img src="http://placehold.it/75x75" data-tilt>
+		 <img src="http://placehold.it/75x75" data-tilt>
+		 
+	</div>
  </aside>
 
  <aside id="leaderboardContainer">
+ <h2>Top Users</h2>
    <div id="leaderboardItems">
 
      <h1>TESTING</h1>
@@ -51,6 +58,8 @@
 
 
  <article id="userReviewsContainer">
+
+<h2>Your Notes and Reviews</h2>
 <div id="displayReviews">
 <ul>
 
@@ -64,7 +73,7 @@
 {{#each this.userRatings}}
 <p>Review: {{this.review}}</p>
 <p>Notes: {{this.notes}}</p>
-<p>Rating: {{this.rating}}</p>
+<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p> 
 <p>User: {{this.username}}</p>
 {{/each}}
 
@@ -80,6 +89,29 @@
 
 
 </main>
+
+    {{!--<script>
+    $.fn.stars = function() {
+        return $(this).each(function() {
+
+            var rating = $(this).data("rating");
+
+            var numStars = $(this).data("numStars");
+
+            var fullStar = new Array(Math.floor(rating + 1)).join('<i class="fa fa-star"></i>');
+
+            var halfStar = ((rating%1) !== 0) ? '<i class="fa fa-star-half-empty"></i>': '';
+
+            var noStar = new Array(Math.floor(numStars + 1 - rating)).join('<i class="fa fa-star-o"></i>');
+
+            $(this).html(fullStar + halfStar + noStar);
+
+        });
+    }
+
+    $('.stars').stars();
+
+    </script>--}}
 
 {{!-- <div id="myModal" class="modal">
   <div class="modal-content">

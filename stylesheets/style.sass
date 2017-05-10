@@ -59,7 +59,7 @@ p
 	align-self: center
 
 #headerImage img
-	width: 600px
+	max-width: 450px
 	
 	padding-left: 25px
 
@@ -76,7 +76,9 @@ p
 	ul
 		padding-top: 10px
 		padding-bottom: -10px
-	
+
+.navbar-text
+	color: $text-color
 
 
 #loggedOut
@@ -104,16 +106,17 @@ p
 
 
 #monthlyChallengeIntro
-	margin-top: 25px
-	margin-left: 25px
-	width: 50%
-	height: 550px
+	
+	margin-left: 35px
+	margin-right: 15px
+	width: 60%
+	
 	align-self: flex-start
 	background-color: $banner-color
 	max-width: $content-width
 	display: flex
 	flex-direction: column
-	box-shadow: 5px 5px 2px $text-color
+	box-shadow: 5px 3px 2px $text-color
 
 
 	h2
@@ -128,13 +131,15 @@ p
 		text-align: center
 		font-family: ddchardware
 		color: $text-color
-		font-size: 85px
+		font-size: 75px
 		margin-top: 10px
 		line-height: 50%
 
 
 #monthlyDisplay
-	height: 400px
+	margin-bottom: 10px
+
+
 
 .displayImages
 	display: flex
@@ -142,7 +147,13 @@ p
 	flex-wrap: wrap
 	margin-bottom: 10px
 
+.taco
+	width: 140px
+	height: 140px
 
+
+#introText
+	align-self: flex-end
 
 .subhead
 	align-self: flex-start
@@ -160,10 +171,10 @@ p
 	display: flex
 	flex-direction: column
 	background-color: $text-color
-	height: 500px
-	width: 35%
-	margin-right: 75px
-	margin-top: 25px
+	height: 425px
+	width: 40%
+	margin-right: 35px
+	
 	box-shadow: 5px 5px 2px $banner-color
 
 	h2
@@ -245,27 +256,41 @@ p
 	padding: 20px 20px
 
 #checklistContainer
-	margin-top: 200px
-	margin-left: 25px
+	margin-left: 15px
+	margin-right: 15px
 	display: flex
 	flex-direction: column
 	flex-grow: 1
 	width: 450px
-	height: 535px
+	height: 510px
 	overflow-y: auto
 	background-color: $banner-color
-	padding: 10px 10px
-	margin: 0px 10px 0px 15px
 	
-	ul
-		margin-top: 50px
+	
+	box-shadow: 5px 3px 2px $text-color
 
+	h2
+		text-align: center
+		font-family: ddchardware
+		color: $text-color
+		font-size: 55px
+		letter-spacing: -3px
+		border-top: 2px solid $text-color
+		border-bottom: 2px solid $text-color
+		margin-top: 10px
+	
 
 	li
 		display: flex
 		flex-dirextion: row
 		justify-contents: center
 		align-items: center
+
+
+#displayChecklist
+	margin: 0px 10px 10px 10px
+	overflow-y: auto
+	overflow-x: hidden
 
 .checklistItem
 	display: flex
@@ -283,18 +308,7 @@ p
 	height: 35px
 	background-image: url("../img/emptyBox.png")
 	background-size: contain
-	&:active
-		background-image: url("../img/checkedBox.png")
-		background-size: contain
-	&:visited
-		background-image: url("../img/checkedBox.png")
-		background-size: contain
-	&:hover
-		background-image: url("../img/checkedBox.png")
-		background-size: contain
-	&:focus
-		background-image: url("../img/checkedBox.png")
-		background-size: contain
+
 
 .itemInfo
 	
@@ -320,32 +334,57 @@ p
 
 
 #badgesContainer
-	width: 430px
+	width: 415px
 
 	margin-right: 15px
 	background-color: $banner-color
-	padding: 10px 10px
+	box-shadow: 5px 3px 2px $text-color
+	
+
+	h2
+		text-align: center
+		font-family: ddchardware
+		color: $text-color
+		font-size: 35px
+		letter-spacing: -3px
+		border-top: 2px solid $text-color
+		border-bottom: 2px solid $text-color
+		margin-top: 10px
 
 #badgeItems
-	width: 410px
+	width: 395px
 	display: flex
 	flex-direction: row
 	justify-content: space-between
 	align-items: center
 	flex-wrap: wrap
-	margin-top: 50px
+	margin: 0px 10px 10px 10px
+	
 
 #leaderboardContainer
 	width: 220px
-	margin-right: 10px
+	margin-right: 15px
+	background-color: $text-color
+	box-shadow: 5px 3px 2px $banner-color
+
+	h2
+		text-align: center
+		font-family: ddchardware
+		color: $banner-color
+		font-size: 35px
+		letter-spacing: -3px
+		border-top: 2px solid $banner-color
+		border-bottom: 2px solid $banner-color
+		margin-top: 10px
 
 
 #leaderboardItems
 	width: 200px
 	display: flex
 	flex-direction: column
-	background-color: $banner-color
-	padding: 10px 10px
+	background-color: $textBox-color
+	margin: 0px 15px 10px 10px
+	text-align: center
 
 		
 
@@ -385,9 +424,20 @@ p
 	align-self: center
 	justify-content: center
 	margin: 10px 15px 0px 0px
+	box-shadow: 5px 5px 2px $banner-color
+
+	h2
+		text-align: center
+		font-family: ddchardware
+		color: $banner-color
+		font-size: 35px
+		letter-spacing: -3px
+		border-top: 2px solid $banner-color
+		border-bottom: 2px solid $banner-color
+		margin-top: 10px
 
 #displayReviews
-	margin: 50px 10px 10px 10px
+	margin: 0px 10px 10px 10px
 	
 	overflow-y: auto
 	overflow-x: hidden
