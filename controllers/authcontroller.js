@@ -11,26 +11,16 @@ exports.signin = function(req, res) {
 };
 
 exports.dashboard = function(req, res) {
-    
-    db.location.findAll().then(function(locations){
-          var hbsObject = [
-          {
-            loc: locations
-          },
-          {
-            user: req.user
-          }
-          ];
-          console.log("___________________________");
-          console.log(hbsObject);
-          console.log("___________________________");
-          console.log("____________Name_______________");
-          //console.log(hbsObject.loc[0].dataValues.name);
-          console.log("______________Name_____________");
-        res.render('dashboard', hbsObject);
-    });
 
-};
+  db.location.findAll().then(function(locations){
+
+      var hbsObject = {
+        loc: locations,
+        user: req.user
+      };
+    res.render('dashboard', hbsObject);
+  })
+  }
 
 exports.logout = function(req, res) {
     req.session.destroy(function(err) {

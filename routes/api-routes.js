@@ -3,17 +3,30 @@
 var db = require("../models");
 
 module.exports = function(app){
+
 	app.get("/api/users",function(req,res){
 		db.user.findAll({}).then(function(dbUser){
 			res.json(dbUser);
 		});
 	});
 
+
 	app.get("/api/locations",function(req,res){
-		db.location.findAll({}).then(function(dbLocations){
+		db.location.findAll({
+			include: [db.userRating]
+		}).then(function(dbLocations){
 			res.json(dbLocations);
 		});
 	});
+
+	app.get("/api/userRatings", function(req, res){
+		db.userRating.findAll({
+			include: [db.user]
+		}).then(function(dbUserRatings){
+			res.json(dbUserRatings);
+		});
+	});
+
 
 	app.get("/api/weekly-challenge",function(req,res){
 		db.WeeklyChallenge.findAll({}).then(function(dbWeeklyChallenge){
@@ -63,7 +76,7 @@ module.exports = function(app){
 			//}.then(function(){
 				res.json(leaderboard);
 			//})
-			
+
 		});
 	});
 
