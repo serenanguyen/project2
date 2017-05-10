@@ -39,7 +39,12 @@ module.exports = function(passport, user){
               badges += ",0"
             };
 
-             var userPassword = generateHash(password);
+          db.MonthlyChallenge.findAll({"currentChallenge": 1}).then(function(data){
+            
+          });
+
+          var userPassword = generateHash(password);
+
           var data =
           {
             username: username,
@@ -59,7 +64,7 @@ module.exports = function(passport, user){
           });
 
 
-         
+
         }
       });
     }
