@@ -1,6 +1,6 @@
 var bCrypt = require('bcrypt-nodejs');
 
-module.exports = function(passport, user){
+module.exports = function(passport, user, monthlyStatus){
   var User = user;
   var LocalStrategy = require('passport-local').Strategy;
 
@@ -40,6 +40,10 @@ module.exports = function(passport, user){
               return done(null, false);
             }
             if (newUser){
+              monthlyStatus.create({
+                // monthlyChallengeId: 1,
+                userId: newUser.id
+              })
               return done(null, newUser);
             }
           });

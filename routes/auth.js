@@ -2,6 +2,7 @@ var authController = require('../controllers/authcontroller.js');
 var userRating = require("../models").userRating;
 var User = require("../models").user;
 var location = require("../models").location;
+var status = require("../models").monthlyStatus;
 
 module.exports = function(app, passport) {
   app.get('/signup', authController.signup);
@@ -55,6 +56,7 @@ module.exports = function(app, passport) {
   app.post("/api/rating", function(req, res){
     // console.log("params!!", req.params);
     // console.log("USER ID CURRENT!!!!! "+req.user.id);
+    
     userRating.create({
       rating: req.body.star,
       review: req.body.review,
@@ -63,6 +65,7 @@ module.exports = function(app, passport) {
       locationId: req.body.locationId,
       userId: req.user.id
     }).then(function(){
+
         res.redirect('/dashboard');
     });
   });
