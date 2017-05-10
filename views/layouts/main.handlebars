@@ -5,11 +5,16 @@
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="/assets/css/reset.css" type="text/css" />
 		<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="/assets/css/style.css" media="screen" title="no title">
+		
 		<script src="https://code.jquery.com/jquery.js"></script>
 		{{!--<script type="text/javascript" src="/public/js/dashboard.js"></script>--}}
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+		<script src="/js/slim-scroll-1.3.0/slimscroll.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+		<link rel="stylesheet" href="/assets/css/style.css" media="screen" title="no title">
 		<title>HUNT & GATHER</title>
 	</head>
 
@@ -19,42 +24,46 @@
 		<a href="/"><img src="/assets/img/logo.png" alt="logo"></a>
 	</div>
 
-		<nav id="navBar">
-			<ul id="loggedOut">
 
-				    <ul class="nav navbar-nav">
-            <li>
-              {{#if user}}
-                <p class="navbar-text">
-                  <strong>Hi,</strong>
-                  <img src="{{user.avatar}}" width="20" height="20">
-                  {{user.username}}
-                </p>
-                </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li>
-                    <a href="/logout">Log Out</a>
-                  </li>
-              {{else}}
+	<nav id="navBar">
+		<ul id="loggedOut">
 
-				<form id="signin" name="signin" method="post" action="signin">
-					<input class="formInput" type="text" name="username" placeholder="username" />
-					<input class="formInput" type="password" name="password" placeholder="password">
-					<input type="hidden" name="loggedIn" value="1">
-					<a href="/dashboard"><button class="button" type="submit">Login</button></a>
-				</form>
-
-			</ul>
-              {{/if}}
-          </ul>
+					<ul>
+					<li>
+						{{#if user}}
+							<p class="navbar-text">
+								<strong>Hi, {{user.username}}!</strong>
 
 
-		</nav>
+							</p>
+							</li>
+							</ul>
+							<ul>
+								<li>
+									<a href="/logout">Log Out</a>
+								</li>
+						{{else}}
+
+						<input class="formInput" type="text" name="username" placeholder="username">
+						<input class="formInput" type="password" name="password" placeholder="password">
+						<input type="hidden" name="loggedIn" value="1">
+						<a href="/dashboard"><button class="button" type="submit">Login</button></a>
+
+		</ul>
+						{{/if}}
+				</ul>
+
+
+	</nav>
+
 	</header>
 
 	{{{ body }}}
 
+
+
+	<script type="text/javascript" src="js/vanilla-tilt.min.js"></script>
+	<script type="text/javascript" src="js/frontend.js"></script>
 
 	</body>
 
