@@ -55,6 +55,30 @@ $("#createChallenge").on("click", function(){
 	$.post("/challenge/create",newChallenge)
 	.then(function(){
 		console.log(newChallenge);
+		location.reload();
 	});
 });
+
+$("#challengeSubmit").on("click",function(){
+	console.log($("#challengeOption :selected").attr("value"));
+	var newChId = {id: $("#challengeOption :selected").attr("value")};
+	$.post("/api/MonthlyChallenge", newChId)
+	.then(function(){
+		console.log("updated");
+		location.reload();
+	});
+});
+
+$.get("/api/MonthlyChallenge", function(data){
+    $("#challengeOption").empty();
+
+    for(i=0;i<data.length;i++){
+    	$("#challengeOption").append("<option value='" + data[i].id + "' >"+ data[i].name +"</option>" );
+
+        if(data[i].currentChallenge){
+            $("#currentChallenge").html(data[i].name);
+        }  
+    }
+});
+
 

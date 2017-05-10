@@ -28,10 +28,37 @@ module.exports = function(app){
 	});
 
 
-	app.get("/api/weekly-challenge",function(req,res){
-		db.WeeklyChallenge.findAll({}).then(function(dbWeeklyChallenge){
-			res.json(dbWeeklyChallenge);
+	app.get("/api/MonthlyChallenge",function(req, res){
+		db.MonthlyChallenge.findAll({}).then(function(dbMonthlyChallenge){
+			res.json(dbMonthlyChallenge);
 		});
+	});
+
+	app.post("/api/MonthlyChallenge",function(req, res){
+		db.MonthlyChallenge.findAll({}).then(function(dbMonthlyChallenge){
+			for(i=0;i<dbMonthlyChallenge.length;i++){
+
+				db.MonthlyChallenge.update({
+           			currentChallenge: 0
+          		},{
+            		where:{
+             			id: dbMonthlyChallenge[i].id
+            		}
+          		});
+			}
+
+			console.log(req.body);
+			console.log("--------------------------");
+			db.MonthlyChallenge.update({
+            	currentChallenge: 1
+          		},{
+            		where:{
+              			id: req.body.id
+            		}
+          	});
+			
+		});
+
 	});
 
 	app.get("/api/leaderboard",function(req, res){

@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 
 var passport   = require('passport'),
-  FacebookStrategy = require('passport-facebook').Strategy;
+FacebookStrategy = require('passport-facebook').Strategy;
 var session = require('express-session');
 var env = require('dotenv').load();
 // init express

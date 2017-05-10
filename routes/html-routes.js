@@ -40,7 +40,7 @@ module.exports = function(app){
 
       db.MonthlyChallenge.create(req.body).then(function(dbChallenge){
         console.log("lol");
-        res.redirect("/challenge/create");
+        res.send('/challenge/create');
       });
     });
     
