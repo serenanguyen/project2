@@ -62,7 +62,7 @@ require("./routes/api-routes.js")(app);
 
 var authRoute = require('./routes/auth.js')(app, passport);
 
-require('./config/passport/passport.js')(passport, db.user);
+require('./config/passport/passport.js')(passport, db.user, db.monthlyStatus);
 
 // sync models to db before connecting to database so server won't start if there is an error connecting to db or before db is ready
 

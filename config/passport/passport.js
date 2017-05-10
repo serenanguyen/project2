@@ -1,7 +1,7 @@
 var bCrypt = require('bcrypt-nodejs');
 var db = require("../../models");
 
-module.exports = function(passport, user){
+module.exports = function(passport, user, monthlyStatus){
   var User = user;
   var LocalStrategy = require('passport-local').Strategy;
 
@@ -57,18 +57,18 @@ module.exports = function(passport, user){
             }
             if (newUser){
               db.MonthlyChallenge.findAll({"currentChallenge": 1}).then(function(data){
-                db.monthlyStatus.create({
-                  MonthlyChallengeId: data.id,
-                  location1: data.location1Id,
-                  location2: data.location2Id,
-                  location3: data.location3Id,
-                  location4: data.location4Id,
-                  location5: data.location5Id,
-                  location6: data.location6Id,
-                  location7: data.location7Id,
-                  location8: data.location8Id,
-                  location9: data.location9Id,
-                  location10: data.location10Id,
+                monthlyStatus.create({
+                  MonthlyChallengeId: data[0].id,
+                  location1: data[0].location1Id,
+                  location2: data[0].location2Id,
+                  location3: data[0].location3Id,
+                  location4: data[0].location4Id,
+                  location5: data[0].location5Id,
+                  location6: data[0].location6Id,
+                  location7: data[0].location7Id,
+                  location8: data[0].location8Id,
+                  location9: data[0].location9Id,
+                  location10: data[0].location10Id,
                   userId: newUser.id
                 })
               });
