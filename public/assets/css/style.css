@@ -408,7 +408,7 @@ p {
     text-decoration: none;
     cursor: pointer; }
 
-.flexContainer {
+#reviewContainer {
   display: flex;
   justify-content: center; }
 
