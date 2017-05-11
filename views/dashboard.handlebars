@@ -1,5 +1,5 @@
 <main class="flexContainer">
-	
+
    <div id="checklistContainer">
 
    	<h2>The Hunt List</h2>
@@ -12,7 +12,7 @@
 		                <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
 		                <p class="clAddress">{{this.address}}</p>
 
-		                
+
 		            </div>
 		            <a class="seeReviewsButton" data-toggle="collapse" data-target="#reviewbox{{this.id}}">See What Other Hunters Are Saying!</a>
 		            <div class="checkboxWrapper">
@@ -27,7 +27,7 @@
 		        		{{#each this.userRatings}}
 							<p>Review: {{this.review}}</p>
 							<p>Notes: {{this.notes}}</p>
-							<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p> 
+							<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
 							<p>User: {{this.username}}</p>
 						{{/each}}
 					</div>
@@ -49,7 +49,7 @@
 		 <img src="http://placehold.it/75x75" data-tilt>
 		 <img src="http://placehold.it/75x75" data-tilt>
 		 <img src="http://placehold.it/75x75" data-tilt>
-		 
+
 	</div>
  </aside>
 
@@ -85,7 +85,7 @@
 <!-- {{#each this.userRatings}}
 <p>Review: {{this.review}}</p>
 <p>Notes: {{this.notes}}</p>
-<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p> 
+<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
 <p>User: {{this.username}}</p>
 {{/each}}
  -->
@@ -101,4 +101,3 @@
 
 
 </main>
-

@@ -66,71 +66,98 @@ module.exports = function(app, passport) {
       username: req.user.username,
       locationId: req.body.locationId,
       userId: req.user.id
-    }).then(function(){
+    })
+    .then(function(){
+      db.location.findAll({
+      include: [db.userRating]
+    })
+    .then(function(dbLocations){
 
+      for(i=0;i<dbLocations.length;i++){
+
+        var avgRating = 0;
+        for(j=0;j<dbLocations[i].userRatings.length;j++){
+          console.log(j +" "+ i);
+          avgRating += dbLocations[i].userRatings[j].rating;
+        }
+        avgRating = avgRating/dbLocations[i].userRatings.length;
+        console.log("UPDATE HELLO");
+        db.location.update({
+          ratingAvg: avgRating
+        },{
+        where:{
+          id: dbLocations[i].id
+         }
+        });
+      }
+
+      });
+    })
+    .then(function(){
+  console.log("UPDATEEEEEEEEEEE")
       monthlyStatus.update(
         {location1: 0},
         {where:
           {userId: req.user.id,
           location1: req.body.locationId}
         });
-
+  console.log("UPDATEEEEEEEEEEE")
       monthlyStatus.update(
         {location2: 0},
         {where:
           {userId: req.user.id,
           location2: req.body.locationId}
         });
-
+  console.log("UPDATEEEEEEEEEEE")
       monthlyStatus.update(
         {location3: 0},
         {where:
           {userId: req.user.id,
           location3: req.body.locationId}
         });
-
+  console.log("UPDATEEEEEEEEEEE")
       monthlyStatus.update(
         {location4: 0},
         {where:
           {userId: req.user.id,
           location4: req.body.locationId}
         });
-
+  console.log("UPDATEEEEEEEEEEE")
       monthlyStatus.update(
         {location5: 0},
         {where:
           {userId: req.user.id,
           location5: req.body.locationId}
         });
-
+  console.log("UPDATEEEEEEEEEEE")
       monthlyStatus.update(
         {location6: 0},
         {where:
           {userId: req.user.id,
           location6: req.body.locationId}
         });
-
+  console.log("UPDATEEEEEEEEEEE")
       monthlyStatus.update(
         {location7: 0},
         {where:
           {userId: req.user.id,
           location7: req.body.locationId}
         });
-
+  console.log("UPDATEEEEEEEEEEE")
       monthlyStatus.update(
         {location8: 0},
         {where:
           {userId: req.user.id,
           location8: req.body.locationId}
         });
-
+  console.log("UPDATEEEEEEEEEEE")
       monthlyStatus.update(
         {location9: 0},
         {where:
           {userId: req.user.id,
           location9: req.body.locationId}
         });
-
+      console.log("UPDATEEEEEEEEEEE")
       monthlyStatus.update(
         {location10: 0},
         {where:
@@ -153,9 +180,8 @@ module.exports = function(app, passport) {
         .then(function(status){
           var sum = (status.location1 + status.location2 + status.location3 + status.location4 + status.location5 + status.location6 + status.location7 + status.location8 + status.location8 + status.location9 + status.location10);
 
-          console.log("SUMMMMMMMM "+ sum);
-
           if(sum === 0){
+            console.log("FIND ONE!!!!")
             User.findOne({
               where: {
                 id: req.user.id
@@ -164,6 +190,7 @@ module.exports = function(app, passport) {
             .then(function(user){
               var badges = user.badges;
               badges += status.MonthlyChallengeId + ", "
+              console.log("USER UPDATE");
               User.update({
                 badges: badges
               },{
@@ -177,27 +204,6 @@ module.exports = function(app, passport) {
 
       })
       .then(function(){
-         db.location.findAll({
-            include: [db.userRating]
-          }).then(function(dbLocations){
-
-            for(i=0;i<dbLocations.length;i++){
-              var avgRating = 0;
-              for(j=0;j<dbLocations[i].userRatings.length;j++){
-                avgRating += dbLocations[i].userRatings[j].rating;
-              }
-              avgRating = avgRating/dbLocations[i].userRatings.length;
-
-              db.location.update({
-                ratingAvg: avgRating
-              },{
-              where:{
-                id: dbLocations[i].id
-               }
-              });
-            }
-
-            });
       res.redirect('/dashboard');
     })
   });
