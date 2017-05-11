@@ -5,7 +5,8 @@ var db = require("../models");
 module.exports = function(app){
 
 	app.get("/api/users",function(req,res){
-		db.user.findAll({}).then(function(dbUser){
+		db.user.findAll({
+		}).then(function(dbUser){
 			res.json(dbUser);
 		});
 	});
@@ -27,6 +28,24 @@ module.exports = function(app){
 		});
 	});
 
+	app.get("/api/monthlystatus", function(req, res){
+		db.monthlyStatus.findAll({})
+		.then(function(dbStatus){
+			res.json(dbStatus);
+		});
+	});
+
+	app.get("/api/test", function(req,res){
+		db.monthlyStatus.findOne({
+			where: {
+				userId: 7
+			}
+		})
+		.then(function(object){
+
+			res.json(object);
+		});
+	});
 
 	app.get("/api/MonthlyChallenge",function(req, res){
 		db.MonthlyChallenge.findAll({}).then(function(dbMonthlyChallenge){
@@ -56,7 +75,7 @@ module.exports = function(app){
               			id: req.body.id
             		}
           	});
-			
+
 		});
 
 	});
