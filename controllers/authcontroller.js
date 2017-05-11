@@ -19,8 +19,9 @@ exports.dashboard = function(req, res) {
         user: req.user
       };
     res.render('dashboard', hbsObject);
-  })
-  }
+  });
+  
+  };
 
 exports.logout = function(req, res) {
     req.session.destroy(function(err) {

@@ -36,6 +36,13 @@ module.exports = function(app, passport) {
     }
   ));
 
+  app.get("/rating", isLoggedIn, function(req, res){
+    var hbsItem = {
+      user: req.user
+    };
+    res.render("rating", hbsItem);
+  });
+
   app.get("/rating", isLoggedIn, function(req,res){
     console.log(req.query.location_id);
     location.findOne({
