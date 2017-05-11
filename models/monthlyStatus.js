@@ -1,5 +1,6 @@
 module.exports = function(sequelize, DataTypes){
   var monthlyStatus = sequelize.define("monthlyStatus", {
+
     location1: DataTypes.INTEGER,
     location2: DataTypes.INTEGER,
     location3: DataTypes.INTEGER,
@@ -10,6 +11,7 @@ module.exports = function(sequelize, DataTypes){
     location8: DataTypes.INTEGER,
     location9: DataTypes.INTEGER,
     location10: DataTypes.INTEGER
+
   }, {
     classMethods: {
       associate: function(models) {

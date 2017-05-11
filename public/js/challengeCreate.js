@@ -12,10 +12,10 @@ $(document).on("click",".addToChallenge",function(){
 				break;
 			case 3:
 				$("#loc3").html($(this).attr("data-name"));
-				break;	
+				break;
 			case 4:
 				$("#loc4").html($(this).attr("data-name"));
-				break;	
+				break;
 			case 5:
 				$("#loc5").html($(this).attr("data-name"));
 				break;
@@ -33,7 +33,7 @@ $(document).on("click",".addToChallenge",function(){
 				break;
 			case 10:
 				$("#loc10").html($(this).attr("data-name"));
-				break;					
+				break;
 		}
 
 	};
@@ -41,6 +41,7 @@ $(document).on("click",".addToChallenge",function(){
 $("#createChallenge").on("click", function(){
 	var newChallenge = {
 		name: $("#challengeName").val().trim(),
+		currentChallenge: true,
 		location1Id: locIdArray[0],
 		location2Id: locIdArray[1],
 		location3Id: locIdArray[2],
@@ -58,6 +59,7 @@ $("#createChallenge").on("click", function(){
 		location.reload();
 	});
 });
+
 
 $("#challengeSubmit").on("click",function(){
 	console.log($("#challengeOption :selected").attr("value"));
@@ -77,8 +79,6 @@ $.get("/api/MonthlyChallenge", function(data){
 
         if(data[i].currentChallenge){
             $("#currentChallenge").html(data[i].name);
-        }  
+        }
     }
 });
-
-

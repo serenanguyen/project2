@@ -11,6 +11,12 @@ module.exports = function(app){
 		});
 	});
 
+	app.get("api/monthlyChallenge", function(req, res){
+		db.MonthlyChallenge.findAll({}).then(function(dbMonthlyChallenge){
+			res.json(dbMonthlyChallenge);
+		});
+	});
+
 
 	app.get("/api/locations",function(req,res){
 		db.location.findAll({
@@ -35,23 +41,12 @@ module.exports = function(app){
 		});
 	});
 
-	app.get("/api/test", function(req,res){
-		db.monthlyStatus.findOne({
-			where: {
-				userId: 7
-			}
-		})
-		.then(function(object){
-
-			res.json(object);
-		});
-	});
-
 	app.get("/api/MonthlyChallenge",function(req, res){
 		db.MonthlyChallenge.findAll({}).then(function(dbMonthlyChallenge){
 			res.json(dbMonthlyChallenge);
 		});
 	});
+
 
 	app.post("/api/MonthlyChallenge",function(req, res){
 		db.MonthlyChallenge.findAll({}).then(function(dbMonthlyChallenge){

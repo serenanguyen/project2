@@ -29,15 +29,15 @@ module.exports = function(passport, user, monthlyStatus){
           console.log("That username is already taken");
         } else {
 
-          var badges = "0";
-          db.MonthlyChallenge.findAll({}).then(function(data){
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            console.log(data[0].name);
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            for(i=0;i<data.length - 1;i++){
-              console.log(badges);
-              badges += ",0"
-            };
+          //var badges = "0";
+          //db.MonthlyChallenge.findAll({}).then(function(data){
+            // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            // console.log(data[0].name);
+            // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            // for(i=0;i<data.length - 1;i++){
+            //   console.log(badges);
+            //   badges += ",0"
+            // };
 
 
 
@@ -48,14 +48,15 @@ module.exports = function(passport, user, monthlyStatus){
             username: username,
             name: req.body.name,
             email: req.body.email,
-            password: userPassword,
-            badges: badges
+            password: userPassword//,
+            //badges: badges
           };
           User.create(data).then(function(newUser, created){
             if(!newUser){
               return done(null, false);
             }
             if (newUser){
+
               db.MonthlyChallenge.findAll({"currentChallenge": 1}).then(function(data){
                 monthlyStatus.create({
                   MonthlyChallengeId: data[0].id,
@@ -72,10 +73,11 @@ module.exports = function(passport, user, monthlyStatus){
                   userId: newUser.id
                 })
               });
+
               return done(null, newUser);
             }
           });
-          });
+         //});
 
 
 
