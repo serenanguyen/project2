@@ -40,6 +40,13 @@ module.exports = function(app, passport) {
     }
   ));
 
+  app.get("/rating", isLoggedIn, function(req, res){
+    var hbsItem = {
+      user: req.user
+    };
+    res.render("rating", hbsItem);
+  });
+
   app.get("/rating", isLoggedIn, function(req,res){
     console.log(req.query.location_id);
     location.findOne({
@@ -72,11 +79,12 @@ module.exports = function(app, passport) {
 
       for(i=0;i<dbLocations.length;i++){
         var avgRating = 0;
-        for(j=0;j<dbLocations[i].userRatings.length;j++){
-          avgRating += dbLocations[i].userRatings[j].rating;
+        if(dbLocations[i].userRatings.length>0){
+          for(j=0;j<dbLocations[i].userRatings.length;j++){
+            avgRating += dbLocations[i].userRatings[j].rating;
+          }
+          avgRating = avgRating/dbLocations[i].userRatings.length;
         }
-        avgRating = avgRating/dbLocations[i].userRatings.length;
-
         db.location.update({
           ratingAvg: avgRating
         },{
