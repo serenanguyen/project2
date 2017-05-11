@@ -23,20 +23,20 @@ module.exports = function(app){
     });
 
     app.post("/challenge/create", function(req, res){
-      db.user.findAll({}).then(function(data){
-        for(i=0;i<data.length;i++){
-          console.log(data[i]);
-          var badges = data[i].badges;
-          badges += ",0";
-          db.user.update({
-            badges: badges
-          },{
-            where:{
-              id: data[i].id
-            }
-          });
-        }
-      });
+      // db.user.findAll({}).then(function(data){
+      //   for(i=0;i<data.length;i++){
+      //     console.log(data[i]);
+      //     var badges = data[i].badges;
+      //     badges += ",0";
+      //     db.user.update({
+      //       badges: badges
+      //     },{
+      //       where:{
+      //         id: data[i].id
+      //       }
+      //     });
+      //   }
+      // });
 
       db.MonthlyChallenge.create(req.body).then(function(dbChallenge){
         console.log("lol");
