@@ -1,4 +1,5 @@
 var bCrypt = require('bcrypt-nodejs');
+var db = require("../../models");
 
 module.exports = function(passport, user, monthlyStatus){
   var User = user;
@@ -27,13 +28,25 @@ module.exports = function(passport, user, monthlyStatus){
           // });
           console.log("That username is already taken");
         } else {
-          var userPassword = generateHash(password);
+
+          //var badges = "0";
+          //db.MonthlyChallenge.findAll({}).then(function(data){
+            // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            // console.log(data[0].name);
+            // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            // for(i=0;i<data.length - 1;i++){
+            //   console.log(badges);
+            //   badges += ",0"
+            // };
+
+             var userPassword = generateHash(password);
           var data =
           {
             username: username,
             name: req.body.name,
             email: req.body.email,
-            password: userPassword
+            password: userPassword//,
+            //badges: badges
           };
           User.create(data).then(function(newUser, created){
             if(!newUser){
@@ -47,6 +60,10 @@ module.exports = function(passport, user, monthlyStatus){
               return done(null, newUser);
             }
           });
+         //});
+
+
+         
         }
       });
     }
