@@ -1,14 +1,38 @@
-document.onload = function(){
-
-$(document).ready(function(){
-	$("#checklistContainer").slidedown();
-
-	
-});
 
 
 
-};
+
+	 (function($){
+        $(window).on("load",function(){
+            $("#displayChecklist").mCustomScrollbar({
+            	theme: "rounded"
+            });
+        });
+    })(jQuery);
+
+
+   		 (function($){
+        $(window).on("load",function(){
+            $("#displayReviews").mCustomScrollbar({
+            	theme: "rounded"
+            });
+        });
+    })(jQuery);
+
+      		 (function($){
+        $(window).on("load",function(){
+            $(".reviewDropDown").mCustomScrollbar({
+            	theme: "rounded"
+            });
+        });
+    })(jQuery);
+
+
+
+
+
+
+
 
 
 
@@ -16,6 +40,8 @@ $("div.check").on("click", function(event){
 	
 	$(this).css("background-image", "url(assets/img/checkedBox.png)");
 })
+
+
 
     $.fn.stars = function() {
         return $(this).each(function() {
