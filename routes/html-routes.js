@@ -37,8 +37,34 @@ module.exports = function(app){
       //     });
       //   }
       // });
+      
 
       db.MonthlyChallenge.create(req.body).then(function(dbChallenge){
+        db.user.findAll({}).then(function(data){
+
+        var userStatus = {
+          location1: req.body.location1Id,
+          location2: req.body.location2Id,
+          location3: req.body.location3Id,
+          location4: req.body.location4Id,
+          location5: req.body.location5Id,
+          location6: req.body.location6Id,
+          location7: req.body.location7Id,
+          location8: req.body.location8Id,
+          location9: req.body.location9Id,
+          location10: req.body.location10Id,
+          MonthlyChallengeId: dbChallenge.id,
+          userId: 0
+        }
+
+        for(i=0;i<data.length;i++){
+          userStatus.userId = data[i].id;
+          db.monthlyStatus.create(userStatus).then(function(){
+
+          });
+        } 
+      });
+
         console.log("lol");
         res.send('/challenge/create');
       });
