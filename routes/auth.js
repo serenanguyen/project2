@@ -163,23 +163,16 @@ module.exports = function(app, passport) {
         {where:
           {userId: req.user.id,
           location10: req.body.locationId}
-        });
-
-        // findone({userId:userid}{
-        //   monthlyStatus.location1+ montl
-        //   if(var = 0)
-        //   set badge to true
-        // })
-        // set badge to challenge id if sum=0
-
-        monthlyStatus.findOne({
+        }).then(function(){
+              monthlyStatus.findOne({
           where: {
             userId: req.user.id
           }
         })
         .then(function(status){
           var sum = (status.location1 + status.location2 + status.location3 + status.location4 + status.location5 + status.location6 + status.location7 + status.location8 + status.location8 + status.location9 + status.location10);
-
+          console.log("---------------------------")
+          console.log(sum);
           if(sum === 0){
 
             User.findOne({
@@ -189,7 +182,11 @@ module.exports = function(app, passport) {
             })
             .then(function(user){
               var badges = user.badges;
-              badges += status.MonthlyChallengeId + ", "
+              if(badges === null){
+                badges = status.MonthlyChallengeId + ","
+              }else{
+                badges += status.MonthlyChallengeId + ","
+              }
 
               User.update({
                 badges: badges
@@ -197,10 +194,20 @@ module.exports = function(app, passport) {
                 where:{
                   id: req.user.id
                 }
-              })
-            })
+              });
+            });
           }
-        })
+        });
+        });
+
+        // findone({userId:userid}{
+        //   monthlyStatus.location1+ montl
+        //   if(var = 0)
+        //   set badge to true
+        // })
+        // set badge to challenge id if sum=0
+
+    
 
       })
       .then(function(){
