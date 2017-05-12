@@ -47,6 +47,53 @@ module.exports = function(app){
 		});
 	});
 
+	app.get("/api/monthlyChallenge/locations",function(req, res){
+		db.MonthlyChallenge.findOne({
+			where:{
+				currentChallenge: 1
+			}
+		}).then(function(Challenge){
+			db.location.findAll({}).then(function(locations){
+				var currentLocations = [];
+				for(i=0;i<locations.length;i++){
+					switch(locations[i].id){
+						case Challenge.location1Id:
+							currentLocations.push(locations[i]);
+							break;
+						case Challenge.location2Id:
+							currentLocations.push(locations[i]);
+							break;
+						case Challenge.location3Id:
+							currentLocations.push(locations[i]);
+							break;
+						case Challenge.location4Id:
+							currentLocations.push(locations[i]);
+							break;
+						case Challenge.location5Id:
+							currentLocations.push(locations[i]);
+							break;
+						case Challenge.location6Id:
+							currentLocations.push(locations[i]);
+							break;
+						case Challenge.location7Id:
+							currentLocations.push(locations[i]);
+							break;
+						case Challenge.location8Id:
+							currentLocations.push(locations[i]);
+							break;
+						case Challenge.location9Id:
+							currentLocations.push(locations[i]);
+							break;		
+						case Challenge.location10Id:
+							currentLocations.push(locations[i]);
+							break;							
+					}
+				}
+				res.json(currentLocations);
+			});
+		});
+	});
+
 
 	app.post("/api/MonthlyChallenge",function(req, res){
 		db.MonthlyChallenge.findAll({}).then(function(dbMonthlyChallenge){
