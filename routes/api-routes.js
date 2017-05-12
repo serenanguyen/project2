@@ -6,6 +6,7 @@ module.exports = function(app){
 
 	app.get("/api/users",function(req,res){
 		db.user.findAll({
+			include: [db.monthlyStatus]
 		}).then(function(dbUser){
 			res.json(dbUser);
 		});
@@ -35,7 +36,9 @@ module.exports = function(app){
 	});
 
 	app.get("/api/monthlystatus", function(req, res){
-		db.monthlyStatus.findAll({})
+		db.monthlyStatus.findAll({
+			include: [db.MonthlyChallenge]
+		})
 		.then(function(dbStatus){
 			res.json(dbStatus);
 		});
