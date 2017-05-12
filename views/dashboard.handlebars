@@ -11,24 +11,31 @@
 		            <div class="itemInfo">
 		                <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
 		                <p class="clAddress">{{this.address}}</p>
+					</div>
 
-
-		            </div>
 		            <a class="seeReviewsButton" data-toggle="collapse" data-target="#reviewbox{{this.id}}">See What Other Hunters Are Saying!</a>
+
 		            <div class="checkboxWrapper">
 		                <a href="/rating?location_id={{this.id}}"><div class="check"></div></a>
 		            </div>
-		            </div>
+		          </div>
 		            {{!-- {{dataValues.name}} --}}
 		        </li>
 
 		        <div id="reviewbox{{this.id}}" class="collapse">
 		        	<div class="reviewDropDown">
 		        		{{#each this.userRatings}}
+		        		<div class="publicReviews">
+
+		        			<p>User: {{this.username}}</p>
+
+		        			<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
+
 							<p>Review: {{this.review}}</p>
-							<p>Notes: {{this.notes}}</p>
-							<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
-							<p>User: {{this.username}}</p>
+
+							
+							
+						</div>
 						{{/each}}
 					</div>
 		       	</div>
@@ -69,34 +76,47 @@
  </div>
 
 
- <article id="userReviewsContainer">
+	 <article id="userReviewsContainer">
 
-<h2>Your Notes and Reviews</h2>
-<div id="displayReviews">
-<ul>
+		<h2>Your Notes and Reviews</h2>
 
-{{#each this.loc}}
+			<div id="displayReviews">
+				<ul>
 
-<li>
-<div class="checklistItem">
-<div class="itemInfo">
-<h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+					{{#each this.loc}}
 
-<!-- {{#each this.userRatings}}
-<p>Review: {{this.review}}</p>
-<p>Notes: {{this.notes}}</p>
-<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
-<p>User: {{this.username}}</p>
-{{/each}}
- -->
-</div>
-</div>
-</li>
-{{/each}}
+					<li>
+						<div class="checklistItem">
+							<div class="itemInfo">
+								<h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+							</div>
 
-</ul>
-</div>
-</article>
+							<a class="seeReviewsButton personal" data-toggle="collapse" data-target="#personalReview{{this.id}}">Your Notes and Reviews!</a>
+						</div>
+					</li>
+
+					   <div id="personalReview{{this.id}}" class="collapse">
+		        	<div class="personalDropDown">
+		        		{{#each this.userRatings}}
+		        		<div class="privateReviews">
+
+		        			<p>User: {{this.username}}</p>
+
+		        			<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
+
+							<p>Review: {{this.review}}</p>
+
+						</div>
+						{{/each}}
+					</div>
+		       	</div>
+
+					{{/each}}
+
+				</ul>
+			</div>
+	</article>
+
 </div>
 
 

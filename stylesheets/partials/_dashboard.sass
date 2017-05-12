@@ -20,8 +20,8 @@
 	display: flex
 	flex-direction: column
 	flex-grow: 1
-	width: 450px
-	height: 80vh
+	min-width: 450px
+	height: 83vh
 	overflow-y: auto
 	background-color: $banner-color
 	border-radius: $radius
@@ -70,12 +70,23 @@
 	height: 35px
 	background-image: url("../img/emptyBox.png")
 	background-size: contain
+	&:hover
+		background-image: url("../img/checkedBox.png")
+	&:focus
+		background-image: url("../img/checkedBox.png")
+	&:active
+		background-image: url("../img/checkedBox.png")
+	&:visited
+		background-image: url("../img/checkedBox.png")
 
 
 .itemInfo
 	
 	background-color: $textBox-color
 	padding: 10px 10px
+
+.personal
+	margin-right: 25px
 
 	
 
@@ -86,9 +97,21 @@
 
 
 .reviewDropDown
-	height: 175px
-	background-color: $darkBox-color
+	height: 170px
+	background-color: $banner-color
 	overflow-y: auto
+	padding: 5px 0px 5px 0px
+
+.personalDropDown
+	height: 170px
+	background-color: $text-color
+	overflow-y: auto
+	padding: 5px 0px 5px 0px
+
+.publicReviews
+	background-color: $darkBox-color
+	border-bottom: 3px solid $banner-color
+	padding: 5px 5px 5px 5px
 
 
 .clWebsite
@@ -161,8 +184,7 @@
 
 		
 
-#signin
-	padding-top: 150px
+
 
 #signup
 	display: flex
@@ -191,7 +213,8 @@
 
 	display: flex
 	flex-direction: column
-	max-width: 650px
+	
+	min-width: 350px
 	height: 57vh
 	background-color: $text-color
 	align-self: center
@@ -215,3 +238,8 @@
 	height: 90%
 	overflow-y: auto
 	overflow-x: hidden
+
+.privateReviews
+	background-color: $darkBox-color
+	border-bottom: 3px solid $text-color
+	padding: 5px 5px 5px 5px
