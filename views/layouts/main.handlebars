@@ -45,12 +45,30 @@
 									<a href="/logout">Log Out</a>
 								</li>
 						{{else}}
-					  <form id="signin" name="signin" method="post" action="signin">
-							<input type="text" name="username" placeholder="username">
-							<input type="password" name="password" placeholder="password">
+					  <form id="signin" name="signin" method="post" action="signin" class="form-inline">
+						<div class="form-group">
+							<input class= "formInput" type="text" name="username" placeholder="username">
+						</div>
+						<div class="form-group">
+							<input class= "formInput" type="password" name="password" placeholder="password">
+						</div>
 							<input type="hidden" name="loggedIn" value="1">
-							<button class="button" type="submit">Login</button>
+							{{!--<a href="/dashboard" class="btn btn-default" role="button">login</a>--}}
+							<button class="button" type="submit" id="navLogin">Login</button>
 						</form>
+{{!--
+						<form class="form-inline">
+                            <div class="form-group">
+                                <input class="formInput" type="text" name="username" placeholder="username">
+                            </div>
+                            <div class="form-group">
+                                <input class="formInput" type="password" name="password" placeholder="password">
+                            </div>
+                        <div class="form-group">
+                            <input type="hidden" name="loggedIn" value="1">
+                            <a href="/dashboard" class="btn btn-default" role="button">login</a>
+                        </div>
+                        </form>--}}
 
 		</ul>
 						{{/if}}

@@ -64,6 +64,14 @@ p {
   #loggedOut input {
     padding: 0px 20px 0px 0px; }
 
+.formInput {
+  height: 50px;
+  padding: 15px;
+  text-align: center; }
+
+#navLogin {
+  height: 30px; }
+
 .flexContainer {
   margin-top: 20px;
   display: flex;
@@ -191,6 +199,10 @@ p {
 #facebook {
   width: 200px;
   align-self: center; }
+
+input {
+  height: 20px;
+  text-align: center; }
 
 #infoColumn {
   max-width: 1024px;

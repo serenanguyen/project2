@@ -49,6 +49,7 @@ module.exports = function(app, passport) {
       }
     }).then(function(data){
       var locationObj = {
+        user: req.user,
         location: data
       }
       res.render("rating", locationObj);
