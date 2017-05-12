@@ -20,20 +20,20 @@ module.exports = function(app, passport) {
     }
   ));
 
-  app.get('/dashboard', isLoggedIn, function(req, res){
-
-    location.findAll({
-      include: [userRating]
-    }).then(function(locations){
-        var hbsObject = {
-
-          loc: locations,
-          user: req.user
-        };
-      res.render('dashboard', hbsObject);
-    })
-  });
-  // app.get('/dashboard', isLoggedIn, authController.dashboard);
+  // app.get('/dashboard', isLoggedIn, function(req, res){
+  //
+  //   location.findAll({
+  //     include: [userRating]
+  //   }).then(function(locations){
+  //       var hbsObject = {
+  //
+  //         loc: locations,
+  //         user: req.user
+  //       };
+  //     res.render('dashboard', hbsObject);
+  //   })
+  // });
+  app.get('/dashboard', isLoggedIn, authController.dashboard);
 
   app.get('/logout', authController.logout);
 

@@ -16,9 +16,14 @@
 		            </div>
 		            <a class="seeReviewsButton" data-toggle="collapse" data-target="#reviewbox{{this.id}}">See What Other Hunters Are Saying!</a>
 		            <div class="checkboxWrapper">
+                    {{#if isCompleted}}
+                    {{else}}
 		                <a href="/rating?location_id={{this.id}}">
-                      <div class="check"></div>
+                      <div class="check">
+                      {{isCompleted}}
+                      </div>
                     </a>
+                    {{/if}}
 		            </div>
 		            </div>
 		            {{!-- {{dataValues.name}} --}}

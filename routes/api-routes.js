@@ -51,13 +51,15 @@ module.exports = function(app){
 	});
 
 	app.get("/api/monthlyChallenge/locations",function(req, res){
+		var currentLocations = [];
+		var userLocations = [];
 		db.MonthlyChallenge.findOne({
 			where:{
 				currentChallenge: 1
 			}
 		}).then(function(Challenge){
 			db.location.findAll({}).then(function(locations){
-				var currentLocations = [];
+				// var currentLocations = [];
 				for(i=0;i<locations.length;i++){
 					switch(locations[i].id){
 						case Challenge.location1Id:
@@ -86,14 +88,73 @@ module.exports = function(app){
 							break;
 						case Challenge.location9Id:
 							currentLocations.push(locations[i]);
-							break;		
+							break;
 						case Challenge.location10Id:
 							currentLocations.push(locations[i]);
-							break;							
+							break;
 					}
 				}
-				res.json(currentLocations);
+				db.monthlyStatus.findOne({
+	where: {
+		userId: req.user.id,
+		MonthlyChallengeId: Challenge.id
+	}
+}).then(function(status){
+	for(i=0;i<currentLocations.length;i++){
+		var locationStatus= {
+			id: currentLocations[i].id,
+			name: currentLocations[i].name,
+			website: currentLocations[i].website,
+			mapsUrl: currentLocations[i].mapsUrl,
+			isCompleted: false
+		}
+
+		switch(currentLocations[i].id){
+			case status.location1:
+				userLocations.push(locationStatus);
+				break;
+			case status.location1:
+				userLocations.push(locationStatus);
+				break;
+			case status.location1:
+				userLocations.push(locationStatus);
+				break;
+			case status.location1:
+				userLocations.push(locationStatus);
+				break;
+			case status.location1:
+				userLocations.push(locationStatus);
+				break;
+			case status.location1:
+				userLocations.push(locationStatus);
+				break;
+			case status.location1:
+				userLocations.push(locationStatus);
+				break;
+			case status.location1:
+				userLocations.push(locationStatus);
+				break;
+			case status.location1:
+				userLocations.push(locationStatus);
+				break;
+			case status.location1:
+				userLocations.push(locationStatus);
+				break;
+			default:
+				userLocations.push({
+					id: currentLocations[i].id,
+					name: currentLocations[i].name,
+					website: currentLocations[i].website,
+					mapsUrl: currentLocations[i].mapsUrl,
+					isCompleted: true
+				})
+
+		}
+	}
+})
+				res.json(userLocations);
 			});
+
 		});
 	});
 
