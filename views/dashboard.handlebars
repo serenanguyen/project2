@@ -16,11 +16,12 @@
 		            </div>
 		            <a class="seeReviewsButton" data-toggle="collapse" data-target="#reviewbox{{this.id}}">See What Other Hunters Are Saying!</a>
 		            <div class="checkboxWrapper">
-                    {{#if isCompleted}}
+                    {{#if this.isCompleted}}
+                      <div class="check" style="background-image: url('/assets/img/checkedBox.png')">
+                      </div>
                     {{else}}
 		                <a href="/rating?location_id={{this.id}}">
                       <div class="check">
-                      {{isCompleted}}
                       </div>
                     </a>
                     {{/if}}
@@ -34,7 +35,7 @@
 		        		{{#each this.userRatings}}
 							<p>Review: {{this.review}}</p>
 							<p>Notes: {{this.notes}}</p>
-							<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
+							<p>Rating: {{this.rating}}<span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
 							<p>User: {{this.username}}</p>
 						{{/each}}
 					</div>

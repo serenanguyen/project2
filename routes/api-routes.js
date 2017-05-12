@@ -58,7 +58,9 @@ module.exports = function(app){
 				currentChallenge: 1
 			}
 		}).then(function(Challenge){
-			db.location.findAll({}).then(function(locations){
+			db.location.findAll({
+				include: [db.userRating]
+			}).then(function(locations){
 				// var currentLocations = [];
 				for(i=0;i<locations.length;i++){
 					switch(locations[i].id){
@@ -94,65 +96,7 @@ module.exports = function(app){
 							break;
 					}
 				}
-				db.monthlyStatus.findOne({
-	where: {
-		userId: req.user.id,
-		MonthlyChallengeId: Challenge.id
-	}
-}).then(function(status){
-	for(i=0;i<currentLocations.length;i++){
-		var locationStatus= {
-			id: currentLocations[i].id,
-			name: currentLocations[i].name,
-			website: currentLocations[i].website,
-			mapsUrl: currentLocations[i].mapsUrl,
-			isCompleted: false
-		}
-
-		switch(currentLocations[i].id){
-			case status.location1:
-				userLocations.push(locationStatus);
-				break;
-			case status.location1:
-				userLocations.push(locationStatus);
-				break;
-			case status.location1:
-				userLocations.push(locationStatus);
-				break;
-			case status.location1:
-				userLocations.push(locationStatus);
-				break;
-			case status.location1:
-				userLocations.push(locationStatus);
-				break;
-			case status.location1:
-				userLocations.push(locationStatus);
-				break;
-			case status.location1:
-				userLocations.push(locationStatus);
-				break;
-			case status.location1:
-				userLocations.push(locationStatus);
-				break;
-			case status.location1:
-				userLocations.push(locationStatus);
-				break;
-			case status.location1:
-				userLocations.push(locationStatus);
-				break;
-			default:
-				userLocations.push({
-					id: currentLocations[i].id,
-					name: currentLocations[i].name,
-					website: currentLocations[i].website,
-					mapsUrl: currentLocations[i].mapsUrl,
-					isCompleted: true
-				})
-
-		}
-	}
-})
-				res.json(userLocations);
+				res.json(currentLocations);
 			});
 
 		});

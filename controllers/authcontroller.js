@@ -18,7 +18,9 @@ exports.dashboard = function(req, res) {
     currentChallenge: 1
   }
 }).then(function(Challenge){
-  db.location.findAll({}).then(function(locations){
+  db.location.findAll({
+    include: [db.userRating]
+  }).then(function(locations){
 
     for(i=0;i<locations.length;i++){
       switch(locations[i].id){
@@ -64,9 +66,11 @@ exports.dashboard = function(req, res) {
       for(i=0;i<currentLocations.length;i++){
         var locationStatus= {
           id: currentLocations[i].id,
+          ratingAvg: currentLocations[i].ratingAvg,
           name: currentLocations[i].name,
           website: currentLocations[i].website,
           mapsUrl: currentLocations[i].mapsUrl,
+          userRatings: currentLocations[i].userRatings,
           isCompleted: false
         }
 
@@ -104,9 +108,11 @@ exports.dashboard = function(req, res) {
           default:
             userLocations.push({
               id: currentLocations[i].id,
+              ratingAvg: currentLocations[i].ratingAvg,
               name: currentLocations[i].name,
               website: currentLocations[i].website,
               mapsUrl: currentLocations[i].mapsUrl,
+              userRatings: currentLocations[i].userRatings,
               isCompleted: true
             })
 
