@@ -1,5 +1,6 @@
-module.exports = function(sequelize, Sequelize){
-//pass sequelize.define name of model and object describing model's schema
+// User model 
+module.exports = function(sequelize, Sequelize) {
+  //pass sequelize.define name of model and object describing model's schema
   var User = sequelize.define("user", {
     username: {
       type: Sequelize.STRING,
@@ -21,20 +22,18 @@ module.exports = function(sequelize, Sequelize){
       allowNull: false
     },
     badges: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING
     }
-  },
-    {
-      classMethods: {
-        associate: function(models) {
-          User.hasMany(models.userRating, models.monthlyStatus, {
+  }, {
+    classMethods: {
+      associate: function(models) {
+        User.hasMany(models.userRating, models.monthlyStatus, {
           // When user is deleted, also delete any associated ratings
-            onDelete: "cascade"
-          });
-        }
+          onDelete: "cascade"
+        });
       }
     }
-);
-// returns an object stored inside User variable
+  });
+  // returns an object stored inside User variable
   return User;
 };

@@ -1,4 +1,6 @@
-module.exports = function(sequelize, DataTypes){
+// Monthly Status model
+
+module.exports = function(sequelize, DataTypes) {
   var monthlyStatus = sequelize.define("monthlyStatus", {
 
     location1: DataTypes.INTEGER,
@@ -14,6 +16,7 @@ module.exports = function(sequelize, DataTypes){
 
   }, {
     classMethods: {
+      // associate monthly status to user and monthly challenge 
       associate: function(models) {
         monthlyStatus.belongsTo(models.user, models.MonthlyChallenge, {
           foreignKey: {
@@ -22,7 +25,6 @@ module.exports = function(sequelize, DataTypes){
         });
       }
     }
-  }
-);
+  });
   return monthlyStatus;
 };

@@ -1,4 +1,5 @@
-module.exports = function(sequelize, DataTypes){
+// User Rating model
+module.exports = function(sequelize, DataTypes) {
   var userRating = sequelize.define("userRating", {
     review: DataTypes.TEXT,
     notes: DataTypes.TEXT,
@@ -10,6 +11,7 @@ module.exports = function(sequelize, DataTypes){
   }, {
     classMethods: {
       associate: function(models) {
+        // associate user rating to user and location 
         userRating.belongsTo(models.user, models.Location, {
           foreignKey: {
             allowNull: false
@@ -17,8 +19,6 @@ module.exports = function(sequelize, DataTypes){
         });
       }
     }
-  }
-
-);
+  });
   return userRating;
 };

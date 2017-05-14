@@ -1,5 +1,6 @@
-module.exports = function(sequelize, DataTypes){
-  
+// Monthly Challenge model
+module.exports = function(sequelize, DataTypes) {
+
   var MonthlyChallenge = sequelize.define("MonthlyChallenge", {
     name: DataTypes.STRING,
     currentChallenge: DataTypes.BOOLEAN,
@@ -15,12 +16,11 @@ module.exports = function(sequelize, DataTypes){
     location10Id: DataTypes.INTEGER
   }, {
     classMethods: {
-        associate: function(models) {
-          MonthlyChallenge.hasMany(models.monthlyStatus);
-          // monthlyChallenge.belongsTo(models.Locations);
-        }
+      // associate monthly challenge with monthly status 
+      associate: function(models) {
+        MonthlyChallenge.hasMany(models.monthlyStatus);
       }
+    }
   });
   return MonthlyChallenge;
 };
-

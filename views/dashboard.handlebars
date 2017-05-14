@@ -1,120 +1,120 @@
 <main class="flexContainer">
   <div id="checklistContainer">
 
-   	<h2>The Hunt List</h2>
-   	<div id="displayChecklist" class="mCustomScrollbar">
+    <h2>The Hunt List</h2>
+    <div id="displayChecklist" class="mCustomScrollbar">
       <ul>
         {{#each this.loc}}
-		    <li>
-		          <div class="checklistItem">
-		            <div class="itemInfo">
-		                <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
-		                <p class="clAddress">{{this.address}}</p>
-					</div>
+          <li>
+            <div class="checklistItem">
+              <div class="itemInfo">
+                <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+                <p class="clAddress">{{this.address}}</p>
+              </div>
 
-		            <a class="seeReviewsButton" data-toggle="collapse" data-target="#reviewbox{{this.id}}">See What Other Hunters Are Saying!</a>
+              <a class="seeReviewsButton" data-toggle="collapse" data-target="#reviewbox{{this.id}}">See What Other Hunters Are Saying!</a>
 
-		            <div class="checkboxWrapper">
-                    {{#if this.isCompleted}}
-                      <div class="check" style="background-image: url('/assets/img/checkedBox.png')">
-                      </div>
-                    {{else}}
-		                <a href="/rating?location_id={{this.id}}">
-                      <div class="check">
-                      </div>
-                    </a>
-                    {{/if}}
-		            </div>
-		          </div>
-		     </li>
+              <div class="checkboxWrapper">
+                {{#if this.isCompleted}}
+                  <div class="check" style="background-image: url('/assets/img/checkedBox.png')">
+                  </div>
+                {{else}}
+                  <a href="/rating?location_id={{this.id}}">
+                    <div class="check">
+                    </div>
+                  </a>
+                {{/if}}
+              </div>
+            </div>
+          </li>
 
-		        <div id="reviewbox{{this.id}}" class="collapse">
-		        	<div class="reviewDropDown">
-		        		{{#each this.userRatings}}
-		        		<div class="publicReviews">
+          <div id="reviewbox{{this.id}}" class="collapse">
+            <div class="reviewDropDown">
+              {{#each this.userRatings}}
+                <div class="publicReviews">
 
-		        			<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
-    							<p>Review: {{this.review}}</p>
-    							<p>User: {{this.username}}</p>
+                  <p>Rating: <span class="stars" data-rating="{{this.rating}}" data-num-stars="5"></span></p>
+                  <p>Review: {{this.review}}</p>
+                  <p>User: {{this.username}}</p>
 
-						   </div>
+                </div>
 
-						{{/each}}
-					</div>
+              {{/each}}
+            </div>
+          </div>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="right-wrapper">
+
+    <div class="sidebars-container">
+
+      <aside id="badgesContainer">
+        <h2>Your Badges</h2>
+        <div id="badgeItems">
+          <img src="http://placehold.it/75x75" data-tilt>
+          <img src="http://placehold.it/75x75" data-tilt>
+          <img src="http://placehold.it/75x75" data-tilt>
+          <img src="http://placehold.it/75x75" data-tilt>
+
         </div>
+      </aside>
+
+      <aside id="leaderboardContainer">
+        <h2>Top Users</h2>
+        <div id="leaderboardItems">
+
+          <h1>TESTING</h1>
+          {{#each this.leaderboard}}
+
+
           {{/each}}
-		    </ul>
-    	</div>
+
+        </div>
+      </aside>
+
     </div>
 
-<div class="right-wrapper">
 
-<div class="sidebars-container">
+    <article id="userReviewsContainer">
 
- <aside id="badgesContainer">
- 	<h2>Your Badges</h2>
-   <div id="badgeItems">
-		 <img src="http://placehold.it/75x75" data-tilt>
-		 <img src="http://placehold.it/75x75" data-tilt>
-		 <img src="http://placehold.it/75x75" data-tilt>
-		 <img src="http://placehold.it/75x75" data-tilt>
+      <h2>Your Notes and Reviews</h2>
 
-	</div>
- </aside>
+      <div id="displayReviews">
+        <ul>
 
- <aside id="leaderboardContainer">
- <h2>Top Users</h2>
-   <div id="leaderboardItems">
+          {{#each this.loc}}
 
-     <h1>TESTING</h1>
-     {{#each this.leaderboard}}
+            <li>
+              <div class="checklistItem">
+                <div class="itemInfo">
+                  <h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
+                </div>
 
+                <a class="seeReviewsButton personal" data-toggle="collapse" data-target="#personalReview{{this.id}}">Your Notes and Reviews!</a>
+              </div>
+            </li>
 
-     {{/each}}
+            <div id="personalReview{{this.id}}" class="collapse">
+              <div class="personalDropDown">
+                {{#each this.userRatings}}
+                  <div class="privateReviews">
+                    <p>Rating: <span class="stars" data-rating="{{this.rating}}" data-num-stars="5"></span></p>
+                    <p>Review: {{this.review}}</p>
+                    <p>Your Notes: {{this.notes}}</p>
 
-   </div>
- </aside>
+                  </div>
+                {{/each}}
+              </div>
+            </div>
 
- </div>
+          {{/each}}
 
-
-	 <article id="userReviewsContainer">
-
-		<h2>Your Notes and Reviews</h2>
-
-			<div id="displayReviews">
-				<ul>
-
-					{{#each this.loc}}
-
-					<li>
-						<div class="checklistItem">
-							<div class="itemInfo">
-								<h4 class="clName">{{this.name}} <span><a class="clWebsite" target="_blank" href="http://{{this.website}}">Website</a></span></h4>
-							</div>
-
-							<a class="seeReviewsButton personal" data-toggle="collapse" data-target="#personalReview{{this.id}}">Your Notes and Reviews!</a>
-						</div>
-					</li>
-
-					   <div id="personalReview{{this.id}}" class="collapse">
-		        	<div class="personalDropDown">
-		        		{{#each this.userRatings}}
-		        		<div class="privateReviews">
-		        			<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
-							    <p>Review: {{this.review}}</p>
-                  <p>Your Notes: {{this.notes}}</p>
-
-						</div>
-						{{/each}}
-					</div>
-		       	</div>
-
-					{{/each}}
-
-				</ul>
-			</div>
-	</article>
+        </ul>
+      </div>
+    </article>
 
   </div>
 </main>
