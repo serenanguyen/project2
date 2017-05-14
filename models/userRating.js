@@ -11,9 +11,10 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // associate user rating to user and location 
+        // associate user rating to user and location
         userRating.belongsTo(models.user, models.Location, {
           foreignKey: {
+            // user rating requires a foriegn key to be created 
             allowNull: false
           }
         });
