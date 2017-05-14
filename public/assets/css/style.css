@@ -23,7 +23,7 @@ p {
 #banner {
   background-color: #242324;
   width: 100%;
-  height: 100px;
+  height: 75px;
   display: flex;
   flex-direction: row;
   background-image: url("../img/forest.jpg");
@@ -41,28 +41,36 @@ p {
 
 #navBar {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-left: auto;
-  align-self: flex-end;
   padding-right: 20px;
-  padding-bottom: 15px; }
+  padding-bottom: 15px;
+  justify-content: flex-end; }
   #navBar ul {
     padding-top: 10px;
     padding-bottom: -10px; }
 
+form {
+  display: inline; }
+
 .navbar-text {
   color: #e9e94f; }
 
-#loggedOut {
+.loggedIn {
   display: flex;
-  flex-direction: row; }
-  #loggedOut li {
-    padding: 0px 10px 0px 0px;
-    font-size: 13px;
-    display: flex;
-    align-items: flex-end; }
-  #loggedOut input {
-    padding: 0px 20px 0px 0px; }
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  margin-top: 15px; }
+  .loggedIn button {
+    color: black;
+    text-decoration: none; }
+
+#signin input {
+  height: 25px;
+  width: 125px;
+  margin-top: 0px; }
 
 .formInput {
   height: 50px;
@@ -222,8 +230,8 @@ input {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  width: 450px;
-  height: 80vh;
+  min-width: 450px;
+  height: 83vh;
   overflow-y: auto;
   background-color: #242324;
   border-radius: 4px;
@@ -263,10 +271,21 @@ input {
   height: 35px;
   background-image: url("../img/emptyBox.png");
   background-size: contain; }
+  .check:hover {
+    background-image: url("../img/checkedBox.png"); }
+  .check:focus {
+    background-image: url("../img/checkedBox.png"); }
+  .check:active {
+    background-image: url("../img/checkedBox.png"); }
+  .check:visited {
+    background-image: url("../img/checkedBox.png"); }
 
 .itemInfo {
   background-color: #f3f3f3;
   padding: 10px 10px; }
+
+.personal {
+  margin-right: 25px; }
 
 .checkboxWrapper {
   margin-right: 10px;
@@ -274,9 +293,21 @@ input {
   justify-content: flex-end; }
 
 .reviewDropDown {
-  height: 175px;
+  height: 170px;
+  background-color: #242324;
+  overflow-y: auto;
+  padding: 5px 0px 5px 0px; }
+
+.personalDropDown {
+  height: 170px;
+  background-color: #e9e94f;
+  overflow-y: auto;
+  padding: 5px 0px 5px 0px; }
+
+.publicReviews {
   background-color: #cccccc;
-  overflow-y: auto; }
+  border-bottom: 3px solid #242324;
+  padding: 5px 5px 5px 5px; }
 
 .clWebsite {
   font-size: 10px; }
@@ -338,9 +369,6 @@ input {
   text-align: center;
   border-radius: 4px; }
 
-#signin {
-  padding-top: 150px; }
-
 #signup {
   display: flex;
   flex-direction: column;
@@ -364,7 +392,7 @@ input {
 #userReviewsContainer {
   display: flex;
   flex-direction: column;
-  max-width: 650px;
+  min-width: 350px;
   height: 57vh;
   background-color: #e9e94f;
   align-self: center;
@@ -386,6 +414,11 @@ input {
   height: 90%;
   overflow-y: auto;
   overflow-x: hidden; }
+
+.privateReviews {
+  background-color: #cccccc;
+  border-bottom: 3px solid #e9e94f;
+  padding: 5px 5px 5px 5px; }
 
 .modal {
   display: none;
@@ -422,7 +455,37 @@ input {
 
 #reviewContainer {
   display: flex;
-  justify-content: center; }
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 4px; }
+
+#wrapperWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-self: center;
+  margin-top: 20px;
+  width: 620px;
+  height: 480px;
+  background-color: #242324;
+  box-shadow: 5px 5px 2px #e9e94f; }
+  #wrapperWrapper h2 {
+    text-align: center;
+    font-family: ddchardware;
+    color: #e9e94f;
+    font-size: 35px;
+    letter-spacing: -3px;
+    border-top: 2px solid #e9e94f;
+    border-bottom: 2px solid #e9e94f; }
+
+#formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  background-color: #f3f3f3;
+  width: 600px;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 10px 10px 10px; }
 
 input {
   width: 100%;
@@ -434,7 +497,7 @@ input {
 
 textarea {
   width: 100%;
-  height: 150px;
+  height: 80px;
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -444,14 +507,22 @@ textarea {
     border: 3px solid #555; }
 
 input[type=submit] {
-  background-color: gold;
-  color: white;
+  background-color: #242324;
+  color: #e9e94f;
+  font-size: 16px;
   padding: 10px;
-  width: 100%; }
+  width: 150px; }
+  input[type=submit]:hover {
+    background-color: #e9e94f;
+    color: #242324; }
 
 div.stars {
-  width: 270px;
-  display: inline-block; }
+  width: 550px;
+  /*display: inline-block */
+  align-self: center; }
+  div.stars h3 {
+    margin-top: 5px;
+    font-size: 18px; }
 
 input.star {
   display: none; }
