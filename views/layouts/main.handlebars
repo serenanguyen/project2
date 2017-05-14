@@ -28,51 +28,36 @@
 
 
 	<nav id="navBar">
-		<ul id="loggedOut">
 
-					<ul>
-					<li>
-						{{#if user}}
-							<p class="navbar-text">
-								<strong>Hi, {{user.username}}!</strong>
+		
 
+					
+			<div class="loggedIn">
+				{{#if user}}
+					
+						<p class="navbar-text"><strong>Hi, {{user.username}}!</strong></p>
 
-							</p>
-							</li>
-							</ul>
-							<ul>
-								<li>
-									<a href="/logout">Log Out</a>
-								</li>
-						{{else}}
-					  <form id="signin" name="signin" method="post" action="signin" class="form-inline">
-						<div class="form-group">
-							<input class= "formInput" type="text" name="username" placeholder="username">
-						</div>
-						<div class="form-group">
-							<input class= "formInput" type="password" name="password" placeholder="password">
-						</div>
-							<input type="hidden" name="loggedIn" value="1">
-							{{!--<a href="/dashboard" class="btn btn-default" role="button">login</a>--}}
-							<button class="button" type="submit" id="navLogin">Login</button>
-						</form>
-{{!--
-						<form class="form-inline">
-                            <div class="form-group">
-                                <input class="formInput" type="text" name="username" placeholder="username">
-                            </div>
-                            <div class="form-group">
-                                <input class="formInput" type="password" name="password" placeholder="password">
-                            </div>
-                        <div class="form-group">
-                            <input type="hidden" name="loggedIn" value="1">
-                            <a href="/dashboard" class="btn btn-default" role="button">login</a>
-                        </div>
-                        </form>--}}
+						<a href="/logout"><button class="button">Logout</button></a>
+					
 
-		</ul>
-						{{/if}}
-				</ul>
+					
+			</div>
+			
+
+				{{else}}
+
+				<div id="loggedOut">
+
+					<form id="signin" name="signin" method="post" action="signin">
+						<input type="text" name="username" placeholder="username">
+						<input type="password" name="password" placeholder="password">
+						<input type="hidden" name="loggedIn" value="1">
+						<button class="button" type="submit">Login</button>
+					</form>
+				</div>
+			
+				{{/if}}
+		
 
 
 	</nav>

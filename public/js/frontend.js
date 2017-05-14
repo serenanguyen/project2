@@ -5,7 +5,7 @@
 	 (function($){
         $(window).on("load",function(){
             $("#displayChecklist").mCustomScrollbar({
-            	theme: "rounded"
+            	theme: "rounded-dots"
             });
         });
     })(jQuery);
@@ -14,7 +14,7 @@
    		 (function($){
         $(window).on("load",function(){
             $("#displayReviews").mCustomScrollbar({
-            	theme: "rounded"
+            	theme: "rounded-dots-dark"
             });
         });
     })(jQuery);
@@ -22,7 +22,15 @@
       		 (function($){
         $(window).on("load",function(){
             $(".reviewDropDown").mCustomScrollbar({
-            	theme: "rounded"
+            	theme: "rounded-dots"
+            });
+        });
+    })(jQuery);
+
+   			 (function($){
+        $(window).on("load",function(){
+            $(".personalDropDown").mCustomScrollbar({
+            	theme: "rounded-dots-dark"
             });
         });
     })(jQuery);

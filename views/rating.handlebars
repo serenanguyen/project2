@@ -1,8 +1,10 @@
 
     <div id="reviewContainer">
-      <h1 class="header">Rate and Review {{this.location.name}}</h1>
-
-
+ 
+    
+    <div id="wrapperWrapper">
+         <h2>Rate and Review: {{this.location.name}}</h2>
+      <div id="formWrapper">
      
 
       <div class="stars">
@@ -31,15 +33,17 @@
 
           <input type="hidden" name="locationId" id="locationId" value={{this.location.id}}>
 
-          <h2> Leave a Review <span><h4>(This will be publically viewable)</h4></span></h2>
-          <textarea name="review" rows="6" cols="130"></textarea>
-          <br>
+          <h3> Leave a Review <span><h4>(This will be publically viewable)</h4></span></h3>
+          <textarea name="review" rows="4" cols="130"></textarea>
+         
 
-          <h2> Leave a Note <span><h4>(This will be only be viewable by you)</h4></span></h2>
-          <textarea name="note" rows="6" cols="130"></textarea>
-          <br>
+          <h3> Leave a Note <span><h4>(This will be only be viewable by you)</h4></span></h3>
+          <textarea name="note" rows="4" cols="130"></textarea>
+          
 
-          <input type="submit">
+          <input class="btn btn-default btn-md" type="submit">
         </form>
       </div>
+      </div>
     </div>
+</div>

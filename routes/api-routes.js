@@ -130,12 +130,14 @@ module.exports = function(app){
 				for(i=0;i<data.length;i++){
 
 					badges = data[i].badges.split(",");
+					console.log(badges);
+					if (badges.length != 0){
+						var badgesCount = badges.length - 1;
+					}
+					// for(j=0;j<badges.length;j++){
 
-					var badgesCount = 0;
-					for(j=0;j<badges.length;j++){
-
-						badgesCount += parseInt(badges[j]);
-					};
+					// 	badgesCount += parseInt(badges[j]);
+					// };
 
 					iUser = {
 						name: data[i].name,
