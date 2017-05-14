@@ -101,12 +101,9 @@
 		        	<div class="personalDropDown">
 		        		{{#each this.userRatings}}
 		        		<div class="privateReviews">
-
-		        			<p>User: {{this.username}}</p>
-
 		        			<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
-
-							<p>Review: {{this.review}}</p>
+							    <p>Review: {{this.review}}</p>
+                  <p>Your Notes: {{this.notes}}</p>
 
 						</div>
 						{{/each}}
