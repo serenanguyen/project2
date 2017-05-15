@@ -33,7 +33,7 @@ exports.dashboard = function(req, res) {
       for (i = 0; i < locations.length; i++) {
         // if the ID of this location
         switch (locations[i].id) {
-          // equals the location ID of the current monthly challenge
+            // equals the location ID of the current monthly challenge
           case Challenge.location1Id:
             // push that location object to current locations and break out of loop
             currentLocations.push(locations[i]);
@@ -121,7 +121,7 @@ exports.dashboard = function(req, res) {
             case status.location10:
               userLocations.push(locationStatus);
               break;
-            // if status = 0 then push this object where isCompleted: true
+              // if status = 0 then push this object where isCompleted: true
             default:
               userLocations.push({
                 id: currentLocations[i].id,
@@ -134,25 +134,27 @@ exports.dashboard = function(req, res) {
               })
           }
         }
-      })
-    });
+        // pass this object for dashboard handlebars
+        var hbsObject = {
+          // userLocations array we just defined
+          loc: userLocations,
+          // current user object
+          user: req.user
+        };
+        // render dashboard handlebars and send object
+        res.render('dashboard', hbsObject);
+      };
+
+    })
+
   });
-  // pass this object for dashboard handlebars
-  var hbsObject = {
-    // userLocations array we just defined
-    loc: userLocations,
-    // current user object
-    user: req.user
-  };
-  // render dashboard handlebars and send object
-  res.render('dashboard', hbsObject);
-};
+});
 
 // logout
 exports.logout = function(req, res) {
   // end session
   req.session.destroy(function(err) {
-    // redirect to index 
+    // redirect to index
     res.redirect('/');
   });
 };
