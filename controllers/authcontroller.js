@@ -1,6 +1,5 @@
 var db = require("../models");
 
-
 var exports = module.exports = {}
 
 // render signup handlebars
@@ -19,9 +18,9 @@ exports.forgotPassword = function(req, res) {
 };
 
 // exports.dashboard = function(req, res) {
-  
-  
-  
+
+
+
 
 
 
