@@ -438,7 +438,9 @@ input {
 .privateReviews {
   background-color: #cccccc;
   border-bottom: 3px solid #e9e94f;
-  padding: 5px 5px 5px 5px; }
+  padding: 5px 5px 5px 5px;
+  width: 100%;
+  }
 
 @media (max-width: 980px) {
   flexContainer {
