@@ -26,7 +26,7 @@ module.exports = function(app, passport) {
     var content = new helper.Content('text/plain', 'New password is ' + newPass);
     var mail = new helper.Mail(fromEmail, subject, toEmail, content);
 
-    var sg = require('sendgrid')("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");
+    var sg = require('sendgrid')("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");
 
 
 
@@ -93,7 +93,7 @@ module.exports = function(app, passport) {
     }
   ));
 
-  
+
 
 
   app.get('/dashboard', isLoggedIn, authController.dashboard);
