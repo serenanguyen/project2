@@ -157,19 +157,19 @@ exports.dashboard = function(req, res) {
           }
         }
 
-        // pass this object for dashboard handlebars
-        var hbsObject = {
-          // userLocations array we just defined
-          loc: userLocations,
-          // current user object
-          user: req.user
-        };
-        // render dashboard handlebars and send object
-        res.render('dashboard', hbsObject);
+          var hbsObject = {
+    // userLocations array we just defined
+    loc: userLocations,
+    // current user object
+    user: req.user
+  };
+  // render dashboard handlebars and send object
+  res.render('dashboard', hbsObject);
       })
-
     });
   });
+  // pass this object for dashboard handlebars
+
 
 };
 
