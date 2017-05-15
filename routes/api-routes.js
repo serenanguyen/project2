@@ -80,7 +80,7 @@ module.exports = function(app) {
         // };
 
         iUser = {
-          name: data[i].name,
+          name: data[i].username,
           badges: badges,
           badgesCount: badgesCount
         };
