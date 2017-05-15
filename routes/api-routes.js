@@ -4,7 +4,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 	// display json of all monthly challenges
-  app.get("api/monthlyChallenge", function(req, res) {
+  app.get("/api/monthlyChallenge", function(req, res) {
     db.MonthlyChallenge.findAll({}).then(function(dbMonthlyChallenge) {
       res.json(dbMonthlyChallenge);
     });
