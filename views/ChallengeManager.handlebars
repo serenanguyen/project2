@@ -2,12 +2,12 @@
 	<article class="row">
 		<div class="col-md-4">
 			<select id="challengeOption">
-				
-			</select>	
+
+			</select>
 		</div>
 		<div class="col-md-4">
 			<button id="challengeSubmit" class="btn btn-default btn-md">Submit Challenge</button>
-		</div>	
+		</div>
 		<div class="col-md-4">
 			<h4>Current Challenge</h4>
 			<p id="currentChallenge"></p>
@@ -22,16 +22,16 @@
 						<li>
 							<p>{{this.name}}</p>
 							<p>{{this.address}}</p>
-							
-							<button class="addToChallenge btn btn-default btn-md" data-name="{{this.name}}" data="{{this.id}}" >Add to Challenge</button>
-							
+
+							<button class="addToChallenge btn btn-default btn-md" data-name="{{this.name}}" data="{{this.id}}">Add to Challenge</button>
+
 						</li>
-					{{/each}}	
+					{{/each}}
 				</ul>
-			</div>	
+			</div>
 		</div>
 		<div class="col-md-2">
-			
+
 		</div>
 		<div class="col-md-5">
 			<h2>Monthly Challenge</h2>
@@ -47,11 +47,11 @@
 				<li id="loc9">Add Location9</li>
 				<li id="loc10">Add Location10</li>
 			</ul>
-					
+
 			<label>Challenge Name</label>
-		    <input id="challengeName" type="text" name="name">
+			<input id="challengeName" type="text" name="name">
 			<button id="createChallenge" type="submit" class="btn btn-default">Create New Challenge</button>
-			
+
 			<div>
 				<ul>
 					{{#each monthlychallenges}}
@@ -59,9 +59,9 @@
 							<h3>{{this.name}}</h3>
 							<h3>{{this.address}}</h3>
 						</li>
-					{{/each}}	
+					{{/each}}
 				</ul>
-			</div>	
+			</div>
 		</div>
 	</article>
 </section>
