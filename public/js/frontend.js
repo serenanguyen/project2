@@ -48,3 +48,26 @@ $.fn.stars = function() {
 }
 
 $('.stars').stars();
+
+
+var leaderboard = "/api/leaderboard";
+
+$.ajax({
+  url: leaderboard,
+  method: "GET"
+}).done(function(response){
+
+  console.log(response[0].name);
+
+  for(var i = 0; i < response.length; i++);
+
+    
+  $("#leaderboardItems").append("<div class='topUser'><p>1. " + response[0].name + ":  " + response[0].badgesCount + " completed</p></div>");
+ $("#leaderboardItems").append("<div class='topUser'><p>2. " + response[1].name + ":  " + response[1].badgesCount + " completed</p></div>");
+ $("#leaderboardItems").append("<div class='topUser'><p>3. " + response[2].name + ":  " + response[2].badgesCount + " completed</p></div>");
+ $("#leaderboardItems").append("<div class='topUser'><p>4. " + response[3].name + ":  " + response[3].badgesCount + " completed</p></div>");
+ $("#leaderboardItems").append("<div class='topUser'><p>5. " + response[4].name + ":  " + response[4].badgesCount + " completed</p></div>");
+
+    
+});
+

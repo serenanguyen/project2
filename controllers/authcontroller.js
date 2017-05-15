@@ -46,6 +46,7 @@ exports.dashboard = function(req, res) {
       currentChallenge: 1
     }
   }).then(function(Challenge) {
+    //console.log(Challenge);
     // find all locations and include ratings associated
     db.location.findAll({
       include: [db.userRating]
@@ -156,19 +157,21 @@ exports.dashboard = function(req, res) {
           }
         }
 
-        // pass this object for dashboard handlebars
-        var hbsObject = {
-          // userLocations array we just defined
-          loc: userLocations,
-          // current user object
-          user: req.user
-        };
-        // render dashboard handlebars and send object
-        res.render('dashboard', hbsObject);
-      })
+          var hbsObject = {
 
+    // userLocations array we just defined
+    loc: userLocations,
+    // current user object
+    user: req.user
+  };
+  console.log(hbsObject);
+  // render dashboard handlebars and send object
+  res.render('dashboard', hbsObject);
+      })
     });
   });
+  // pass this object for dashboard handlebars
+
 
 };
 
