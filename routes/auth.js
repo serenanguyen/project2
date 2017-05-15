@@ -9,11 +9,23 @@ var db = require("../models");
 module.exports = function(app, passport) {
   app.get('/signup', authController.signup);
 
-  app.get('/signin', authController.signin);
+  app.get('/signin', authController.signin, function(req, res){
+    res.render("index.handlebars", {message: req.flash('signupMessage')});
 
   app.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/dashboard',
     failureRedirect: '/signup'
+  }));
+
+  app.get("/", function(req, res){
+    res.render("/", {message: req.flash('signupMessage')});
+
+  });
+
+  app.post("/", passport.authenticate("local-signin", {
+    successRedirect: '/dashboard',
+    failureRedirect: '/',
+    failureFlash: true
   }));
 
   app.get('/dashboard', isLoggedIn, authController.dashboard);
@@ -22,7 +34,8 @@ module.exports = function(app, passport) {
   // redirect to dashboard if signin was successful else redirect to signin page
   app.post('/signin', passport.authenticate('local-signin', {
     successRedirect: '/dashboard',
-    failureRedirect: '/signin'
+    failureRedirect: '/',
+    failureFlash:true
   }));
 
   // if user is logged in render rating page
@@ -213,5 +226,7 @@ module.exports = function(app, passport) {
 
     res.redirect('/signin');
   };
+
+});
 
 };

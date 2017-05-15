@@ -1,10 +1,11 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
-
 var passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy;
 var session = require('express-session');
+var cookieParser = require("cookie-parser");
+var flash = require("connect-flash");
 var env = require('dotenv').load();
 // init express
 
@@ -25,6 +26,7 @@ app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true})
 app.use(passport.initialize());
 // persistent login sessions
 app.use(passport.session());
+app.use(flash());
 
 passport.use(new FacebookStrategy({
   clientID: 181332272390026,

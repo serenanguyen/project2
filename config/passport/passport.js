@@ -13,17 +13,19 @@ module.exports = function(passport, user, monthlyStatus) {
     var generateHash = function(password) {
       return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
     };
+    process.nextTick(function(){
     User.findOne({
       where: {
         username: username
       }
     }).then(function(user) {
       if (user) {
+        return done(null, false, req.flash("signupMessage", "username already exists"));
         // return
         // done(null, false, {
         //   message: 'That username is already taken'
         // });
-        console.log("That username is already taken");
+        // console.log("That username is already taken");
       } else {
 
         //var badges = "0";
@@ -65,7 +67,7 @@ module.exports = function(passport, user, monthlyStatus) {
                 location9: data[0].location9Id,
                 location10: data[0].location10Id,
                 userId: newUser.id
-              })
+              });
             });
 
             return done(null, newUser);
@@ -75,7 +77,7 @@ module.exports = function(passport, user, monthlyStatus) {
 
       }
     });
-  }));
+  });
 
   passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -120,5 +122,6 @@ module.exports = function(passport, user, monthlyStatus) {
       return done(null, false, {message: 'Something went wrong with your signin'});
     });
   }));
-
+  
+}));
 };
