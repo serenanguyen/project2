@@ -1,5 +1,6 @@
 var db = require("../models");
 
+
 var exports = module.exports = {}
 
 // render signup handlebars
@@ -11,6 +12,27 @@ exports.signup = function(req, res) {
 exports.signin = function(req, res) {
   res.render('signin');
 };
+
+
+exports.forgotPassword = function(req, res) {
+    res.render('forgotPassword');
+};
+
+// exports.dashboard = function(req, res) {
+  
+  
+  
+
+
+
+//   db.location.findAll().then(function(locations){
+//     console.log(req.user);
+//     console.log("-----------------------");
+//       var hbsObject = {
+//         loc: locations,
+//         user: req.user
+//       };
+//     res.render('dashboard', hbsObject);
 
 // render dashboard handlebars
 exports.dashboard = function(req, res) {
@@ -134,6 +156,7 @@ exports.dashboard = function(req, res) {
               })
           }
         }
+
         // pass this object for dashboard handlebars
         var hbsObject = {
           // userLocations array we just defined

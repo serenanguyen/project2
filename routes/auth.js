@@ -3,6 +3,10 @@ var userRating = require("../models").userRating;
 var User = require("../models").user;
 var location = require("../models").location;
 var monthlyStatus = require("../models").monthlyStatus;
+
+var bCrypt = require('bcrypt-nodejs');
+
+
 var status = require("../models").monthlyStatus;
 var db = require("../models");
 
@@ -11,10 +15,86 @@ module.exports = function(app, passport) {
 
   app.get('/signin', authController.signin);
 
+  app.get('/forgotPassword', authController.forgotPassword);
+
+  app.post('/forgotPassword', function(req, res){
+    var newPass = Math.random().toString(36).slice(-8);
+    var helper = require('sendgrid').mail;
+    var fromEmail = new helper.Email('huntandgatherapp@gmail.com');
+    var toEmail = new helper.Email(req.body.email);
+    var subject = 'HuntandGather Password Reset';
+    var content = new helper.Content('text/plain', 'New password is ' + newPass);
+    var mail = new helper.Mail(fromEmail, subject, toEmail, content);
+
+    var sg = require('sendgrid')("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");
+
+
+
+    var request = sg.emptyRequest({
+      method: 'POST',
+      path: '/v3/mail/send',
+      body: mail.toJSON()
+    });
+
+    sg.API(request, function (error, response) {
+      if (error) {
+        console.log('Error response received');
+      }
+      console.log(response.statusCode);
+      console.log(response.body);
+      console.log(response.headers);
+    });
+
+    User.findOne({
+      where: {
+        email: req.body.email
+      }
+    }).then(function(data){
+
+      var generateHash = function(password){
+        return bCrypt.hashSync(newPass, bCrypt.genSaltSync(8),null);
+      };
+
+      var hashPass = generateHash();
+
+      User.update({
+        password: hashPass
+      },{
+        where:{
+          id: data.id
+        }
+      });
+      console.log(data.id);
+
+      res.redirect('/signin');
+    });
+
+
+  // location.findOne({
+  //     where: {
+  //       id: req.query.location_id
+  //     }
+  //   }).then(function(data){
+  //     var locationObj = {
+  //       user: req.user,
+  //       location: data
+  //     }
+  //     res.render("rating", locationObj);
+  //   });
+
+
+    console.log(req.body.email);
+  });
+
   app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/signup'
-  }));
+
+        successRedirect: '/dashboard',
+        failureRedirect: '/signup'
+    }
+  ));
+
+  
+
 
   app.get('/dashboard', isLoggedIn, authController.dashboard);
 
