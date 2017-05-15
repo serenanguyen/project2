@@ -134,11 +134,7 @@ exports.dashboard = function(req, res) {
               })
           }
         }
-      })
-    });
-  });
-  // pass this object for dashboard handlebars
-  var hbsObject = {
+          var hbsObject = {
     // userLocations array we just defined
     loc: userLocations,
     // current user object
@@ -146,6 +142,11 @@ exports.dashboard = function(req, res) {
   };
   // render dashboard handlebars and send object
   res.render('dashboard', hbsObject);
+      })
+    });
+  });
+  // pass this object for dashboard handlebars
+
 };
 
 // logout

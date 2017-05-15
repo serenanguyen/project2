@@ -31,11 +31,14 @@
 			<nav id="navBar">
 				<div class="loggedIn">
 					{{#if user}}
+
 						<p class="navbar-text"><strong>Hi, {{user.username}}!</strong></p>
 						<a href="/logout"><button class="button">Logout</button></a>
 				</div>
 
 				{{else}}
+
+					<a id="forgot" href="/forgotPassword">Forgot Password</a>
 					<div id="loggedOut">
 						<form id="signin" name="signin" method="post" action="signin">
 							<input type="text" name="username" placeholder="username">

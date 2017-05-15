@@ -61,13 +61,19 @@ module.exports = function(app) {
       var leaderboard = [];
       //calLeaderboard();
       //function calLeaderboard(){
+
+        var badgesCount = 0;
+
       for (i = 0; i < data.length; i++) {
+
+        if(data[i].badges != null && data[i].badges.length != 0){
 
         badges = data[i].badges.split(",");
         console.log(badges);
         if (badges.length != 0) {
-          var badgesCount = badges.length - 1;
+          badgesCount = badges.length - 1;
         }
+      }
         // for(j=0;j<badges.length;j++){
 
         // 	badgesCount += parseInt(badges[j]);

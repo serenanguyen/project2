@@ -20,7 +20,7 @@
 	display: flex
 	flex-direction: column
 	flex-grow: 1
-	min-width: 450px
+	min-width: 350px
 	height: 83vh
 	overflow-y: auto
 	background-color: $banner-color
@@ -124,6 +124,7 @@
 .sidebars-container
 	display: flex
 	flex-direction: row
+	width: 50%
 
 
 #badgesContainer
@@ -147,16 +148,23 @@
 
 #badgeItems
 	width: 395px
+	height: 58%
 	display: flex
 	flex-direction: row
 	justify-content: space-between
+	background-color: $textBox-color
+	
 	align-items: center
 	flex-wrap: wrap
 	margin: 0px 10px 10px 10px
+	padding: 5px 5px
+	img
+		width: 75px
 	
 
 #leaderboardContainer
 	width: 220px
+	
 	margin-right: 15px
 	background-color: $text-color
 	box-shadow: 5px 3px 2px $banner-color
@@ -175,12 +183,24 @@
 
 #leaderboardItems
 	width: 200px
+	height: 100px
 	display: flex
 	flex-direction: column
 	background-color: $textBox-color
 	margin: 0px 15px 10px 10px
 	text-align: center
 	border-radius: $radius
+
+.topUser
+	display: flex
+	flex-direction: row
+	justify-content: center
+	padding: 0px 5px 0px 5px
+	border-bottom: 1px solid $text-color
+	p
+		font-size: 13px
+		font-weight: bold
+
 
 		
 
@@ -243,3 +263,10 @@
 	background-color: $darkBox-color
 	border-bottom: 3px solid $text-color
 	padding: 5px 5px 5px 5px
+
+
+
+@media (max-width: 980px)
+	
+	flexContainer
+		flex-direction: column
