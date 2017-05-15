@@ -8,9 +8,11 @@ module.exports = function(app) {
     res.render("index");
   });
 
+
   app.get("/locations/add", function(req, res) {
     res.render("LocationAdd");
   });
+
 
   app.get("/challenge/create", function(req, res) {
     db.location.findAll({}).then(function(data) {

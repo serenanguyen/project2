@@ -23,6 +23,7 @@ module.exports = function(app) {
 			res.json(dbUser);
 		});
 	});
+
 	// json of all user ratings and user associated
   app.get("/api/userRatings", function(req, res) {
     db.userRating.findAll({
@@ -102,5 +103,6 @@ module.exports = function(app) {
 
     });
   });
+
 
 };

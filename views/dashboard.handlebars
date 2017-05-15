@@ -51,13 +51,13 @@
 
     <div class="sidebars-container">
 
-      <aside id="badgesContainer">
-        <h2>Your Badges</h2>
-        <div id="badgeItems">
-          <img src="http://placehold.it/75x75" data-tilt>
-          <img src="http://placehold.it/75x75" data-tilt>
-          <img src="http://placehold.it/75x75" data-tilt>
-          <img src="http://placehold.it/75x75" data-tilt>
+ <aside id="badgesContainer">
+ 	<h2>Your Badges</h2>
+   <div id="badgeItems">
+		 <img src="assets/img/drinkGray.png" data-tilt>
+		 <img src="assets/img/sportsGray.png" data-tilt>
+		 <img src="assets/img/tacoGray.png" data-tilt>
+		 <img src="assets/img/musicGray.png" data-tilt>
 
         </div>
       </aside>
@@ -66,11 +66,6 @@
         <h2>Top Users</h2>
         <div id="leaderboardItems">
 
-          <h1>TESTING</h1>
-          {{#each this.leaderboard}}
-
-
-          {{/each}}
 
         </div>
       </aside>
@@ -110,7 +105,37 @@
               </div>
             </div>
 
-          {{/each}}
+
+							<a class="seeReviewsButton personal" data-toggle="collapse" data-target="#personalReview{{this.id}}">Your Notes and Reviews!</a>
+						</div>
+					</li>
+
+					   <div id="personalReview{{this.id}}" class="collapse">
+		        	<div class="personalDropDown">
+		        		{{#each this.userRatings}}
+		        		<div class="privateReviews">
+
+		        			<p>User: {{this.username}}</p>
+
+		        			<p>Rating: <span class="stars" data-rating="{{this.rating}}" data-num-stars="5" ></span></p>
+
+							<p>Review: {{this.review}}</p>
+
+						</div>
+						{{/each}}
+					</div>
+		       	</div>
+
+					{{/each}}
+
+				</ul>
+			</div>
+	</article>
+
+</div>
+
+       
+
 
         </ul>
       </div>

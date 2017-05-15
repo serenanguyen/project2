@@ -12,9 +12,11 @@ module.exports = function(app, passport) {
   app.get('/signin', authController.signin);
 
   app.post('/signup', passport.authenticate('local-signup', {
+
     successRedirect: '/dashboard',
     failureRedirect: '/signup'
   }));
+
 
   app.get('/dashboard', isLoggedIn, authController.dashboard);
 
@@ -43,6 +45,8 @@ module.exports = function(app, passport) {
       res.render("rating", locationObj);
     });
   });
+
+
 
   // sending ratings to db
   app.post("/api/rating", function(req, res) {
