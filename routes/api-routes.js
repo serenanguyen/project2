@@ -129,9 +129,11 @@ module.exports = function(app){
 			//function calLeaderboard(){
 				for(i=0;i<data.length;i++){
 
-					badges = data[i].badges.split(",");
-					console.log(badges);
-					if (badges.length != 0){
+					var badges = 0;
+					
+					if (data[i].badges != null && data[i].badges.length != 0){
+
+						badges = data[i].badges.split(",");
 						var badgesCount = badges.length - 1;
 					}
 					// for(j=0;j<badges.length;j++){
@@ -161,7 +163,9 @@ module.exports = function(app){
 							};
 						};
 					}
+					console.log("--------------------------");
 					console.log(leaderboard);
+					console.log("--------------------------");
 				};
 			//}.then(function(){
 				res.json(leaderboard);

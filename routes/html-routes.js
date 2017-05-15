@@ -10,7 +10,7 @@ module.exports = function(app){
 
   
   app.get("/locations/add",function(req,res){
-  		res.render("LocationAdd");
+  		res.render("locationAdd");
 	});
 
   app.get("/challenge/create",function(req, res){

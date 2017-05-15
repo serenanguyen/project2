@@ -337,15 +337,20 @@ input {
 
 #badgeItems {
   width: 395px;
+  height: 95px;
   display: flex;
+  background-color: #f3f3f3;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  padding: 10px 10px 10px 10px;
   margin: 0px 10px 10px 10px; }
+  #badgeItems img {
+    width: 75px; }
 
 #leaderboardContainer {
-  width: 220px;
+  width: 170px;
   margin-right: 15px;
   background-color: #e9e94f;
   box-shadow: 5px 3px 2px #242324;
@@ -354,20 +359,32 @@ input {
     text-align: center;
     font-family: ddchardware;
     color: #242324;
-    font-size: 35px;
+    font-size: 25px;
     letter-spacing: -3px;
     border-top: 2px solid #242324;
     border-bottom: 2px solid #242324;
     margin-top: 10px; }
 
 #leaderboardItems {
-  width: 200px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   background-color: #f3f3f3;
   margin: 0px 15px 10px 10px;
   text-align: center;
-  border-radius: 4px; }
+  padding-top: -10px; }
+  #leaderboardItems h5 {
+    margin-top: 5px;
+    font-size: 13px; }
+
+.topUser {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 20px; }
+
+.badgeCount {
+  font-size: 13px; }
 
 #signup {
   display: flex;
@@ -385,9 +402,6 @@ input {
 #pac-input {
   height: 30px;
   width: 200px; }
-
-.admin {
-  padding: 150px; }
 
 #userReviewsContainer {
   display: flex;
@@ -550,5 +564,12 @@ input.star-5:checked ~ label.star:before {
 
 input.star-1:checked ~ label.star:before {
   color: #F62; }
+
+.admin {
+  margin-top: 25px;
+  padding: 20px 10px 0px 10px; }
+
+#mapControls {
+  background-color: #f3f3f3; }
 
 /*# sourceMappingURL=style.css.map */

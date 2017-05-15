@@ -52,23 +52,20 @@
  <aside id="badgesContainer">
  	<h2>Your Badges</h2>
    <div id="badgeItems">
-		 <img src="http://placehold.it/75x75" data-tilt>
-		 <img src="http://placehold.it/75x75" data-tilt>
-		 <img src="http://placehold.it/75x75" data-tilt>
-		 <img src="http://placehold.it/75x75" data-tilt>
+		 <img src="assets/img/drinkGray.png" data-tilt>
+		 <img src="assets/img/sportsGray.png" data-tilt>
+		 <img src="assets/img/tacoGray.png" data-tilt>
+		 <img src="assets/img/musicGray.png" data-tilt>
 
 	</div>
  </aside>
 
  <aside id="leaderboardContainer">
- <h2>Top Users</h2>
+ <h2>Top 5 Users</h2>
    <div id="leaderboardItems">
 
-     <h1>TESTING</h1>
-     {{#each this.leaderboard}}
-
-
-     {{/each}}
+    
+ 
 
    </div>
  </aside>
@@ -102,7 +99,7 @@
 
 		        			<p>User: {{this.username}}</p>
 
-		        			<p>Rating: <span class="stars" data-rating= "{{this.rating}}" data-num-stars="5" ></span></p>
+		        			<p>Rating: <span class="stars" data-rating="{{this.rating}}" data-num-stars="5" ></span></p>
 
 							<p>Review: {{this.review}}</p>
 

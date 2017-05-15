@@ -29,7 +29,19 @@ module.exports = function(app, passport) {
           user: req.user
         };
       res.render('dashboard', hbsObject);
-    })
+    });
+  });
+
+  app.get("/dashboard", isLoggedIn, function(req, res){
+    User.findAll({}).then(function(users){
+      var hbsItem = {
+
+          name: username,
+          badge: badges
+      };
+      
+      res.render("dashboard", hbsItem);
+    });
   });
 
 
@@ -57,6 +69,8 @@ module.exports = function(app, passport) {
 
     // res.render("rating");
   });
+
+
 
   // sending ratings to db
   app.post("/api/rating", function(req, res){
