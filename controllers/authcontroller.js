@@ -1,5 +1,6 @@
 var db = require("../models");
 
+
 var exports = module.exports = {}
 
 // render signup handlebars
@@ -11,6 +12,27 @@ exports.signup = function(req, res) {
 exports.signin = function(req, res) {
   res.render('signin');
 };
+
+
+exports.forgotPassword = function(req, res) {
+    res.render('forgotPassword');
+};
+
+// exports.dashboard = function(req, res) {
+  
+  
+  
+
+
+
+//   db.location.findAll().then(function(locations){
+//     console.log(req.user);
+//     console.log("-----------------------");
+//       var hbsObject = {
+//         loc: locations,
+//         user: req.user
+//       };
+//     res.render('dashboard', hbsObject);
 
 // render dashboard handlebars
 exports.dashboard = function(req, res) {
@@ -33,7 +55,7 @@ exports.dashboard = function(req, res) {
       for (i = 0; i < locations.length; i++) {
         // if the ID of this location
         switch (locations[i].id) {
-          // equals the location ID of the current monthly challenge
+            // equals the location ID of the current monthly challenge
           case Challenge.location1Id:
             // push that location object to current locations and break out of loop
             currentLocations.push(locations[i]);
@@ -121,7 +143,7 @@ exports.dashboard = function(req, res) {
             case status.location10:
               userLocations.push(locationStatus);
               break;
-            // if status = 0 then push this object where isCompleted: true
+              // if status = 0 then push this object where isCompleted: true
             default:
               userLocations.push({
                 id: currentLocations[i].id,
@@ -134,6 +156,7 @@ exports.dashboard = function(req, res) {
               })
           }
         }
+
           var hbsObject = {
     // userLocations array we just defined
     loc: userLocations,
@@ -147,13 +170,14 @@ exports.dashboard = function(req, res) {
   });
   // pass this object for dashboard handlebars
 
+
 };
 
 // logout
 exports.logout = function(req, res) {
   // end session
   req.session.destroy(function(err) {
-    // redirect to index 
+    // redirect to index
     res.redirect('/');
   });
 };

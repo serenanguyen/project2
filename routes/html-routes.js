@@ -18,7 +18,7 @@ module.exports = function(app) {
       var hbsObject = {
         locations: data
       };
-      res.render("challengeManager", hbsObject);
+      res.render("createchallenge", hbsObject);
     });
 
     app.post("/challenge/create", function(req, res) {

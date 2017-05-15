@@ -29,7 +29,7 @@ app.use(passport.session());
 passport.use(new FacebookStrategy({
   clientID: 181332272390026,
   clientSecret: "bc28df959f95f8ed51d6b5857fc1a2c3",
-  callbackURL: "http://localhost:8080"
+  callbackURL: "https://thawing-cliffs-44271.herokuapp.com/"
 }, function(accessToken, refreshToken, profile, done) {
   User.findOrCreate(function(err, user) {
     if (err) {
