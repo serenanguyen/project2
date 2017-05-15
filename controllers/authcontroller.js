@@ -143,12 +143,12 @@ exports.dashboard = function(req, res) {
         };
         // render dashboard handlebars and send object
         res.render('dashboard', hbsObject);
-      };
+      })
 
-    })
-
+    });
   });
-});
+
+};
 
 // logout
 exports.logout = function(req, res) {
