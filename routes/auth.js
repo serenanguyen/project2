@@ -26,7 +26,7 @@ module.exports = function(app, passport) {
     var content = new helper.Content('text/plain', 'New password is ' + newPass);
     var mail = new helper.Mail(fromEmail, subject, toEmail, content);
 
-    var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+    var sg = require('sendgrid')("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");
 
 
 
